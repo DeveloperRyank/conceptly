@@ -11,6 +11,7 @@ Current coverage follows the existing KCSE topic taxonomy (not a new syllabus):
 | Chemistry | 31 | 284 | 109 |
 | Computer Studies | 10 | 45 | 45 |
 | Mathematics | 16 | 64 | 64 |
+| Physics | 42 practice topics | 50 | 50 |
 
 Chemistry preserves the 175 legacy records and their field values in their original
 order. New material is 93 original practice items and 16 reviewed booklet-derived
@@ -28,13 +29,18 @@ is made that the booklets or official syllabuses have been exhaustively covered.
 
 ## Checks
 
-- `python tools/test_teaching.py`: 43 integration checks, with temporary profile DBs.
+- `python tools/test_teaching.py`: 48 integration checks, with temporary profile DBs.
 - `node tools/test_voice.js`: controlled audio clock, pending synthesis pause,
   actual clip duration, playback rate, pause/resume and completion.
-- `python tools/test_lesson_browser.py`: Chromium at 1280 and 390 px; real session
-  auth/CSRF with fixture lessons and mocked speech recognition/answers. Profile
-  display, keyword interruption, ask/resume, narration preservation, 3D model
-  controls, reduced motion, apparatus models, no page errors or profile writes.
+- `python tools/test_lesson_browser.py`: Chromium at 1280 and 390 px; isolated
+  accounts, real auth/CSRF, fixture lessons, mocked recognition/AI. Automatic
+  listening, keyword question capture, resume/restart/permission denial, inline
+  Maths diagrams, hardware diagram, calculator, mouse/touch drawings, draft
+  reload, image submission and results, and unchanged theory widgets.
+- `node tools/test_exam_tools.js`: calculator precedence, degree functions,
+  invalid expressions and drawing-question eligibility.
+- `python tools/build_physics_questions.py --check`: 50 reviewed original or
+  lesson-example questions, with server-only reference answers, across 42 topics.
 - `python tools/build_teaching_content.py --check`: reproducible generated assets.
 - `git diff --check` and JavaScript/Python syntax checks.
 
@@ -44,13 +50,27 @@ production-equivalent settings and synthetic learner evidence, calling the tutor
 directly without importing the profile database. Fixture tests do not establish
 semantic correctness: failed live drafts were read and withheld, and the final
 capacitor draft was reviewed end to end. Audible speech, real microphones and
-real-device performance still require device checks. Recognition is opt-in and
-browser support varies; typing and the existing ask button remain available.
+real-device performance still require device checks. Recognition now starts
+automatically where supported, subject to browser microphone permission. A denied
+permission stops retries; typing and the ask button remain available.
 
-3D is an optional local projected model on selected relevant topics (cuboids,
-vectors, methane and water). Other supported diagrams offer schematic apparatus
-or data-flow exploration. Lessons retain the written board; this is not a conversion
-of every lesson into a 3D scene. Exploration and viewing never record mastery.
+The lesson player retains its colours, uses flat controls, and defaults to 1.25×.
+The profile disclosure and separate Explore section are removed. Projected 3D
+cuboid/vector diagrams are timed Maths lesson sheets. Other subjects use 2D
+apparatus, system diagrams or reviewed topic maps. Figure generation is restricted
+by subject/topic, and generic graphs are excluded from Computer Studies.
+
+Exam drawings use local pointer strokes plus PNG submission to the existing Gemini
+vision route. Unreadable images fail without invented grades. Reference answers
+remain server-side. Drawn drafts are retained on this device for correction after
+marking errors; use Start fresh to discard them. Vision-provider quality is not
+established by mocked tests. Viewing diagrams never records mastery.
+
+VoiceStudio support is an optional server-side `/v1/audio/speech` connector, tested
+against its documented API contract. It is NOT activated: a persistent HTTPS
+VoiceStudio host, its configured voice/model and private API credential are still
+needed. No VoiceStudio model can run inside this Vercel function. Current narration
+continues until that service is configured. See `tools/VOICE_STUDIO.md`.
 
 
 ## Lesson failure repair

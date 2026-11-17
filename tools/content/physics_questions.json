@@ -1,0 +1,302 @@
+[
+  {
+    "topic": "intro_to_physics",
+    "question": "Distinguish a physical quantity from a measuring instrument, giving one example of each.",
+    "reference_answer": "A physical quantity is a measurable property, for example length. An instrument is a tool used to measure it, for example a metre rule.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "measurement_i",
+    "question": "Calculate the density of a block of mass 540 g and volume 200 cm³. Give your answer in g/cm³ and kg/m³.",
+    "reference_answer": "Density = mass/volume = 540/200 = 2.7 g/cm³ = 2700 kg/m³.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "forces",
+    "question": "Draw the forces acting on a book resting on a horizontal table. Explain why it remains at rest.",
+    "reference_answer": "Draw a downward arrow labelled weight (mg) and an equal upward arrow labelled normal reaction. The forces on the book balance, so the resultant force is zero.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "pressure",
+    "question": "Calculate the pressure exerted by a 120 N force acting normally on an area of 0.03 m².",
+    "reference_answer": "P = F/A = 120/0.03 = 4000 Pa.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "particulate_nature_of_matter",
+    "question": "Explain why a drop of ink slowly spreads through still water.",
+    "reference_answer": "Ink particles and water molecules move randomly. Diffusion produces net movement of ink from higher to lower concentration until it is spread throughout the water.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "thermal_expansion",
+    "question": "Explain why gaps are left between sections of a metal bridge.",
+    "reference_answer": "Metal expands when heated. Gaps allow expansion without large compressive stresses that could buckle or damage the bridge.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "heat_transfer",
+    "question": "Explain why the heating element of a water heater is usually near the bottom.",
+    "reference_answer": "Water heated near the bottom expands and becomes less dense, then rises. Cooler denser water sinks, setting up convection that heats the water throughout.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "rectilinear_propagation",
+    "question": "Draw a ray reflecting from a plane mirror at an angle of incidence of 35°. Label the normal and the angle of reflection.",
+    "reference_answer": "Draw a straight mirror and a normal perpendicular to it at the point of incidence. The incident ray points towards the mirror and the reflected ray away. Both rays make 35° with the normal on opposite sides.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "electrostatics_i",
+    "question": "Explain why a charged rod attracts small neutral pieces of paper.",
+    "reference_answer": "The rod polarises the paper, producing opposite charge nearer the rod and like charge farther away. Attraction of the nearer opposite charge exceeds repulsion of the farther like charge.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "cells_and_simple_circuits",
+    "question": "Draw a circuit containing one cell, a switch, a lamp and an ammeter in series. Add a voltmeter to measure the lamp voltage.",
+    "reference_answer": "The cell, switch, lamp and ammeter form one series loop. Connect the voltmeter in parallel across the lamp, not in series. Use recognisable circuit symbols and closed conducting connections.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "magnetism",
+    "question": "Draw the magnetic field around a bar magnet and indicate its direction outside the magnet.",
+    "reference_answer": "Draw non-crossing curved field lines leaving the north pole and entering the south pole. Lines are closer together near the poles. The full field forms continuous loops.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "measurement_ii",
+    "question": "A micrometer reads 5.68 mm and has a positive zero error of 0.03 mm. Calculate the corrected diameter.",
+    "reference_answer": "Corrected diameter = observed reading - zero error = 5.68 - 0.03 = 5.65 mm.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "turning_effect_of_a_force",
+    "question": "Calculate the moment of a 25 N force whose perpendicular distance from a pivot is 0.40 m.",
+    "reference_answer": "Moment = force × perpendicular distance = 25 × 0.40 = 10 N m. Direction depends on which side and direction the force acts.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "equilibrium_and_centre_of_gravity",
+    "question": "Explain why a vehicle with a low centre of gravity is more stable than a similar vehicle with a high centre of gravity.",
+    "reference_answer": "It must tilt through a greater angle before the line of action of its weight falls outside the base of support. The restoring moment therefore persists through a greater tilt.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "reflection_at_curved_surfaces",
+    "question": "Draw a ray diagram for an object beyond the centre of curvature of a concave mirror. State the image properties.",
+    "reference_answer": "A ray parallel to the principal axis reflects through F; a ray through C retraces its path. They meet between F and C. The image is real, inverted and diminished.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "magnetic_effect_of_current",
+    "question": "Describe how to find the direction of the magnetic field around a straight current-carrying wire.",
+    "reference_answer": "Use the right-hand grip rule: point the thumb in the direction of conventional current; the curled fingers show the direction of the circular magnetic field lines around the wire.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "hookes_law",
+    "question": "A spring extends by 0.04 m under a force of 8 N within its elastic limit. Calculate its spring constant.",
+    "reference_answer": "F = kx, so k = 8/0.04 = 200 N/m.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "waves_i",
+    "question": "Draw a transverse wave and label its amplitude and wavelength.",
+    "reference_answer": "Draw an equilibrium line and a wave about it. Amplitude is the maximum perpendicular displacement from equilibrium to a crest or trough. Wavelength is the distance between two successive crests or other adjacent points in phase.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "sound",
+    "question": "An echo returns 0.60 s after a sound is emitted. Calculate the distance to the reflecting wall if the speed of sound is 340 m/s.",
+    "reference_answer": "The sound travels to the wall and back. Distance = vt/2 = 340 × 0.60/2 = 102 m.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "fluid_flow",
+    "question": "Water flows steadily through a pipe of area 0.006 m² at 2 m/s. Calculate its speed at a narrower section of area 0.003 m², assuming incompressible flow.",
+    "reference_answer": "Continuity gives A1v1 = A2v2. v2 = 0.006 × 2/0.003 = 4 m/s.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "linear_motion",
+    "question": "A car accelerates uniformly from 4 m/s to 16 m/s in 6 s. Calculate its acceleration and distance travelled.",
+    "reference_answer": "a = (16 - 4)/6 = 2 m/s². Distance = average velocity × time = (4 + 16)/2 × 6 = 60 m.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "refraction_of_light",
+    "question": "Light enters glass from air at 30° to the normal. The refractive index of glass is 1.5. Calculate the angle of refraction.",
+    "reference_answer": "n = sin i/sin r. sin r = sin 30°/1.5 = 1/3, so r = 19.5° approximately. The ray bends towards the normal.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "newtons_laws",
+    "question": "Calculate the acceleration of a 5 kg trolley acted on by a resultant horizontal force of 15 N.",
+    "reference_answer": "F = ma, so a = 15/5 = 3 m/s² in the direction of the resultant force.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "energy_work_power_machines",
+    "question": "A machine lifts a 200 N load through 3 m using 1000 J of input energy. Calculate its efficiency.",
+    "reference_answer": "Useful output energy = 200 × 3 = 600 J. Efficiency = 600/1000 × 100% = 60%.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "current_electricity",
+    "question": "Two resistors of 6 Ω and 3 Ω are connected in parallel across 12 V. Calculate their equivalent resistance and total current.",
+    "reference_answer": "1/R = 1/6 + 1/3 = 1/2, so R = 2 Ω. Total current = V/R = 12/2 = 6 A. Branch currents are 2 A and 4 A.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "waves_ii",
+    "question": "Explain why water waves spread out after passing through a narrow gap.",
+    "reference_answer": "Diffraction causes waves to spread into the region beyond the gap. The spreading is pronounced when the gap width is comparable to the wavelength.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "electrostatics_ii",
+    "question": "State two factors that increase the capacitance of a parallel-plate capacitor, without changing the dielectric material.",
+    "reference_answer": "Increase the overlapping plate area or decrease the plate separation. C = εA/d for the ideal parallel-plate model.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "heating_effect_of_current",
+    "question": "Calculate the energy transferred by a 5 Ω resistor carrying 2 A for 60 s.",
+    "reference_answer": "E = I²Rt = 2² × 5 × 60 = 1200 J.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "quantity_of_heat",
+    "question": "Calculate the energy needed to raise the temperature of 0.5 kg of water by 20°C. Take the specific heat capacity of water as 4200 J/(kg K).",
+    "reference_answer": "Q = mcΔT = 0.5 × 4200 × 20 = 42000 J. A temperature rise of 20°C equals 20 K.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "gas_laws",
+    "question": "A fixed mass of gas occupies 300 cm³ at 100 kPa. Calculate its volume at 150 kPa if temperature remains constant.",
+    "reference_answer": "Boyle's law gives P1V1 = P2V2. V2 = 100 × 300/150 = 200 cm³.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "thin_lenses",
+    "question": "An object is placed 30 cm from a converging lens of focal length 10 cm. Calculate the image distance and magnification.",
+    "reference_answer": "1/f = 1/u + 1/v gives 1/v = 1/10 - 1/30 = 1/15. The real image is 15 cm from the lens on the opposite side. Magnification magnitude = v/u = 0.5; image is inverted.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "uniform_circular_motion",
+    "question": "Calculate the centripetal force on a 0.5 kg mass moving at 4 m/s in a circle of radius 2 m.",
+    "reference_answer": "F = mv²/r = 0.5 × 4²/2 = 4 N, directed towards the centre.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "floating_and_sinking",
+    "question": "A body weighs 12 N in air and 8 N when fully immersed in water. Calculate the upthrust.",
+    "reference_answer": "Upthrust = loss of apparent weight = 12 - 8 = 4 N. This equals the weight of displaced water.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "electromagnetic_spectrum",
+    "question": "Arrange radio waves, visible light, X-rays and microwaves in order of increasing frequency.",
+    "reference_answer": "Radio waves, microwaves, visible light, X-rays. All travel at the same speed in a vacuum; higher frequency means shorter wavelength.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "electromagnetic_induction",
+    "question": "Explain why moving a magnet into a coil connected to a galvanometer produces a deflection.",
+    "reference_answer": "Motion changes the magnetic flux linking the coil, inducing an emf and a current in the closed circuit. The current creates a magnetic effect opposing the change, in accordance with Lenz's law.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "mains_electricity",
+    "question": "A 2.3 kW kettle operates on a 230 V supply. Calculate its operating current and choose a suitable fuse from 3 A, 5 A and 13 A.",
+    "reference_answer": "I = P/V = 2300/230 = 10 A. Choose 13 A, the smallest listed rating above the normal operating current.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "cathode_rays",
+    "question": "State the nature of cathode rays and explain their deflection towards a positively charged plate.",
+    "reference_answer": "Cathode rays are streams of electrons. Electrons are negatively charged and experience an electrostatic force towards the positive plate.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "x_rays",
+    "question": "Explain why lead shielding is used around an X-ray source.",
+    "reference_answer": "Lead strongly attenuates X-rays, reducing exposure to ionising radiation outside the intended beam. Shielding reduces unwanted irradiation of people nearby.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "photoelectric_effect",
+    "question": "Photons of energy 5 eV strike a metal with a work function of 2 eV. Calculate the maximum kinetic energy of emitted electrons.",
+    "reference_answer": "Einstein's equation gives Kmax = hf - φ = 5 - 2 = 3 eV, or 4.8 × 10^-19 J using 1 eV = 1.6 × 10^-19 J.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "radioactivity",
+    "question": "A sample has an initial activity of 800 Bq and a half-life of 5 days. Calculate its activity after 15 days.",
+    "reference_answer": "15/5 = 3 half-lives. Activity = 800 × (1/2)^3 = 100 Bq.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "electronics",
+    "question": "Explain why a diode can be used to rectify alternating current.",
+    "reference_answer": "A diode conducts readily when forward biased and greatly restricts current when reverse biased. In a simple series rectifier it allows current during one half-cycle, producing a pulsating unidirectional current.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "capacitors",
+    "question": "Calculate the charge stored on a 20 µF capacitor connected to a 12 V supply.",
+    "reference_answer": "Q = CV = 20 × 10^-6 × 12 = 240 × 10^-6 C = 240 µC.",
+    "source": "Original KCSE-style practice; not a past-paper reproduction"
+  },
+  {
+    "topic": "waves_ii",
+    "question": "A ripple-tank source has frequency 20 Hz. Five consecutive crests span 12 cm. Calculate the wavelength and wave speed.",
+    "reference_answer": "Five crests span four wavelengths. Wavelength = 12/4 = 3 cm = 0.030 m. Speed = 20 × 0.030 = 0.60 m/s. Check: in one period, 1/20 = 0.050 s, the wave travels 0.60 × 0.050 = 0.030 m; four wavelengths span 0.12 m.",
+    "source": "Reviewed worked lesson example"
+  },
+  {
+    "topic": "waves_ii",
+    "question": "Water waves of frequency 5.0 Hz travel at 0.40 m/s in deep water and 0.30 m/s in shallow water. They meet the boundary at 30° to the normal. Find both wavelengths and the angle of refraction.",
+    "reference_answer": "Frequency remains 5.0 Hz. Deep wavelength = 0.40/5.0 = 0.080 m; shallow wavelength = 0.30/5.0 = 0.060 m. sin r = (0.30/0.40) sin 30° = 0.375, so r ≈ 22°. The wave bends towards the normal. Check: sin 30°/sin r = 4/3, matching the speed ratio before rounding.",
+    "source": "Reviewed worked lesson example"
+  },
+  {
+    "topic": "waves_ii",
+    "question": "A string fixed at both ends is 1.5 m long and forms three antinodes when driven at 120 Hz. Find its wavelength and wave speed.",
+    "reference_answer": "Three antinodes correspond to three half-wavelengths. L = 3λ/2, so λ = 2(1.5)/3 = 1.0 m. Speed = 120 × 1.0 = 120 m/s. Check: the fundamental frequency is v/(2L) = 40 Hz; the third harmonic is 3 × 40 = 120 Hz.",
+    "source": "Reviewed worked lesson example"
+  },
+  {
+    "topic": "waves_ii",
+    "question": "Two coherent sound sources are in phase at 400 Hz. Sound speed is 340 m/s. Their waves reach a listener with equal amplitudes. Predict interference for path differences 0.85 m and 0.425 m.",
+    "reference_answer": "Wavelength = 340/400 = 0.85 m. A path difference 0.85 m is one wavelength, giving constructive interference. A difference 0.425 m is half a wavelength, giving destructive interference and ideal cancellation for equal amplitudes. Check phases: 2πΔ/λ equals 2π and π respectively. These are spatial path differences, not beat frequencies.",
+    "source": "Reviewed worked lesson example"
+  },
+  {
+    "topic": "capacitors",
+    "question": "A 20 µF capacitor is charged to 12 V. Calculate its charge and stored energy.",
+    "reference_answer": "C = 20 × 10⁻⁶ F. Q = CV = 240 × 10⁻⁶ C = 240 µC. E = 1/2 CV² = 0.00144 J. Independent check: E = 1/2 QV = 1/2 × 240 × 10⁻⁶ × 12 = 0.00144 J. This uses total charge and charge-averaged voltage V/2, not average charge.",
+    "source": "Reviewed worked lesson example"
+  },
+  {
+    "topic": "capacitors",
+    "question": "Capacitors of 3 µF and 6 µF are connected in parallel across 12 V. Find equivalent capacitance, each charge, total charge and total energy.",
+    "reference_answer": "Parallel voltage is 12 V across each capacitor. C_total = 9 µF. Q1 = 36 µC, Q2 = 72 µC and Q_total = 108 µC. E_total = 1/2 × 9 × 10⁻⁶ × 12² = 0.000648 J. Check: individual energies 0.000216 J and 0.000432 J sum to 0.000648 J.",
+    "source": "Reviewed worked lesson example"
+  },
+  {
+    "topic": "capacitors",
+    "question": "Initially uncharged 3 µF and 6 µF capacitors are connected in series across 12 V. Find equivalent capacitance, charge, each voltage and total stored energy.",
+    "reference_answer": "1/C_total = 1/3 + 1/6 in inverse microfarads, so C_total = 2 µF. Series charge magnitude is 24 µC on each capacitor. V1 = 24/3 = 8 V; V2 = 24/6 = 4 V. Their sum is exactly 12 V for these values. E_total = 0.000144 J. Check: 1/2 Q(V1 + V2) = 1/2 × 24 × 10⁻⁶ × 12 = 0.000144 J.",
+    "source": "Reviewed worked lesson example"
+  },
+  {
+    "topic": "capacitors",
+    "question": "A 50 µF capacitor is charged to 20 V. The supply is disconnected, then a resistor is connected across the capacitor. Find the initial energy and the energy transferred to the resistor when the voltage has fallen to 10 V.",
+    "reference_answer": "Initial E = 1/2 × 50 × 10⁻⁶ × 20² = 0.010 J. At 10 V, E = 1/2 × 50 × 10⁻⁶ × 10² = 0.0025 J. The resistor receives 0.0075 J as thermal energy in the ideal model. Check with charges: Q_initial = 0.001 C and Q_final = 0.0005 C; 1/2 QV gives the same two energies. The resistor provides a discharge path after supply isolation.",
+    "source": "Reviewed worked lesson example"
+  }
+]

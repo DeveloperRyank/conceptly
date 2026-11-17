@@ -26,6 +26,7 @@ const TYPES = [
 const FALLBACK_TYPE = { id: "long", widget: "long", label: "Answer",
   hint: "Write the full answer you would put on the exam paper." };
 
+let inkPad = null;
 let questions = [];
 let types = [];
 let idx = 0;
@@ -33,12 +34,14 @@ let draft = { idx: 0, elapsed: 0, answers: {} };
 let saveTimer = null;
 let clockTimer = null;
 
-const storageKey = () => `bb.exam.${SUBJECT}.${TOPIC}`;
+const storageKey = () => `bb.exam.${EXAM_SCOPE}.${SUBJECT}.${TOPIC}`;
 
 document.addEventListener("DOMContentLoaded", () => {
   questions = JSON.parse(document.getElementById("questions-data").textContent || "[]");
   types = questions.map((q) => (q.options && q.options.length === 4 ? MCQ_TYPE : typeOf(q.question)));
   loadDraft();
+  idx=draft.idx;
+  window.addEventListener("pagehide",()=>{readWidget();saveDraft(true);});
 
   document.getElementById("btn-next").addEventListener("click", () => move(1));
   document.getElementById("btn-prev").addEventListener("click", () => move(-1));
@@ -77,7 +80,7 @@ function loadDraft() {
 
 function saveDraft(quiet) {
   draft.idx = idx;
-  try { localStorage.setItem(storageKey(), JSON.stringify(draft)); } catch (e) { /* full or private mode */ }
+  try { localStorage.setItem(storageKey(), JSON.stringify(draft)); } catch (e) { note("Device storage is full or unavailable. Keep this tab open and hand in before leaving."); return; }
   if (!quiet) note("Saved on this device");
 }
 
@@ -119,7 +122,7 @@ function composed(i) {
   const working = String(a.working || "").trim();
   const final = String(a.final || "").trim();
   if (working && final) return `${working}\n\nFinal answer: ${final}`;
-  return (working || final).trim();
+  return (working || final).trim() || (a.image ? "[Handwritten working attached]" : "");
 }
 
 function answeredCount() {
@@ -139,6 +142,10 @@ function readWidget() {
   } else {
     const field = slot.querySelector("textarea, input");
     draft.answers[idx] = field ? field.value : "";
+  }
+  if (inkPad) {
+    const value=draft.answers[idx];
+    draft.answers[idx]={...(typeof value==='string'?{working:value}:value),...inkPad.snapshot()};
   }
   if (!composed(idx)) delete draft.answers[idx];
 }
@@ -221,6 +228,7 @@ function showQuestion() {
 function buildWidget(type) {
   const slot = document.getElementById("answer-slot");
   const stored = draft.answers[idx] || {};
+  inkPad=null;
   slot.innerHTML = "";
 
   if (type.widget === "mcq") {
@@ -281,6 +289,7 @@ function buildWidget(type) {
     area.addEventListener("keydown", ctrlEnter);
     autogrow(area);
   }
+  if (examNeedsPad(SUBJECT,questions[idx].question)) inkPad=addExamTools(slot,typeof stored==='object'?stored:{},()=>{queueSave();paintMeta();renderRail();});
 }
 
 function ctrlEnter(e) {
@@ -341,7 +350,7 @@ function startClock() {
 async function submitExam() {
   readWidget();
   const payload = questions
-    .map((q, i) => ({ uid: q.uid, question: q.question, concept: q.concept, answer: composed(i) }))
+    .map((q, i) => ({ uid: q.uid, question: q.question, concept: q.concept, answer: composed(i), image: draft.answers[i]?.image || "" }))
     .filter((a) => a.answer);
   if (!payload.length) return;
 
@@ -356,7 +365,8 @@ async function submitExam() {
     });
     const data = await readJSON(resp);
     if (!resp.ok) throw new Error(data.error || "Couldn't hand in your paper");
-    try { localStorage.removeItem(storageKey()); } catch (e) { /* ignore */ }
+    // Keep handwritten drafts for correction if vision marking later fails.
+    if (!payload.some(a => a.image)) { try { localStorage.removeItem(storageKey()); } catch (e) { /* ignore */ } }
     window.location.href = `/results/${data.job_id}`;
   } catch (err) {
     note(err.message + " — your answers are still here, try again.");

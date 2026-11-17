@@ -91,6 +91,7 @@
         <div class="result-row rise" style="animation-delay: ${350 + i * 110}ms">
           <div class="r-q">
             ${esc(r.question)}
+            ${r.image && /^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(r.image) ? `<img class="submitted-drawing" src="${esc(r.image)}" alt="Your submitted handwritten working" style="display:block;max-width:100%;border-radius:8px;margin-top:12px">` : ""}
             <div class="r-tags">${keyed}${concept}${moved}</div>
             <div class="r-fb">${esc(r.teacher_note || "")}</div>
           </div>

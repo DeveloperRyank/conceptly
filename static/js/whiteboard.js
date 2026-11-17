@@ -495,9 +495,10 @@ class Whiteboard {
     });
     for (const L of geo.labels) {
       const [lx, ly] = at([L.x, L.y]);
-      const size = wbClamp(L.size * k * 1.55, 22, 44);
-      for (const line of this._measure(L.text, size, Math.max(120, this.o.right - lx))) {
-        const it = this._textItem(line, lx, ly, size, 0, L.color, null);
+      const size = wbClamp(L.size * k * 1.55, this.o.size >= 60 ? 42 : 22, this.o.size >= 60 ? 54 : 44);
+      let labelLine = 0;
+      for (const line of this._measure(L.text, size, Math.max(120, Math.min(this.o.right - lx, (L.maxWidth || 1000) * k)))) {
+        const it = this._textItem(line, lx, ly + labelLine++ * size * 1.08, size, 0, L.color, null);
         it.fig = true;      // a diagram's own names: they crowd, they do not collide
         items.push(it);
       }
@@ -709,7 +710,7 @@ function wbTemplateGeometry(name, labels, variant) {
       const size = op.size || 18;
       grow(op.x - 8, op.y - size * 0.9);
       grow(op.x + t.length * size * 0.58 + 8, op.y + size * 0.4);
-      text.push({ text: t, x: op.x, y: op.y, size, color: wbRole(op.color) });
+      text.push({ text: t, x: op.x, y: op.y, size, maxWidth: op.maxWidth, color: wbRole(op.color) });
     }
   }
   if (!strokes.length && !text.length) return null;

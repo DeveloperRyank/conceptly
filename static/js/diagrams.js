@@ -1371,3 +1371,43 @@ function renderableBox(a) {
   return !(b.x2 < 0 || b.y2 < 0 || b.x1 > BOARD_W || b.y1 > BOARD_H);
 }
 
+
+// Subject-specific drawings. All geometry is authored locally, never generated coordinates.
+function diagramBox(x,y,w,h) { return {p:[[x,y],[x+w,y],[x+w,y+h],[x,y+h],[x,y]]}; }
+TEMPLATES.concept_map = {ops:[
+  diagramBox(320,70,360,90), diagramBox(50,340,260,90), diagramBox(370,340,260,90), diagramBox(690,340,260,90),
+  {p:[[500,160],[500,250],[180,250],[180,340]]}, {p:[[500,250],[500,340]]}, {p:[[500,250],[820,250],[820,340]]},
+  {slot:"title",x:345,y:110,size:17,maxWidth:310,def:"Topic"},
+  {slot:"a",x:70,y:375,size:15,maxWidth:230,def:"Ideas"}, {slot:"b",x:390,y:375,size:15,maxWidth:230,def:"Methods"}, {slot:"c",x:710,y:375,size:15,maxWidth:230,def:"Applications"}
+]};
+TEMPLATES.computer_system = {ops:[
+  diagramBox(60,220,230,110),diagramBox(385,220,230,110),diagramBox(710,220,230,110),diagramBox(385,60,230,90),
+  {p:[[290,275],[385,275],[365,265],[385,275],[365,285]]},
+  {p:[[615,275],[710,275],[690,265],[710,275],[690,285]]},
+  {p:[[485,220],[485,150],[475,165],[485,150],[495,165]]},
+  {p:[[515,150],[515,220],[505,205],[515,220],[525,205]]},
+  {text:"Input",x:120,y:270,size:22},{text:"CPU",x:455,y:270,size:22},{text:"Output",x:760,y:270,size:22},
+  {text:"Memory",x:430,y:110,size:20},{text:"Keyboard",x:100,y:380,size:17},{text:"Processing",x:420,y:380,size:17},{text:"Screen",x:765,y:380,size:17}
+]};
+TEMPLATES.network = {ops:[diagramBox(410,230,180,90),
+  ...[[130,100],[730,100],[130,400],[730,400]].flatMap(([x,y])=>[diagramBox(x,y,140,70),{p:[[x+70,y+35],[500,275]]}]),
+  {text:"Switch",x:450,y:280,size:20}, {text:"Star network",x:350,y:55,size:22},
+  {text:"Each device has a separate link",x:250,y:550,size:18}]};
+TEMPLATES.triangle = {ops:[{p:[[200,460],[800,460],[200,140],[200,460]]},
+  {p:[[200,430],[230,430],[230,460]]}, {text:"a",x:140,y:320,size:24}, {text:"b",x:490,y:510,size:24},
+  {text:"c",x:520,y:280,size:24},{text:"c² = a² + b²",x:340,y:85,size:24}]};
+TEMPLATES.circle = {ops:[{arc:{cx:500,cy:300,r:180}},{p:[[500,300],[680,300]]},
+  {text:"r",x:580,y:280,size:24},{text:"O",x:470,y:330,size:20}, {text:"C = 2πr     A = πr²",x:300,y:550,size:22}]};
+TEMPLATES.cuboid3d = {ops:[
+  {p:[[230,430],[620,430],[620,230],[230,230],[230,430]]},
+  {p:[[230,230],[380,120],[770,120],[620,230]]}, {p:[[770,120],[770,320],[620,430]]},
+  {p:[[380,120],[380,320],[770,320]],color:CHALK_DIM}, {p:[[230,430],[380,320]],color:CHALK_DIM},
+  {text:"4 cm",x:400,y:480,size:23},{text:"3 cm",x:720,y:400,size:23},{text:"2 cm",x:155,y:335,size:23},
+  {text:"V = 4 × 3 × 2 = 24 cm³",x:280,y:560,size:22}]};
+TEMPLATES.vector3d = {ops:[
+  {p:[[300,400],[800,400]]},{p:[[300,400],[300,100]]},{p:[[300,400],[100,550]]},
+  {p:[[300,400],[600,220],[578,225],[600,220],[589,241]],color:HIGHLIGHT_COLOR,width:5},
+  {p:[[300,400],[660,400],[660,175],[600,220]],color:CHALK_DIM},
+  {text:"x",x:810,y:410,size:22},{text:"y",x:290,y:80,size:22},{text:"z",x:75,y:575,size:22},
+  {text:"O",x:275,y:420,size:22},{text:"P (3, 2, 2)",x:590,y:190,size:22},
+  {text:"|OP| = √(3² + 2² + 2²) = √17",x:320,y:540,size:20}]};

@@ -14,9 +14,9 @@
 // multiplier: a lesson that would rather be written quickly is a lesson that was planned
 // with too little to say.
 const SPEEDS = {
-  slow: 0.82,
-  normal: 1.0,
-  fast: 1.25,
+  slow: 1.0,
+  normal: 1.25,
+  fast: 1.5,
 };
 const LOAD_MSGS = [
   "Reading the notes…",
@@ -30,7 +30,6 @@ const SEEK_STEP = 0.1;
 // the wide sheet a desk gets. It is the breakpoint the layout of the page already moves at.
 const SMALL_BOARD = window.matchMedia ? window.matchMedia("(max-width: 720px)") : null;
 
-let exploreController = null;
 let wb = null;            // the Whiteboard engine
 let plan = null;          // wb.planScript(): scenes, beats and one absolute clock
 let beats = [];           // wb.schedule(): the lines to be spoken, in order
@@ -69,14 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
   playBtn = document.getElementById("btn-playpause");
   wireControls();
   wireKeywordInterruptions();
-  if (window.initLessonExplore) exploreController = window.initLessonExplore(SUBJECT, TOPIC, () => {
-    stopKeywordListening();
-    playing = false;
-    voicing = null;
-    Voice.cancel();
-    spoken = beatAt(t) - 1;
-    paintPlay();
-  }, resumeLesson);
 
   requestAnimationFrame(loop);
 
@@ -333,13 +324,13 @@ function setPlaying(on) {
   if (!plan || on === playing) return;
   // A press of play during a detour means "carry on with the lesson", not "freeze the
   // board with an answer card open" — the clock cannot advance while asking is set.
-  if (on && exploreController) exploreController.close();
   if (on && asking) closeDetour();
   if (on && t >= plan.total - 0.005) seekTo(0, false);
   playing = on;
   if (on) {
     doneShown = false;
     document.getElementById("lesson-done").style.display = "none";
+    startKeywordListening();
     Voice.resume();
     startDue();
   } else {
@@ -631,7 +622,7 @@ function closeDetour() {
 }
 
 function resumeLesson() {
-  if (exploreController) exploreController.close();
+  startKeywordListening();
   closeDetour();
   playing = true;
   paintPlay();
@@ -714,63 +705,66 @@ async function regenerate() {
 }
 
 
-// Opt-in keyword recognition shares one microphone with question dictation.
+// A single recognizer listens while the lesson is active; no activation button.
 let keywordRec = null;
 let keywordEnabled = false;
+let keywordBlocked = false;
+let keywordTimer = null;
 function stopKeywordListening() {
   keywordEnabled = false;
-  if (keywordRec) { try { keywordRec.abort(); } catch (_) {} keywordRec = null; }
-  const button = document.getElementById("keyword-listen");
-  if (button) { button.setAttribute("aria-pressed", "false"); button.textContent = "Enable voice interruptions"; }
+  clearTimeout(keywordTimer);
+  const old = keywordRec; keywordRec = null;
+  if (old) { old.onend = null; try { old.abort(); } catch (_) {} }
 }
 function wireKeywordInterruptions() {
-  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const button = document.getElementById("keyword-listen");
-  const state = document.getElementById("keyword-state");
-  if (!SR) { button.disabled = true; state.textContent = "Voice recognition is unavailable here. Press A or use Stop and ask; typing always works."; return; }
-  button.addEventListener("click", () => {
-    if (keywordEnabled) { stopKeywordListening(); state.textContent = "Voice interruptions off."; return; }
-    stopMic();
-    keywordEnabled = true;
-    button.setAttribute("aria-pressed", "true");
-    button.textContent = "Disable voice interruptions";
-    const recognition = new SR();
-    keywordRec = recognition;
-    recognition.lang = "en-KE";
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    let captureIndex = -1;
-    recognition.onresult = (event) => {
-      if (!keywordEnabled || !plan) return;
-      if (captureIndex < 0) {
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-          if (!/\b(?:hey tutor|tutor pause|i have a question)\b/i.test(event.results[i][0].transcript)) continue;
-          captureIndex = i;
-          openAskPanel(false);
-          state.textContent = "Lesson paused. Ask your question; it will be sent after you finish speaking. You can also type and press Ask the tutor.";
-          break;
-        }
-      }
-      if (captureIndex < 0) return;
-      let text = "";
-      for (let i = captureIndex; i < event.results.length; i++) text += " " + event.results[i][0].transcript;
-      const match = /\b(?:hey tutor|tutor pause|i have a question)\b[,.!?\s]*(.*)/i.exec(text);
-      const question = match ? match[1].trim() : "";
-      document.getElementById("ask-input").value = question;
-      const last = event.results[event.results.length - 1];
-      if (question && last.isFinal) {
-        stopKeywordListening();
-        state.textContent = "Question captured. Voice interruptions are off until you enable them again.";
-        sendQuestion();
-      }
-    };
-    recognition.onerror = (event) => { stopKeywordListening(); state.textContent = "Microphone stopped (" + event.error + "). Use Stop and ask, or enable again."; };
-    recognition.onend = () => {
-      if (keywordRec !== recognition) return;
-      stopKeywordListening();
-      state.textContent = "Listening ended. Enable again to listen for a keyword, or press A to ask.";
-    };
-    try { recognition.start(); state.textContent = "Listening for Hey tutor, Tutor pause, or I have a question. Use headphones; disable when finished."; }
-    catch (_) { stopKeywordListening(); state.textContent = "Could not start the microphone. Use Stop and ask."; }
+  startKeywordListening();
+  // Some browsers require a gesture before the first microphone request.
+  document.addEventListener("pointerdown", () => { if (!asking && !keywordBlocked) startKeywordListening(); });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stopKeywordListening();
+    else if (!asking) startKeywordListening();
   });
+  window.addEventListener("pagehide", stopKeywordListening);
+}
+function startKeywordListening() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const state = document.getElementById("keyword-state");
+  if (!SR) { state.textContent = "Voice recognition is unavailable in this browser. Use Ask a question."; return; }
+  if (keywordRec || keywordBlocked || document.hidden) return;
+  stopMic();
+  const recognition = new SR(); keywordRec = recognition; keywordEnabled = true;
+  recognition.lang = "en-KE"; recognition.continuous = true; recognition.interimResults = true;
+  let captureIndex = -1;
+  recognition.onresult = event => {
+    if (!keywordEnabled || !plan) return;
+    if (captureIndex < 0) {
+      for (let i=event.resultIndex; i<event.results.length; i++) {
+        if (!/\b(?:hey tutor|tutor pause|i have a question)\b/i.test(event.results[i][0].transcript)) continue;
+        captureIndex=i; openAskPanel(false);
+        state.textContent="Listening to your question…"; break;
+      }
+    }
+    if (captureIndex < 0) return;
+    let text="";
+    for (let i=captureIndex; i<event.results.length; i++) text+=" "+event.results[i][0].transcript;
+    const match=/\b(?:hey tutor|tutor pause|i have a question)\b[,.!?\s]*(.*)/i.exec(text);
+    const question=match ? match[1].trim() : "";
+    document.getElementById("ask-input").value=question;
+    if (question && event.results[event.results.length-1].isFinal) {
+      stopKeywordListening(); state.textContent="Question captured. Listening resumes with your lesson."; sendQuestion();
+    }
+  };
+  recognition.onerror=event => {
+    if (["not-allowed","service-not-allowed","audio-capture"].includes(event.error)) {
+      keywordBlocked=true; stopKeywordListening();
+      state.textContent="Microphone unavailable. Use Ask a question, or allow microphone access in browser settings and reload.";
+    }
+  };
+  recognition.onend=() => {
+    if (keywordRec !== recognition) return;
+    keywordRec=null; keywordEnabled=false;
+    if (!asking && !keywordBlocked && !document.hidden) keywordTimer=setTimeout(startKeywordListening,800);
+  };
+  try { recognition.start(); state.textContent='Say “Hey tutor”, “Tutor pause”, or “I have a question”. Headphones help. Speech uses your browser’s recognition service.'; }
+  catch (_) { stopKeywordListening(); state.textContent="Tap the lesson to allow the microphone, or use Ask a question."; }
 }

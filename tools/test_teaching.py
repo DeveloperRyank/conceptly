@@ -16,6 +16,7 @@ import classifier
 import curriculum
 import notes
 import tutor
+import llm
 import app as web
 
 
@@ -138,9 +139,9 @@ class TeachingTests(unittest.TestCase):
         with patch.object(web,'lesson_state',return_value=('ready',None,fixture_script())),patch.object(web,'_prefetch_narration'):
             response=self.client.get('/lesson/mathematics/numbers')
             self.assertEqual(response.status_code,200)
-            self.assertIn(b'Your learning profile',response.data);self.assertIn(b'LESSON_REVISION',response.data)
+            self.assertNotIn(b'Your learning profile',response.data);self.assertIn(b'LESSON_REVISION',response.data)
             self.assertNotIn(b'<script>unsafe()</script>',response.data)
-            self.assertIn(b'&lt;script&gt;',response.data)
+            self.assertNotIn(b'learning-profile',response.data)
     def test_20_csrf_and_auth_unchanged(self):
         self.assertEqual(self.client.post('/api/ask',json={'question':'why'}).status_code,400)
         self.assertEqual(web.app.test_client().get('/api/lesson/mathematics/numbers/data').status_code,401)
@@ -167,6 +168,21 @@ class TeachingTests(unittest.TestCase):
             web.generate_lesson('mathematics','numbers',self.a)
             self.assertEqual(signature.call_count,1)
             self.assertEqual(save.call_args.args[3],'before')
+
+    def test_drawing_submission_trusts_bank_and_rejects_theory(self):
+        image='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+a5x8AAAAASUVORK5CYII='
+        row=classifier.questions_for_topic('physics','pressure')[0]
+        payload={'subject':'physics','topic':'pressure','answers':[{'uid':row['uid'],'question':'forged question','answer':'','image':image,'reference_answer':'forged reference'}]}
+        with patch.object(web.llm,'PROVIDER','gemini'),patch.object(profile,'create_grading_job',return_value=99) as create:
+            response=self.client.post('/api/submit_test',json=payload,headers={'X-CSRF-Token':'fixture-csrf'})
+            self.assertEqual(response.status_code,200)
+            saved=create.call_args.args[3][0]
+            self.assertEqual(saved['question'],row['question']);self.assertEqual(saved['image'],image)
+            self.assertNotIn('reference_answer',saved)
+            theory=classifier.questions_for_topic('physics','heat_transfer')[0]
+            payload['topic']='heat_transfer';payload['answers'][0]['uid']=theory['uid']
+            self.assertEqual(self.client.post('/api/submit_test',json=payload,headers={'X-CSRF-Token':'fixture-csrf'}).status_code,400)
+
 
 class StructuredLessonTests(unittest.TestCase):
     def content(self):
@@ -293,5 +309,49 @@ class StructuredLessonTests(unittest.TestCase):
         with patch.object(tutor.llm.requests,'post',return_value=response) as post:
             tutor.llm._gemini_chat('system','user',0.1,500,True,response_schema=schema)
             self.assertEqual(post.call_args.kwargs['json']['generationConfig']['responseJsonSchema'],schema)
+
+class PlayerUpgradeTests(unittest.TestCase):
+    def test_subject_diagrams_and_all_topic_validity(self):
+        for subject in ('physics','mathematics','computer','chemistry'):
+            for topic in curriculum.topics(subject):
+                script=tutor._illustrate_lesson(fixture_script(),subject,topic['slug'])
+                self.assertEqual(tutor.validate_script(script,subject=subject),[],(subject,topic['slug']))
+                figures=[o['name'] for o in script['steps'] if o['op']=='figure']
+                self.assertTrue(figures)
+                if subject!='mathematics': self.assertFalse({'cuboid3d','vector3d'} & set(figures))
+        hardware=tutor._illustrate_lesson(fixture_script(),'computer','hardware')
+        self.assertEqual(next(o['name'] for o in hardware['steps'] if o['op']=='figure'),'computer_system')
+        self.assertNotIn('graph_axes',tutor._figure_names('computer'))
+
+    def test_theory_does_not_get_drawing_controls(self):
+        self.assertFalse(web._drawing_allowed('physics','Explain why a metal expands.'))
+        self.assertTrue(web._drawing_allowed('physics','A 2 kg mass moves at 3 m/s. Calculate its kinetic energy.'))
+        self.assertTrue(web._drawing_allowed('chemistry','Draw a labelled filtration apparatus.'))
+        self.assertTrue(web._drawing_allowed('mathematics','Explain your solution.'))
+        with self.assertRaises(ValueError): web._checked_answer_image('data:image/svg+xml;base64,PHN2Zz4=')
+        with self.assertRaises(ValueError): web._checked_answer_image('data:image/png;base64,broken')
+
+    def test_handwritten_grade_uses_image_and_trusted_reference(self):
+        verdict={'correct':True,'error_type':None,'teacher_note':'Correct dimensions and units.'}
+        with patch.object(llm,'chat_json_with_file',return_value=verdict) as call:
+            out=tutor.grade_drawing('physics','pressure','Calculate pressure.','4000 Pa','data:image/png;base64,aW1hZ2U=','P = F/A = 4000 Pa')
+            self.assertTrue(out['correct'])
+            self.assertEqual(call.call_args.args[2],{'mime':'image/png','data_b64':'aW1hZ2U='})
+            self.assertIn('P = F/A',call.call_args.args[1])
+        with patch.object(llm,'chat_json_with_file',return_value={'unreadable':True}):
+            with self.assertRaises(ValueError): tutor.grade_drawing('physics','pressure','Calculate pressure.','','data:image/png;base64,aW1hZ2U=')
+
+    def test_voicestudio_audio_contract(self):
+        from unittest.mock import Mock
+        response=Mock(status_code=200,content=b'RIFF0000WAVEaudio')
+        with patch.object(llm,'VOICESTUDIO_URL','https://voice.example.invalid'),patch.object(llm,'VOICESTUDIO_API_KEY','test-key'),patch.object(llm.requests,'post',return_value=response) as call:
+            audio,mime=llm._voicestudio_synthesize('A line of narration.')
+            self.assertEqual(mime,'audio/wav')
+            self.assertEqual(call.call_args.args[0],'https://voice.example.invalid/v1/audio/speech')
+            self.assertEqual(call.call_args.kwargs['json']['input'],'A line of narration.')
+            self.assertFalse(call.call_args.kwargs['allow_redirects'])
+            response.content=b'{"error":"not audio"}'
+            with self.assertRaises(RuntimeError):llm._voicestudio_synthesize('Line')
+
 
 if __name__=='__main__':unittest.main()

@@ -1853,12 +1853,36 @@ nav .links .who:hover { color: var(--cream); text-decoration: none; background: 
 .banner.good { background: rgba(116, 169, 141, 0.14); border-color: var(--sage); }
 .banner .ico { margin-right: var(--sp-1); }
 
-.learning-profile, .lesson-explore { margin: 1rem 0; padding: 1rem; border: 1px solid var(--muted); border-radius: 12px; }
-.learning-profile summary { cursor: pointer; font-weight: 600; }
-.learning-profile article { border-top: 1px solid var(--muted); overflow-wrap: anywhere; }
-.conversation-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin: 1rem 0; }
-.conversation-controls span { flex: 1 1 260px; font-size: .9rem; }
-.lesson-explore svg { width: 100%; max-height: 420px; background: #131c22; border-radius: 10px; }
-.lesson-explore label { display: inline-flex; gap: .5rem; align-items: center; margin: .8rem; }
-.lesson-explore output { display: block; margin: .8rem 0; }
-.lesson-explore[hidden], .lesson-explore [hidden] { display: none !important; }
+/* Quiet lesson controls, using the existing navy, cream and coral palette. */
+.player { border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:none; background:var(--panel); }
+.board-strip { padding:16px 20px; border-top:1px solid var(--line); background:var(--panel); }
+.bs-sheet { font-size:12px; color:var(--muted); letter-spacing:.03em; }
+.bs-line { font-size:15px; line-height:1.6; }
+.lesson-controls { padding:14px 18px; gap:12px; border-top:1px solid var(--line); background:var(--panel); flex-wrap:wrap; }
+.lesson-controls .btn { border-radius:10px; min-height:42px; box-shadow:none; background:transparent; border:1px solid var(--line); color:var(--cream); }
+.lesson-controls #btn-playpause, .lesson-controls #btn-ask { background:var(--coral); color:var(--navy, #0A1730); border-color:var(--coral); }
+.lesson-controls .wb-seek { accent-color:var(--coral); min-width:120px; flex:1; }
+.voice-status { color:var(--muted); font-size:12px; line-height:1.5; margin:12px 4px 20px; }
+.ask-panel, .tutor-card, .done-panel { border-radius:16px; box-shadow:none; background:var(--panel); }
+.done-panel .btn, .ask-panel .btn { background-image:none; }
+@media(max-width:600px) { .lesson-controls .wb-seek { order:-1; flex-basis:100%; } .lesson-controls .spacer { display:none; } .lesson-controls { gap:8px; padding:12px; } .lesson-controls .btn { font-size:12px; padding:8px 10px; } }
+
+.working-tools { margin-top:16px; }
+.ink-toolbar,.equation-keys { display:flex; flex-wrap:wrap; gap:6px; margin:8px 0; }
+.ink-toolbar button,.equation-keys button,.calc-keys button { min-height:44px; min-width:44px; padding:8px 12px; background:var(--panel); color:var(--cream); border:1px solid var(--line); border-radius:8px; cursor:pointer; }
+.ink-toolbar button[aria-pressed=true] { border-color:var(--coral); color:var(--coral); }
+.ink-toolbar label { display:flex; align-items:center; gap:6px; font-size:12px; }
+.answer-canvas { display:block; width:100%; height:auto; background:#fffdf8; border-radius:10px; touch-action:none; cursor:crosshair; border:1px solid var(--line); }
+.ink-hint { font-size:12px; color:var(--muted); }
+.ink-label { margin:8px 0; width:100%; }
+.exam-calculator { margin-bottom:16px; padding:14px; border:1px solid var(--line); border-radius:12px; background:var(--panel); }
+.exam-calculator summary { cursor:pointer; font-weight:600; display:flex; justify-content:space-between; }
+.exam-calculator summary span { color:var(--muted); font-size:12px; }
+.exam-calculator label { display:block; margin-top:14px; }
+.calc-expression { width:100%; margin:8px 0; }
+.calc-keys { display:grid; grid-template-columns:repeat(5,1fr); gap:6px; max-width:420px; }
+.exam-calculator output { display:block; padding:12px 0 0; font:20px monospace; }
+
+.working-tools.expanded { position:fixed; inset:12px; z-index:1000; margin:0; padding:16px; background:var(--navy,#0A1730); border:1px solid var(--line); border-radius:12px; overflow:auto; }
+.working-tools.expanded .answer-canvas { width:100%; max-height:70vh; }
+.ink-toolbar select { background:var(--panel); color:var(--cream); border:1px solid var(--line); border-radius:8px; min-height:44px; }

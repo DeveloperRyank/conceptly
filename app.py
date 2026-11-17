@@ -12,6 +12,7 @@ import datetime
 import hashlib
 import json
 import os
+import re
 import secrets
 import time
 
@@ -943,10 +944,6 @@ def lesson(subject, topic):
         lesson=cached if status == "ready" else None,
         status=status,
         error=error,
-        learning_evidence=[{**r, "recorded_date": datetime.datetime.fromtimestamp(
-            r["ts"], datetime.timezone(datetime.timedelta(hours=3))).strftime("%d %b %Y, %H:%M EAT")}
-            for r in profile.lesson_evidence(subject, topic)],
-        learning_responses=profile.get_topic_stats(subject).get(profile._key(subject, topic), {}).get("answers", 0),
         lesson_revision=hashlib.sha256(_lesson_sig(subject, topic).encode()).hexdigest(),
         server_tts=llm.tts_available(),
         practicable=topic_practicable(subject, topic),
@@ -1227,7 +1224,8 @@ def submit_test():
         if not isinstance(item, dict):
             continue
         answer = str(item.get("answer", ""))[:4000].strip()
-        if not answer:
+        image = str(item.get("image") or "")
+        if not answer and not image:
             continue
         # A keyed row is trusted for its own text and concept tag: the browser only ever
         # sends the reference, so an edited paper can't smuggle in a different question.
@@ -1242,7 +1240,17 @@ def submit_test():
             question, concept = row["question"], row["concept"]
         if not question:
             continue
-        answers.append({"question": question, "answer": answer, "uid": uid if row else None,
+        if image:
+            if not row or row.get("options") or not _drawing_allowed(subject, question):
+                return jsonify({"error":"Drawing is not available for this question."}), 400
+            if llm.PROVIDER != "gemini":
+                return jsonify({"error":"Handwritten marking is currently unavailable. Your drawing is saved on this device; try again later or type your answer."}), 503
+            try:
+                image = _checked_answer_image(image)
+            except ValueError as exc:
+                return jsonify({"error":str(exc)}), 400
+        answers.append({"question": question, "answer": answer or "[Handwritten working attached]", "uid": uid if row else None,
+                        **({"image":image} if image else {}),
                         "concept": concept if concept in valid_concepts else None})
     if not answers:
         return jsonify({"error": "No answers to mark"}), 400
@@ -1273,12 +1281,21 @@ def run_grading(job_id, sid, subject, topic, answers, valid_keys=None):
     try:
         verdicts = [None] * len(answers)
         open_items = []
+        drawings = []
         for pos, a in enumerate(answers):
             row = classifier.question_by_uid(subject, a["uid"]) if a.get("uid") else None
-            if row is not None and len(row["options"]) == 4 and row["key"]:
+            if a.get("image"):
+                drawings.append((pos, a, (row or {}).get("reference_answer", "")))
+            elif row is not None and len(row["options"]) == 4 and row["key"]:
                 verdicts[pos] = _grade_keyed(row, a["answer"])
             else:
                 open_items.append((pos, a))
+        if drawings:
+            from concurrent.futures import ThreadPoolExecutor
+            with ThreadPoolExecutor(max_workers=4) as pool:
+                futures=[(pos,pool.submit(tutor.grade_drawing,subject,topic,a["question"],a["answer"],a["image"],reference)) for pos,a,reference in drawings]
+                for pos,future in futures:
+                    verdicts[pos]=future.result()
         if open_items:
             marked = tutor.grade_answers(
                 subject, topic,
@@ -1352,6 +1369,28 @@ def tts():
         return "", 204
     except Exception as exc:
         return jsonify({"error": _student_error(exc)}), 502
+
+
+
+
+def _drawing_allowed(subject, question):
+    return subject == "mathematics" or bool(re.search(r"\b(draw|sketch|plot|construct)\b", question, re.I)) or (subject == "physics" and bool(re.search(r"\b(calculate|determine|compute|evaluate|find|work out)\b", question, re.I)))
+
+
+def _checked_answer_image(value):
+    import struct
+    if not value.startswith("data:image/png;base64,") or len(value) > 700000:
+        raise ValueError("Drawing must be a PNG under 500 KB.")
+    try:
+        raw = base64.b64decode(value.split(",",1)[1], validate=True)
+        if raw[:8] != b"\x89PNG\r\n\x1a\n" or raw[12:16] != b"IHDR":
+            raise ValueError()
+        width,height=struct.unpack(">II",raw[16:24])
+        if not 1 <= width <= 1600 or not 1 <= height <= 1600:
+            raise ValueError()
+    except Exception:
+        raise ValueError("The drawing could not be read. Redraw it and try again.") from None
+    return value
 
 
 if __name__ == "__main__":

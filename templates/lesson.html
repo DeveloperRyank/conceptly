@@ -5,20 +5,6 @@
 <div class="lesson-head">
   <h1>{{ name }}</h1>
 </div>
-<p class="sub">The tutor writes and speaks the same sentence at the same moment — it is one
-  video, not slides. Scrub it, slow it down, or stop it on any word and ask.</p>
-
-<details class="learning-profile">
-  <summary>Your learning profile · {{ learning_responses }} recorded responses</summary>
-  <p>These may include walkthrough self-checks. Watching lessons and exploring diagrams do not count as correct answers.</p>
-  {% for attempt in learning_evidence %}
-  <article><p class="muted">Recorded {{ attempt.recorded_date }}</p><p><strong>Earlier question:</strong> {{ attempt.question }}</p>
-    <p><strong>Your answer:</strong> {{ attempt.answer }}</p>
-    <p><strong>Feedback to use next time:</strong> {{ attempt.feedback }}</p>
-  </article>
-  {% else %}<p>No unresolved mistake with saved feedback on this topic yet. Answer practice questions to build your profile.</p>{% endfor %}
-</details>
-
 <div class="player">
   <div class="board-wrap">
     <svg id="board" role="img" aria-label="The whiteboard, written as the lesson plays"></svg>
@@ -62,36 +48,19 @@
            aria-label="Scrub the lesson">
     <label class="wb-speed mono" for="speed">Speed
       <select id="speed" class="mono">
-        <option value="slow">slow</option>
-        <option value="normal" selected>normal</option>
-        <option value="fast">fast</option>
+        <option value="slow">1×</option>
+        <option value="normal" selected>1.25×</option>
+        <option value="fast">1.5×</option>
       </select>
     </label>
-    <button class="btn warn" id="btn-ask">{{ icon("hand") }} Stop and ask a question</button>
+    <button class="btn warn" id="btn-ask">{{ icon("hand") }} Ask a question</button>
     <button class="btn ghost small" id="btn-replay">{{ icon("restart") }} Replay</button>
     <span class="spacer"></span>
     <button class="btn ghost small" id="btn-regenerate">↻ Redraw lesson</button>
   </div>
 </div>
 
-<div class="conversation-controls">
-  <button class="btn ghost" id="keyword-listen" aria-pressed="false">Enable voice interruptions</button>
-  <span id="keyword-state" role="status">Say “Hey tutor”, “Tutor pause”, or “I have a question” after enabling. Headphones help prevent the tutor triggering the mic. Your browser may send speech to its recognition service.</span>
-</div>
-<section id="lesson-explore" class="lesson-explore" hidden>
-  <button class="btn ghost" id="explore-toggle" aria-expanded="false" aria-controls="explore-panel">Explore in 3D</button>
-  <div id="explore-panel" hidden>
-    <h3 id="explore-title"></h3><p id="explore-description"></p>
-    <svg id="explore-svg" viewBox="0 0 600 360" role="img" aria-labelledby="explore-title explore-description"></svg>
-    <label>Rotate <input id="explore-angle" type="range" min="0" max="360" value="25"></label>
-    <label id="explore-parameter-label">Height <input id="explore-parameter" type="range" min="1" max="5" step="0.1" value="2"></label>
-    <output id="explore-output" aria-live="polite"></output>
-    <button class="btn ghost" id="explore-motion" aria-pressed="false">Animate</button>
-    <button class="btn" id="explore-resume">Close and resume lesson</button>
-  </div>
-</section>
-
-<p class="board-hint">The board keeps its real size on small screens — swipe it sideways, or turn your phone to landscape, to read the whole thing.</p>
+<p class="voice-status" id="keyword-state" role="status">Say “Hey tutor” to ask a question. Microphone permission is required.</p>
 
 <div class="sound-hint" id="sound-hint">
   {{ icon("mute") }} Your browser is blocking sound — the lesson is playing silently. Tap anywhere to hear the tutor.
@@ -112,9 +81,9 @@
   </ul>
   <div class="done-actions">
     {% if practicable %}
-    <a class="btn gradient" id="done-exam" href="{{ url_for('exam', subject=subject, topic=topic) }}">Prove it in the Exam Center</a>
+    <a class="btn" id="done-exam" href="{{ url_for('exam', subject=subject, topic=topic) }}">Prove it in the Exam Center</a>
     {% else %}
-    <a class="btn gradient" href="{{ url_for('upload') }}">Mark a paper you have</a>
+    <a class="btn" href="{{ url_for('upload') }}">Mark a paper you have</a>
     {% endif %}
     <button class="btn ghost" id="done-replay">{{ icon("restart") }} Replay the board</button>
     <a class="btn ghost" href="{{ url_for('subject', subject=subject) }}">Next topic</a>
@@ -159,6 +128,6 @@
 <script src="{{ url_for('static', filename='js/diagrams.js') }}"></script>
 <script src="{{ url_for('static', filename='js/whiteboard.js') }}"></script>
 <script src="{{ url_for('static', filename='js/voice.js') }}"></script>
-<script src="{{ url_for('static', filename='js/lesson-explore.js') }}"></script>
+
 <script src="{{ url_for('static', filename='js/lesson.js') }}"></script>
 {% endblock %}

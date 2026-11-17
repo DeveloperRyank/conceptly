@@ -612,10 +612,31 @@ def _gemini_tts_ok():
             and time.monotonic() >= _TTS_BREAKER_UNTIL)
 
 
+# VoiceStudio runs on a persistent host; keep its credentials entirely server-side.
+VOICESTUDIO_URL = os.environ.get("VOICESTUDIO_URL", "").strip().rstrip("/")
+VOICESTUDIO_API_KEY = os.environ.get("VOICESTUDIO_API_KEY", "").strip()
+VOICESTUDIO_MODEL = os.environ.get("VOICESTUDIO_MODEL", "omnivoice").strip()
+VOICESTUDIO_VOICE = os.environ.get("VOICESTUDIO_VOICE", "default").strip()
+
+
+def _voicestudio_synthesize(text):
+    if not VOICESTUDIO_URL.startswith("https://"):
+        raise RuntimeError("VoiceStudio needs an HTTPS server URL")
+    headers={"Authorization":"Bearer " + VOICESTUDIO_API_KEY} if VOICESTUDIO_API_KEY else {}
+    response=requests.post(VOICESTUDIO_URL+"/v1/audio/speech",headers=headers,json={
+        "model":VOICESTUDIO_MODEL,"voice":VOICESTUDIO_VOICE,"input":text,
+        "response_format":"wav","speed":1.0},timeout=(5,25),allow_redirects=False)
+    if response.status_code != 200 or not response.content.startswith(b"RIFF") or response.content[8:12] != b"WAVE":
+        raise RuntimeError("VoiceStudio did not return WAV audio")
+    if len(response.content)>12*1024*1024:
+        raise RuntimeError("VoiceStudio audio is too large")
+    return response.content,"audio/wav"
+
+
 def tts_available():
     """True when a server-side narrator can actually answer right now — the page uses
     this to decide whether the browser should even try /api/tts."""
-    return _kokoro_ok() or _edge_ok() or _gemini_tts_ok()
+    return bool(VOICESTUDIO_URL) or _kokoro_ok() or _edge_ok() or _gemini_tts_ok()
 
 
 def _pcm_to_wav(pcm, rate):
@@ -711,6 +732,17 @@ def synthesize(text, voice=None):
     should let the browser voice cover this step rather than stall the lesson.
     Each provider's output is cached so repeats don't re-fetch.
     """
+    if VOICESTUDIO_URL:
+        key=("voicestudio",VOICESTUDIO_MODEL,VOICESTUDIO_VOICE,text)
+        if key in _TTS_CACHE:
+            return _TTS_CACHE[key]
+        try:
+            audio=_voicestudio_synthesize(text)
+            if len(_TTS_CACHE)<64:
+                _TTS_CACHE[key]=audio
+            return audio
+        except (requests.RequestException, RuntimeError):
+            pass  # Preserve audible lessons when the configured voice host is offline.
     hosted = ("edge", "gemini") if TTS_PROVIDER == "edge" else ("gemini", "edge")
     order = (("kokoro",) if _kokoro_ok() else ()) + hosted
     warming = False
@@ -830,9 +862,9 @@ def chat_json(system, user, temperature=0.4, max_tokens=3000):
     return extract_json(chat(system, user, temperature, max_tokens, json_mode=True))
 
 
-def chat_json_with_file(system, user, file, temperature=0.2, max_tokens=4000):
+def chat_json_with_file(system, user, file, temperature=0.2, max_tokens=4000, deadline=None):
     """JSON-mode completion with an inline PDF/image (Gemini vision). `file` is
     {"mime": str, "data_b64": str}."""
     return extract_json(
-        chat(system, user, temperature, max_tokens, json_mode=True, file=file)
+        chat(system, user, temperature, max_tokens, json_mode=True, file=file, deadline=deadline)
     )

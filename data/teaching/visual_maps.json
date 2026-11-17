@@ -1,0 +1,427 @@
+{
+  "chemistry:introduction_to_chemistry": [
+    "Substances",
+    "Properties",
+    "Chemical changes"
+  ],
+  "chemistry:classification_of_substances": [
+    "Elements",
+    "Compounds",
+    "Mixtures"
+  ],
+  "chemistry:separation_techniques": [
+    "Physical properties",
+    "Separation method",
+    "Separated components"
+  ],
+  "chemistry:laboratory_techniques": [
+    "Apparatus",
+    "Measurement",
+    "Safe handling"
+  ],
+  "chemistry:acids_bases_indicators": [
+    "Acids",
+    "Bases",
+    "Indicator colours"
+  ],
+  "chemistry:air_and_combustion": [
+    "Oxygen",
+    "Combustion",
+    "Products"
+  ],
+  "chemistry:water_and_hydrogen": [
+    "Water",
+    "Hydrogen",
+    "Chemical reactions"
+  ],
+  "chemistry:hard_water": [
+    "Calcium and magnesium",
+    "Soap and lather",
+    "Softening"
+  ],
+  "chemistry:states_of_matter": [
+    "Solids",
+    "Liquids",
+    "Gases"
+  ],
+  "chemistry:atomic_structure": [
+    "Nucleus",
+    "Electrons",
+    "Energy levels"
+  ],
+  "chemistry:periodic_table": [
+    "Atomic number",
+    "Groups",
+    "Periods"
+  ],
+  "chemistry:chemical_bonding": [
+    "Ionic bonding",
+    "Covalent bonding",
+    "Metallic bonding"
+  ],
+  "chemistry:salts": [
+    "Preparation",
+    "Solubility",
+    "Crystallisation"
+  ],
+  "chemistry:effect_of_electric_current": [
+    "Electrolytes",
+    "Electrodes",
+    "Products"
+  ],
+  "chemistry:carbon_and_compounds": [
+    "Carbon forms",
+    "Carbon oxides",
+    "Carbonates"
+  ],
+  "chemistry:gas_laws": [
+    "Pressure",
+    "Volume",
+    "Temperature"
+  ],
+  "chemistry:mole_concept": [
+    "Amount in moles",
+    "Molar mass",
+    "Particle number"
+  ],
+  "chemistry:organic_chemistry": [
+    "Hydrocarbons",
+    "Bonding",
+    "Reactions"
+  ],
+  "chemistry:nitrogen_and_compounds": [
+    "Nitrogen",
+    "Ammonia",
+    "Nitric acid"
+  ],
+  "chemistry:sulphur_and_compounds": [
+    "Sulphur",
+    "Sulphur oxides",
+    "Sulphuric acid"
+  ],
+  "chemistry:chlorine_and_compounds": [
+    "Chlorine",
+    "Chlorides",
+    "Hydrogen chloride"
+  ],
+  "chemistry:acids_bases_salts": [
+    "Neutralisation",
+    "Salt preparation",
+    "Solubility"
+  ],
+  "chemistry:energy_changes": [
+    "Bond breaking",
+    "Bond formation",
+    "Enthalpy change"
+  ],
+  "chemistry:reaction_rates": [
+    "Collision frequency",
+    "Activation energy",
+    "Rate factors"
+  ],
+  "chemistry:reversible_reactions": [
+    "Forward reaction",
+    "Reverse reaction",
+    "Equilibrium"
+  ],
+  "chemistry:electrochemistry": [
+    "Oxidation",
+    "Reduction",
+    "Electron transfer"
+  ],
+  "chemistry:metals": [
+    "Ores",
+    "Extraction",
+    "Properties and uses"
+  ],
+  "chemistry:organic_chemistry_2": [
+    "Functional groups",
+    "Reactions",
+    "Polymers"
+  ],
+  "chemistry:radioactivity": [
+    "Nucleus",
+    "Emissions",
+    "Half-life"
+  ],
+  "chemistry:qualitative_analysis": [
+    "Reagent",
+    "Observation",
+    "Inference"
+  ],
+  "chemistry:crude_oil": [
+    "Fractional distillation",
+    "Hydrocarbons",
+    "Cracking"
+  ],
+  "physics:intro_to_physics": [
+    "Quantities",
+    "Measurements",
+    "Models"
+  ],
+  "physics:measurement_i": [
+    "Length",
+    "Mass",
+    "Time"
+  ],
+  "physics:forces": [
+    "Contact forces",
+    "Field forces",
+    "Resultant force"
+  ],
+  "physics:pressure": [
+    "Force",
+    "Area",
+    "Pressure"
+  ],
+  "physics:particulate_nature_of_matter": [
+    "Particles",
+    "Random motion",
+    "Diffusion"
+  ],
+  "physics:thermal_expansion": [
+    "Temperature rise",
+    "Particle separation",
+    "Expansion"
+  ],
+  "physics:heat_transfer": [
+    "Conduction",
+    "Convection",
+    "Radiation"
+  ],
+  "physics:rectilinear_propagation": [
+    "Incident ray",
+    "Normal",
+    "Reflected ray"
+  ],
+  "physics:electrostatics_i": [
+    "Charge",
+    "Attraction",
+    "Repulsion"
+  ],
+  "physics:cells_and_simple_circuits": [
+    "Cell",
+    "Conducting path",
+    "Current"
+  ],
+  "physics:magnetism": [
+    "Poles",
+    "Field direction",
+    "Field strength"
+  ],
+  "physics:measurement_ii": [
+    "Reading",
+    "Zero error",
+    "Corrected value"
+  ],
+  "physics:turning_effect_of_a_force": [
+    "Force",
+    "Perpendicular distance",
+    "Moment"
+  ],
+  "physics:equilibrium_and_centre_of_gravity": [
+    "Weight",
+    "Support base",
+    "Stability"
+  ],
+  "physics:reflection_at_curved_surfaces": [
+    "Object",
+    "Reflected rays",
+    "Image"
+  ],
+  "physics:magnetic_effect_of_current": [
+    "Current",
+    "Magnetic field",
+    "Direction rule"
+  ],
+  "physics:hookes_law": [
+    "Force",
+    "Extension",
+    "Spring constant"
+  ],
+  "physics:waves_i": [
+    "Amplitude",
+    "Wavelength",
+    "Frequency"
+  ],
+  "physics:sound": [
+    "Vibration",
+    "Compression",
+    "Rarefaction"
+  ],
+  "physics:fluid_flow": [
+    "Cross-section",
+    "Speed",
+    "Volume flow rate"
+  ],
+  "physics:linear_motion": [
+    "Displacement",
+    "Velocity",
+    "Acceleration"
+  ],
+  "physics:refraction_of_light": [
+    "Incident angle",
+    "Speed change",
+    "Refracted angle"
+  ],
+  "physics:newtons_laws": [
+    "Resultant force",
+    "Mass",
+    "Acceleration"
+  ],
+  "physics:energy_work_power_machines": [
+    "Input energy",
+    "Useful output",
+    "Efficiency"
+  ],
+  "physics:current_electricity": [
+    "Potential difference",
+    "Current",
+    "Resistance"
+  ],
+  "physics:waves_ii": [
+    "Diffraction",
+    "Interference",
+    "Refraction"
+  ],
+  "physics:electrostatics_ii": [
+    "Charge distribution",
+    "Electric field",
+    "Potential"
+  ],
+  "physics:heating_effect_of_current": [
+    "Current",
+    "Resistance",
+    "Heating energy"
+  ],
+  "physics:quantity_of_heat": [
+    "Mass",
+    "Heat capacity",
+    "Temperature change"
+  ],
+  "physics:gas_laws": [
+    "Pressure",
+    "Volume",
+    "Absolute temperature"
+  ],
+  "physics:thin_lenses": [
+    "Object",
+    "Refracted rays",
+    "Image"
+  ],
+  "physics:uniform_circular_motion": [
+    "Speed",
+    "Radius",
+    "Centripetal force"
+  ],
+  "physics:floating_and_sinking": [
+    "Weight",
+    "Upthrust",
+    "Displaced fluid"
+  ],
+  "physics:electromagnetic_spectrum": [
+    "Frequency",
+    "Wavelength",
+    "Applications"
+  ],
+  "physics:electromagnetic_induction": [
+    "Changing flux",
+    "Induced emf",
+    "Induced current"
+  ],
+  "physics:mains_electricity": [
+    "Voltage",
+    "Power",
+    "Protection"
+  ],
+  "physics:cathode_rays": [
+    "Electrons",
+    "Electric field",
+    "Deflection"
+  ],
+  "physics:x_rays": [
+    "Fast electrons",
+    "Metal target",
+    "X-ray emission"
+  ],
+  "physics:photoelectric_effect": [
+    "Photon energy",
+    "Work function",
+    "Electron kinetic energy"
+  ],
+  "physics:radioactivity": [
+    "Activity",
+    "Half-life",
+    "Decay"
+  ],
+  "physics:electronics": [
+    "Diode",
+    "Transistor",
+    "Electronic circuits"
+  ],
+  "physics:capacitors": [
+    "Charge",
+    "Potential difference",
+    "Capacitance"
+  ],
+  "chemistry:periodicity": [
+    "Atomic number",
+    "Groups",
+    "Periods"
+  ],
+  "chemistry:thermochemistry": [
+    "Bond breaking",
+    "Bond formation",
+    "Enthalpy change"
+  ],
+  "chemistry:electrolysis": [
+    "Electrolytes",
+    "Electrodes",
+    "Products"
+  ],
+  "chemistry:redox_reactions": [
+    "Oxidation",
+    "Reduction",
+    "Electron transfer"
+  ],
+  "chemistry:reaction_kinetics": [
+    "Collision frequency",
+    "Activation energy",
+    "Rate factors"
+  ],
+  "chemistry:chemical_equilibrium": [
+    "Forward reaction",
+    "Reverse reaction",
+    "Equilibrium"
+  ],
+  "chemistry:nitrogen": [
+    "Nitrogen",
+    "Ammonia",
+    "Nitric acid"
+  ],
+  "chemistry:sulphur": [
+    "Sulphur",
+    "Sulphur oxides",
+    "Sulphuric acid"
+  ],
+  "chemistry:halogens": [
+    "Chlorine",
+    "Chlorides",
+    "Hydrogen chloride"
+  ],
+  "chemistry:extraction_of_metals": [
+    "Ores",
+    "Extraction",
+    "Properties and uses"
+  ],
+  "chemistry:solutions_and_solubility": [
+    "Solute",
+    "Solvent",
+    "Saturation"
+  ],
+  "chemistry:industrial_processes": [
+    "Raw materials",
+    "Reaction conditions",
+    "Products"
+  ]
+}

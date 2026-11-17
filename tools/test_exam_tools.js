@@ -1,0 +1,10 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const context={window:{},document:{addEventListener(){}},Math,Number,Error};vm.createContext(context);vm.runInContext(fs.readFileSync('static/js/exam-tools.js','utf8'),context);
+const calc=context.window.examCalculation;
+for(const [expression,result] of [['12 × sin(30)',6],['2+3*4',14],['(2+3)*4',20],['2^3^2',512],['-2^2',-4],['2^-2',.25],['sqrt(81)',9],['log(1000)',3],['3.2e-3*1000',3.2]])assert.equal(calc(expression),result,expression);
+for(const bad of ['alert(1)','1/0','sqrt(-1)','2;process.exit()','(2+3','2 3'])assert.throws(()=>calc(bad),bad);
+assert(context.window.examNeedsPad('physics','A mass moves. Calculate momentum.'));
+assert(!context.window.examNeedsPad('physics','Explain friction.'));
+assert(context.window.examNeedsPad('chemistry','Draw a flask.'));
+assert(!context.window.examNeedsPad('computer','Name a storage device.'));
+console.log('PASS calculator precedence, degrees, invalid input, and question eligibility');
