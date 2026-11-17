@@ -1,0 +1,65 @@
+question,topic,concept,options,answer,explanation,reference_answer
+Evaluate -3 + 4 × (7 - 2).,numbers,,,,,Brackets give 5; multiply 4 × 5 = 20 before adding. -3 + 20 = 17. Check by starting at -3 and adding 20.
+Find the HCF and LCM of 36 and 48.,numbers,,,,,36 = 2² × 3² and 48 = 2⁴ × 3. HCF = 2² × 3 = 12; LCM = 2⁴ × 3² = 144. Check: 12 × 144 = 36 × 48 = 1728.
+"Calculate 3/4 ÷ 5/6, leaving a simplified fraction.",numbers,,,,,3/4 × 6/5 = 18/20 = 9/10. Check: 9/10 × 5/6 = 3/4.
+Write 0.000456 in standard form and round to 2 significant figures.,numbers,,,,,"0.000456 = 4.56 × 10⁻⁴. To 2 significant figures it is 4.6 × 10⁻⁴, or 0.00046. The negative exponent represents a small positive number, not a negative value."
+Simplify 3(2x - 5) - 2(x + 1).,algebraic_expressions,,,,,Expand: 6x - 15 - 2x - 2 = 4x - 17. Check x = 2: original 3(-1) - 2(3) = -9; simplified 8 - 17 = -9.
+Factorise x² - 5x + 6.,algebraic_expressions,,,,,Find numbers with sum -5 and product 6: -2 and -3. Thus (x - 2)(x - 3). Expanding gives x² - 3x - 2x + 6.
+Simplify (x² - 9)/(x - 3) and state the restriction.,algebraic_expressions,,,,,"Factor the numerator as (x - 3)(x + 3). Cancel the factor x - 3 to get x + 3, with x ≠ 3. The original denominator is zero at 3, so the restriction remains."
+Simplify (2³ × 2⁵)/2⁴.,algebraic_expressions,,,,,Same-base index laws give 2^(3 + 5 - 4) = 2⁴ = 16. Check 8 × 32 ÷ 16 = 16.
+Solve 3x - 7 = 11.,equations_inequalities,,,,,Add 7 to both sides: 3x = 18. Divide by 3: x = 6. Check: 3(6) - 7 = 11.
+Solve x + y = 7 and 2x - y = 2.,equations_inequalities,,,,,"Add equations to eliminate y: 3x = 9, so x = 3. Then y = 4. Check: 3 + 4 = 7 and 6 - 4 = 2."
+Solve x² - 5x + 6 = 0.,equations_inequalities,,,,,Factor: (x - 2)(x - 3) = 0. Hence x = 2 or x = 3. Check each in the original quadratic: both give zero.
+Solve -2x + 3 < 11.,equations_inequalities,,,,,Subtract 3: -2x < 8. Divide by -2 and reverse the sign: x > -4. Check x = 0 satisfies 3 < 11; x = -5 fails because 13 < 11 is false.
+"If f(x) = 2x² - 3, find f(-2).",functions_graphs,,,,,f(-2) = 2(-2)² - 3 = 8 - 3 = 5. The square applies to the whole negative input.
+"Find the equation of the line with gradient 3 passing through (2, 7).",functions_graphs,,,,,"Use y - 7 = 3(x - 2), giving y = 3x + 1. Check x = 2 gives y = 7."
+"For y = x² - 4x + 3, find the roots and turning point.",functions_graphs,,,,,"Factor: (x - 1)(x - 3), so roots are 1 and 3. Complete the square: y = (x - 2)² - 1, so minimum point is (2, -1)."
+Find the inverse of f(x) = 3x - 2.,functions_graphs,,,,,"Write y = 3x - 2, solve x = (y + 2)/3, then rename input: f⁻¹(x) = (x + 2)/3. Check f⁻¹(f(x)) = x."
+"Find the 10th term of 5, 8, 11, ... .",sequences_series,,,,,"a = 5, d = 3. T₁₀ = 5 + 9 × 3 = 32. There are nine increments between the first and tenth terms."
+"Find the sum of the first 20 terms of 2, 5, 8, ... .",sequences_series,,,,,"a = 2, d = 3. S₂₀ = 20[4 + 19(3)]/2 = 610. Last term is 59; 20 × (2 + 59)/2 also gives 610."
+"Find the 6th term of the geometric sequence 3, 6, 12, ... .",sequences_series,,,,,"a = 3 and r = 2. T₆ = 3 × 2⁵ = 96. Listing 3, 6, 12, 24, 48, 96 checks the position."
+Find the sum to infinity of 8 + 4 + 2 + ... .,sequences_series,,,,,"r = 1/2, so |r| < 1. S∞ = 8/(1 - 1/2) = 16. Finite partial sums are below 16 and approach it."
+A right triangle has opposite side 6 cm and adjacent side 8 cm relative to θ. Find tan θ and θ to 1 decimal place.,trigonometry,,,,,"tan θ = 6/8 = 0.75. θ = tan⁻¹(0.75) ≈ 36.9°. Hypotenuse is 10 cm, so sin θ = 0.6 gives the same angle."
+Find the third side of a triangle with sides 5 cm and 7 cm enclosing 60°.,trigonometry,,,,,c² = 25 + 49 - 2(5)(7)cos 60° = 39. c = √39 ≈ 6.24 cm. It lies between 7 - 5 = 2 cm and 12 cm as required.
+Find the area of a triangle with sides 8 cm and 6 cm enclosing 30°.,trigonometry,,,,,Area = 1/2 × 8 × 6 × sin 30° = 12 cm². Independent check: height to the 8 cm base is 6 sin 30° = 3 cm; half base × height = 12 cm².
+Solve sin θ = 1/2 for 0° ≤ θ ≤ 360°.,trigonometry,,,,,"Reference angle is 30°. Sine is positive in quadrants I and II, so θ = 30° or 150°. No other solutions in the stated interval."
+"Given A = (1, 2) and B = (7, 10), find AB and its magnitude.",vectors,,,,,"AB = (7 - 1, 10 - 2) = (6, 8). |AB| = √(36 + 64) = 10 units. BA = (-6, -8) has the same magnitude."
+"Find a unit vector in the direction (3, 4).",vectors,,,,,"Magnitude = 5, so the unit vector is (3/5, 4/5). Check √(9/25 + 16/25) = 1."
+"P divides A(2, 1) to B(8, 7) internally in the ratio AP:PB = 1:2. Find P.",vectors,,,,,"P = A + (1/3)(B - A) = (2, 1) + (2, 2) = (4, 3). AP = (2, 2), PB = (4, 4), verifying 1:2."
+"Find the magnitude of the vector (3, 2, 2).",vectors,,,,,"Magnitude = √(9 + 4 + 4) = √17 units, approximately 4.12. Its square equals the sum of squared components."
+"Find the determinant of [[2,1],[3,4]].",matrices_transformations,,,,,det = 2 × 4 - 1 × 3 = 5.
+"Find the inverse of [[2,1],[3,4]].",matrices_transformations,,,,,"Determinant is 5, so inverse = (1/5)[[4,-1],[-3,2]]. Product with the original gives [[1,0],[0,1]]."
+"Rotate P(3,2) through 90° anticlockwise about the origin.",matrices_transformations,,,,,"Use [[0,-1],[1,0]] × (3,2) to obtain (-2,3). Distance from the origin remains √13."
+"Reflect (4,-3) in the y-axis, then translate by (2,1).",matrices_transformations,,,,,"Reflection gives (-4,-3). Adding (2,1) gives (-2,-2). The translation is applied after reflection as specified."
+"Find the distance and midpoint between (1,2) and (7,10).",analytic_geometry,,,,,"Distance = √(6² + 8²) = 10 units. Midpoint = ((1+7)/2,(2+10)/2) = (4,6)."
+"Find the equation of the line through (2,3) perpendicular to y = 2x + 1.",analytic_geometry,,,,,"Perpendicular gradient is -1/2. y - 3 = -(x - 2)/2, so y = -x/2 + 4. Product of gradients is -1 and (2,3) satisfies the result."
+State the centre and radius of x² + y² - 6x + 4y - 12 = 0.,analytic_geometry,,,,,"Completing squares gives (x - 3)² + (y + 2)² = 25. Centre (3,-2), radius 5 units."
+"Find the equation of the tangent to x² + y² = 25 at (3,4).",analytic_geometry,,,,,"Radius gradient is 4/3; tangent gradient is -3/4. y - 4 = -3(x - 3)/4, giving 3x + 4y = 25. The contact point satisfies both circle and tangent."
+Differentiate y = 3x³ - 4x² + 5x - 7.,calculus,,,,,"dy/dx = 9x² - 8x + 5, applying the power rule term by term. The derivative of -7 is zero."
+Find the stationary point of y = x² - 6x + 5 and classify it.,calculus,,,,,"dy/dx = 2x - 6 = 0 gives x = 3. y = -4. Second derivative is 2 > 0, so (3,-4) is a minimum. Completing the square gives (x-3)² - 4 as a check."
+Evaluate the integral from 0 to 2 of 3x² dx.,calculus,,,,,Antiderivative is x³. Evaluate 2³ - 0³ = 8. Differentiating x³ returns 3x².
+Find the tangent to y = x² at x = 2.,calculus,,,,,"Point is (2,4), derivative 2x gives slope 4. y - 4 = 4(x - 2), so y = 4x - 4. Check it passes through (2,4)."
+A fair die is rolled. Find the probability of an even result.,probability,,,,,"Even outcomes are 2,4,6 out of 6 equally likely outcomes. Probability = 3/6 = 1/2."
+Two fair coins are tossed independently. Find the probability of exactly one head.,probability,,,,,"Equally likely outcomes are HH, HT, TH, TT. Two have exactly one head, so probability = 2/4 = 1/2."
+A bag contains 3 red and 2 blue balls. Two are drawn without replacement. Find the probability both are red.,probability,,,,,"First red probability 3/5. After a red, 2 of 4 balls are red. Product = (3/5)(2/4) = 3/10. Replacement would instead give 9/25."
+"P(A) = 0.4, P(B) = 0.5 and P(A and B) = 0.2. Find P(A or B).",probability,,,,,0.4 + 0.5 - 0.2 = 0.7. Subtract the intersection because it was counted twice.
+"Find the mean, median and mode of 2,3,3,8.",statistics,,,,,Mean = 16/4 = 4. Median = (3+3)/2 = 3. Mode = 3. The high value 8 pulls the mean above the median.
+"Values 1,2,3 have frequencies 2,3,1. Find the mean.",statistics,,,,,N = 6; sum(fx) = 2 + 6 + 3 = 11. Mean = 11/6 ≈ 1.83. It lies between 1 and 3.
+"Find the population variance and standard deviation of 2,4,6.",statistics,,,,,"Mean = 4. Squared deviations are 4,0,4. Variance = 8/3; standard deviation = √(8/3) ≈ 1.63. Do not divide by n-1 because population variance was requested."
+A histogram class from 10 to 20 has frequency 30. Find its frequency density.,statistics,,,,,"Class width = 10, density = 30/10 = 3. Histogram area 10 × 3 = 30 represents the frequency."
+An article costs KSh 800 and sells for KSh 1000. Find the profit percentage on cost.,commercial_arithmetic,,,,,Profit = 1000 - 800 = KSh 200. Percentage = 200/800 × 100 = 25%. Profit margin on sales would instead be 20%.
+Find simple interest on KSh 20000 at 6% per year for 3 years.,commercial_arithmetic,,,,,"I = 20000 × 0.06 × 3 = KSh 3600. Total amount = KSh 23600. Annual interest is KSh 1200, checking three years gives KSh 3600."
+KSh 10000 is invested at 10% compound interest per year for 2 years. Find the amount.,commercial_arithmetic,,,,,A = 10000(1.1)² = KSh 12100. Year one gives 11000; year two adds 1100. Interest earned is KSh 2100.
+A machine worth KSh 50000 depreciates by 20% each year. Find its value after 2 years.,commercial_arithmetic,,,,,Value = 50000(0.8)² = KSh 32000. Sequentially: 40000 after year one and 32000 after year two.
+"State inequalities for x desks and y chairs when x,y are nonnegative and each desk uses 2 hours, each chair 1 hour, with at most 10 hours available.",linear_programming,,,,,"x ≥ 0, y ≥ 0 and 2x + y ≤ 10. At most means less than or equal to, not equality in every feasible plan."
+Find the intercepts of 2x + y = 10.,linear_programming,,,,,"At x = 0, y = 10. At y = 0, x = 5. Intercepts are (0,10) and (5,0)."
+"Maximise P = 3x + 2y for x ≥ 0, y ≥ 0, x + y ≤ 4 and x ≤ 2.",linear_programming,,,,,"Vertices are (0,0),(2,0),(2,2),(0,4). Objective values are 0,6,10,8. Maximum P = 10 at (2,2). Both resource inequalities hold."
+"Does (3,2) satisfy x + y ≤ 4 and x ≤ 2? Explain.",linear_programming,,,,,"No. x + y = 5 > 4 and x = 3 > 2, so it violates both constraints and is outside the feasible region."
+Find the volume and total surface area of a closed cuboid 4 cm by 3 cm by 2 cm.,volume_area,,,,,Volume = 4 × 3 × 2 = 24 cm³. Area = 2(4×3 + 4×2 + 3×2) = 52 cm². Each pair of opposite faces has equal area.
+"Find the volume of a cylinder of radius 7 cm and height 10 cm, using π = 22/7.",volume_area,,,,,V = πr²h = (22/7) × 49 × 10 = 1540 cm³. Base area is 154 cm²; multiplying by height checks the result.
+Find the curved surface area of a cone with radius 3 cm and slant height 5 cm.,volume_area,,,,,Curved area = πrl = 15π cm². Total area including its circular base would be 15π + 9π = 24π cm².
+Similar solids have corresponding lengths in the ratio 2:3. Find their volume ratio.,volume_area,,,,,"Cube the length ratio: 2³:3³ = 8:27. Area ratio would be 4:9, a different quantity."
+"Find the space diagonal of a cuboid with edges 3 cm, 4 cm and 12 cm.",solid_geometry,,,,,Base diagonal = √(3² + 4²) = 5 cm. Space diagonal = √(5² + 12²) = 13 cm. Check 13² = 9 + 16 + 144.
+"A cuboid has base 3 cm by 4 cm and height 12 cm. Find the angle its space diagonal makes with the base, to 1 decimal place.",solid_geometry,,,,,"Projection onto the base is its 5 cm diagonal. tan θ = 12/5, giving θ ≈ 67.4°. Check sin θ = 12/13 gives the same angle."
+A square pyramid has base side 6 cm and vertical height 4 cm. Find the slant height from the apex to the midpoint of a base edge.,solid_geometry,,,,,Horizontal distance from base centre to edge midpoint is 3 cm. Slant height = √(4² + 3²) = 5 cm. The distance to a base vertex is different.
+Find the total surface area of that square pyramid with base side 6 cm and face slant height 5 cm.,solid_geometry,,,,,Four triangular faces have combined area 4 × (1/2 × 6 × 5) = 60 cm². Add base area 36 cm² to get 96 cm².

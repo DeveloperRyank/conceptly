@@ -128,7 +128,7 @@
 
 /* A class that sets display would otherwise beat [hidden] — and every filter on this site
    is a student asking for something to stop being on the screen. */
-[hidden] { display: none !important; }
+.lesson-explore[hidden], .lesson-explore [hidden] { display: none !important; }
 
 html {
   font-size: 100%;                       /* rem = the system font size, always */
@@ -1852,3 +1852,13 @@ nav .links .who:hover { color: var(--cream); text-decoration: none; background: 
 
 .banner.good { background: rgba(116, 169, 141, 0.14); border-color: var(--sage); }
 .banner .ico { margin-right: var(--sp-1); }
+
+.learning-profile, .lesson-explore { margin: 1rem 0; padding: 1rem; border: 1px solid var(--muted); border-radius: 12px; }
+.learning-profile summary { cursor: pointer; font-weight: 600; }
+.learning-profile article { border-top: 1px solid var(--muted); overflow-wrap: anywhere; }
+.conversation-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin: 1rem 0; }
+.conversation-controls span { flex: 1 1 260px; font-size: .9rem; }
+.lesson-explore svg { width: 100%; max-height: 420px; background: #131c22; border-radius: 10px; }
+.lesson-explore label { display: inline-flex; gap: .5rem; align-items: center; margin: .8rem; }
+.lesson-explore output { display: block; margin: .8rem 0; }
+.lesson-explore[hidden], .lesson-explore [hidden] { display: none !important; }

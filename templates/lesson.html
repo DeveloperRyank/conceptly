@@ -8,6 +8,17 @@
 <p class="sub">The tutor writes and speaks the same sentence at the same moment — it is one
   video, not slides. Scrub it, slow it down, or stop it on any word and ask.</p>
 
+<details class="learning-profile">
+  <summary>Your learning profile · {{ learning_responses }} recorded responses</summary>
+  <p>These may include walkthrough self-checks. Watching lessons and exploring diagrams do not count as correct answers.</p>
+  {% for attempt in learning_evidence %}
+  <article><p class="muted">Recorded {{ attempt.recorded_date }}</p><p><strong>Earlier question:</strong> {{ attempt.question }}</p>
+    <p><strong>Your answer:</strong> {{ attempt.answer }}</p>
+    <p><strong>Feedback to use next time:</strong> {{ attempt.feedback }}</p>
+  </article>
+  {% else %}<p>No unresolved mistake with saved feedback on this topic yet. Answer practice questions to build your profile.</p>{% endfor %}
+</details>
+
 <div class="player">
   <div class="board-wrap">
     <svg id="board" role="img" aria-label="The whiteboard, written as the lesson plays"></svg>
@@ -62,6 +73,23 @@
     <button class="btn ghost small" id="btn-regenerate">↻ Redraw lesson</button>
   </div>
 </div>
+
+<div class="conversation-controls">
+  <button class="btn ghost" id="keyword-listen" aria-pressed="false">Enable voice interruptions</button>
+  <span id="keyword-state" role="status">Say “Hey tutor”, “Tutor pause”, or “I have a question” after enabling. Headphones help prevent the tutor triggering the mic. Your browser may send speech to its recognition service.</span>
+</div>
+<section id="lesson-explore" class="lesson-explore" hidden>
+  <button class="btn ghost" id="explore-toggle" aria-expanded="false" aria-controls="explore-panel">Explore in 3D</button>
+  <div id="explore-panel" hidden>
+    <h3 id="explore-title"></h3><p id="explore-description"></p>
+    <svg id="explore-svg" viewBox="0 0 600 360" role="img" aria-labelledby="explore-title explore-description"></svg>
+    <label>Rotate <input id="explore-angle" type="range" min="0" max="360" value="25"></label>
+    <label id="explore-parameter-label">Height <input id="explore-parameter" type="range" min="1" max="5" step="0.1" value="2"></label>
+    <output id="explore-output" aria-live="polite"></output>
+    <button class="btn ghost" id="explore-motion" aria-pressed="false">Animate</button>
+    <button class="btn" id="explore-resume">Close and resume lesson</button>
+  </div>
+</section>
 
 <p class="board-hint">The board keeps its real size on small screens — swipe it sideways, or turn your phone to landscape, to read the whole thing.</p>
 
@@ -118,6 +146,7 @@
 
 <script id="lesson-data" type="application/json">{{ lesson | tojson }}</script>
 <script nonce="{{ csp_nonce() }}">
+  const LESSON_REVISION = {{ lesson_revision | tojson }};
   const SUBJECT = {{ subject | tojson }};
   const TOPIC = {{ topic | tojson }};
   const EXAM_URL = {{ url_for('exam', subject=subject, topic=topic) | tojson }};
@@ -130,5 +159,6 @@
 <script src="{{ url_for('static', filename='js/diagrams.js') }}"></script>
 <script src="{{ url_for('static', filename='js/whiteboard.js') }}"></script>
 <script src="{{ url_for('static', filename='js/voice.js') }}"></script>
+<script src="{{ url_for('static', filename='js/lesson-explore.js') }}"></script>
 <script src="{{ url_for('static', filename='js/lesson.js') }}"></script>
 {% endblock %}

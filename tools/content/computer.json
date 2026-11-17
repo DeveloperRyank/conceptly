@@ -1,0 +1,292 @@
+{
+  "intro_computers": {
+    "principles": "A computer accepts data, processes it under stored instructions, produces information and can store results. Data are raw facts; information is data organised into a useful context. The input-process-output-storage cycle explains a task more precisely than saying that a computer thinks. Accuracy depends on correct data and programs: garbage in, garbage out. Computers are fast and consistent but do not independently guarantee truthful conclusions. Classify systems by purpose and scale with context: embedded controllers perform dedicated tasks while general-purpose computers run many applications. Early generations are associated with vacuum tubes, transistors, integrated circuits and microprocessors, though dates and boundaries vary. In a laboratory use stable furniture and a comfortable posture, manage cables, keep liquids away, and shut down safely. A UPS provides temporary backup power to allow saving and orderly shutdown; it is not an indefinite generator. For application questions connect the feature to an actual benefit, such as fast repeated calculations reducing payroll processing time.",
+    "practice": [
+      {
+        "question": "Distinguish data from information using a school example.",
+        "reference_answer": "Individual test marks are data. A class mean calculated from them is information because it summarises the marks for a purpose.",
+        "origin": "original"
+      },
+      {
+        "question": "State two characteristics that make computers useful for payroll.",
+        "reference_answer": "High speed permits many calculations quickly; consistency allows the same rules to be applied repeatedly. Results still depend on correct data and tax rules.",
+        "origin": "original"
+      },
+      {
+        "question": "Why should students save work before a UPS battery is exhausted?",
+        "reference_answer": "A UPS supplies power only temporarily. Saving and orderly shutdown reduce the risk of losing work when the battery runs out.",
+        "origin": "original"
+      },
+      {
+        "question": "Give the importance of standard furniture and an antiglare screen in a computer laboratory.",
+        "reference_answer": "Suitable standard furniture reduces poor posture, strain and fatigue. An antiglare screen reduces glare and eye strain.",
+        "origin": "booklet",
+        "source_location": "NYR 2(i–ii)"
+      }
+    ]
+  },
+  "hardware": {
+    "principles": "Hardware consists of physical components. Input devices capture data and commands; output devices present results. The CPU fetches, decodes and executes instructions. Its control unit coordinates operations while the arithmetic and logic unit performs arithmetic and logical comparisons. Registers hold small amounts of data and instructions needed immediately. Main memory supplies current instructions and data; secondary storage retains files for later use. RAM is normally volatile and loses its contents without power. ROM or flash firmware stores startup instructions; modern firmware may be updateable. Cache reduces average access time by keeping frequently needed data near the processor. A device's suitability depends on the task: a scanner captures a document image, OCR software recognises text in it, and a plotter or large-format printer can produce large technical drawings. Distinguish capacity, access speed and portability when comparing storage. Do not claim that every printer works by impact or that secondary storage replaces working memory. Describe an operation and the reason for choosing it.",
+    "practice": [
+      {
+        "question": "Explain the role of the ALU in a CPU.",
+        "reference_answer": "The arithmetic and logic unit performs arithmetic operations such as addition and logical comparisons such as testing whether one value exceeds another.",
+        "origin": "original"
+      },
+      {
+        "question": "Distinguish RAM from secondary storage.",
+        "reference_answer": "RAM holds active programs and data and is normally volatile. Secondary storage retains files without power and usually has greater capacity but slower access.",
+        "origin": "original"
+      },
+      {
+        "question": "Choose an input device and software for converting printed text to editable text.",
+        "reference_answer": "Use a scanner to capture an image and optical character recognition software to recognise its characters. A scanner alone produces an image, not necessarily editable text.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain the functions of the ALU and the control unit in the CPU.",
+        "reference_answer": "The ALU performs arithmetic and logical operations. The control unit coordinates operations and controls instruction execution and data movement.",
+        "origin": "booklet",
+        "source_location": "NYR 4(i–ii)"
+      },
+      {
+        "question": "List two soft-copy output devices.",
+        "reference_answer": "A monitor and speakers. They present visual and audio output without producing a permanent paper copy.",
+        "origin": "booklet",
+        "source_location": "NYR 6(a)"
+      }
+    ]
+  },
+  "software": {
+    "principles": "Software is the set of programs and associated instructions that direct hardware. System software includes operating systems, utilities and language translators. Application software performs user tasks such as word processing, spreadsheets and design. An operating system schedules tasks, manages memory and files, controls devices and provides an interface. An interrupt requests attention for an event; the system preserves the current context, services it and resumes where appropriate. Multitasking shares processor time between tasks; multi-user support permits several users to use system resources under account controls. A compiler translates source into target code before execution, while an interpreter executes through translation at runtime; practical language systems may combine these techniques. Freeware describes software supplied at no monetary charge, not necessarily source access. Open-source software grants rights to inspect, modify and distribute source under a licence. Defragmentation reorganises fragmented files on a hard disk; it is not routine optimisation for SSDs. Formatting prepares a filesystem and can remove access to existing data, so backups and authorisation matter.",
+    "practice": [
+      {
+        "question": "Distinguish system software from application software.",
+        "reference_answer": "System software manages or supports the computer, for example an operating system. Application software performs user tasks, for example a spreadsheet.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain multitasking.",
+        "reference_answer": "The operating system schedules execution of multiple tasks, sharing CPU time so they can make progress. This does not imply that a single CPU core literally executes every task simultaneously.",
+        "origin": "original"
+      },
+      {
+        "question": "Distinguish freeware and open-source software.",
+        "reference_answer": "Freeware can be used without a purchase charge but need not provide source code or modification rights. Open-source licences provide source access and specified rights to modify and redistribute.",
+        "origin": "original"
+      },
+      {
+        "question": "Distinguish between a compiler and an interpreter.",
+        "reference_answer": "A compiler translates a source program into target code before execution. An interpreter translates and executes instructions during program execution.",
+        "origin": "booklet",
+        "source_location": "NYR 5(b)"
+      },
+      {
+        "question": "List four types of system software.",
+        "reference_answer": "Operating systems, firmware, utility software and networking system software.",
+        "origin": "booklet",
+        "source_location": "NYR 9(a)"
+      },
+      {
+        "question": "Explain job scheduling and interrupt handling as functions of an operating system.",
+        "reference_answer": "Job scheduling organises tasks for efficient execution. Interrupt handling suspends the current execution to service an event and then resumes as appropriate.",
+        "origin": "booklet",
+        "source_location": "NYR 9(b)"
+      },
+      {
+        "question": "Distinguish between multi-user and multitasking operating systems.",
+        "reference_answer": "Multi-user systems support more than one user. Multitasking allows multiple tasks to make progress through scheduling. The terms describe different capabilities.",
+        "origin": "booklet",
+        "source_location": "NYR 11"
+      }
+    ]
+  },
+  "data_processing": {
+    "principles": "Data processing converts raw facts into useful results through collection, preparation, input, processing, output and storage. Validation checks whether data meet rules, such as a permitted range, data type, presence or format. Verification checks that entered data match the source, for example by double entry or proofreading. A valid value can still be incorrect: a score of 65 passes a 0–100 range check even if the source says 56. Batch processing groups transactions for later processing; real-time processing responds within the timing requirements of a task. In a spreadsheet formulas start with =, functions have names and arguments, and cell references can be relative, absolute or mixed. Copying =A1+B1 down one row changes it to =A2+B2; $A$1 fixes both parts. Sorting changes record order while filtering displays records meeting conditions. Computational errors include overflow beyond the representable range, truncation from discarding digits, and rounding from approximating values. Keep original precision when possible and round final outputs according to purpose.",
+    "practice": [
+      {
+        "question": "Distinguish validation and verification with an example.",
+        "reference_answer": "Validation could check a mark is between 0 and 100. Verification compares the entered mark with the source. A value can pass validation yet be a copying error.",
+        "origin": "original"
+      },
+      {
+        "question": "A formula =$A$1*B2 is copied from C2 to C3. State the new formula.",
+        "reference_answer": "=$A$1*B3. The absolute reference remains fixed and the relative reference moves down one row.",
+        "origin": "original"
+      },
+      {
+        "question": "Distinguish sorting from filtering.",
+        "reference_answer": "Sorting arranges records in an order such as ascending surname. Filtering displays records meeting criteria while hiding the others without deleting them.",
+        "origin": "original"
+      },
+      {
+        "question": "Distinguish between text wrap and word wrap in word processing.",
+        "reference_answer": "Text wrap arranges text around an inserted object. Word wrap automatically moves text to the next line when it reaches the margin.",
+        "origin": "booklet",
+        "source_location": "NYR 12"
+      },
+      {
+        "question": "Distinguish first-line indentation from hanging indentation.",
+        "reference_answer": "A first-line indent shifts the first line of a paragraph. A hanging indent shifts the remaining lines while the first line stays farther left.",
+        "origin": "booklet",
+        "source_location": "NYR 13(a)"
+      },
+      {
+        "question": "Identify the elements of a spreadsheet function.",
+        "reference_answer": "An equals sign, function name and arguments, with the arguments enclosed in parentheses; for example =SUM(A1:A3).",
+        "origin": "booklet",
+        "source_location": "NYR 15"
+      }
+    ]
+  },
+  "programming": {
+    "principles": "Programming translates a well-defined problem into precise executable instructions. Identify inputs, required outputs, constraints and processing before coding. An algorithm is a finite, ordered method; it can be described in pseudocode or a flowchart. Sequence executes steps in order, selection chooses a path using a condition, and iteration repeats steps under a stated condition. Initialise accumulators before a loop and update loop variables so the loop can terminate. A trace table records variable values step by step and exposes logic errors. Use meaningful variable names, distinguish assignment from equality tests, and choose appropriate data types. Syntax errors break language rules; logic errors can produce incorrect results even when the program runs. Test normal, boundary and invalid cases against expected outputs. Modular design separates a program into smaller units with clear inputs and outputs, making testing and maintenance easier. System development includes identifying the problem, analysing requirements, designing, coding, testing, implementation and maintenance. Parallel changeover runs old and new systems together; direct changeover replaces the old at once.",
+    "practice": [
+      {
+        "question": "Write pseudocode to output the larger of two unequal numbers a and b.",
+        "reference_answer": "INPUT a,b; IF a > b THEN OUTPUT a ELSE OUTPUT b ENDIF. With a=5,b=2 it outputs 5; with a=1,b=4 it outputs 4.",
+        "origin": "original"
+      },
+      {
+        "question": "An accumulator total starts at 0. A loop adds i for i = 1,2,3,4. Find the final total.",
+        "reference_answer": "Successive totals are 1,3,6,10. The final total is 10; the independent check 4(4+1)/2 also gives 10.",
+        "origin": "original"
+      },
+      {
+        "question": "Give two benefits of modular programming.",
+        "reference_answer": "Smaller modules can be tested separately, helping locate faults. Modules with clear interfaces can be reused and maintained without rewriting the entire program.",
+        "origin": "original"
+      },
+      {
+        "question": "Identify the programming languages associated with the first and second computer generations.",
+        "reference_answer": "First generation: machine language. Second generation: assembly language.",
+        "origin": "booklet",
+        "source_location": "NYR 1"
+      },
+      {
+        "question": "Explain direct and parallel system changeover.",
+        "reference_answer": "Direct changeover stops the old system and starts the new one at once. Parallel changeover runs old and new systems together for a period so results can be compared.",
+        "origin": "booklet",
+        "source_location": "NYR 20(b)(i–ii)"
+      },
+      {
+        "question": "Explain two advantages of modular programming.",
+        "reference_answer": "Modules simplify testing and fault location because parts can be tested independently. Modules can also be reused, reducing development effort and improving maintenance.",
+        "origin": "booklet",
+        "source_location": "NYR 20(c)"
+      }
+    ]
+  },
+  "databases": {
+    "principles": "A database is an organised collection of related data. A relational table represents one type of entity; each row is a record and each column a field. Choose data types according to values and operations, such as text for identifiers with leading zeros and numeric types for quantities. A primary key uniquely identifies a record and cannot be null. A foreign key refers to a candidate or primary key in a related table, supporting relationships and referential integrity. Do not duplicate all parent details in every child record: separating students and registrations reduces inconsistent updates. Queries select, join, filter, sort or aggregate data. Forms support entry and viewing; reports present formatted output. Validation rules enforce permitted values, but access control and backups protect different risks. A one-to-many relationship permits one class to contain many students while each student belongs to one current class in that model. State assumptions because real systems may allow enrolment in several classes. An index speeds selected searches but takes storage and update work; it need not be the primary key.",
+    "practice": [
+      {
+        "question": "Distinguish a field from a record in a student table.",
+        "reference_answer": "A field is one attribute such as surname. A record is the collection of fields describing one student.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain why admission number can be a primary key if it is unique and always present.",
+        "reference_answer": "A primary key must identify exactly one record and cannot be null. A unique, present admission number meets those conditions; a surname may repeat.",
+        "origin": "original"
+      },
+      {
+        "question": "What is the purpose of ClassID as a foreign key in a student table?",
+        "reference_answer": "It links a student to a class record. Referential integrity can prevent an unknown ClassID from being assigned, avoiding orphan references.",
+        "origin": "original"
+      }
+    ]
+  },
+  "networking": {
+    "principles": "A network connects devices to exchange data and share resources under communication rules called protocols. A LAN serves a limited local area; a WAN connects across wider geographic areas. A network interface connects a device to a network. A switch forwards Ethernet frames using learned MAC addresses; a router forwards packets between IP networks. A modem adapts signals for a particular communication medium. Distinguish these functions even when one home device combines them. Wired links may offer predictable performance; wireless links support mobility but depend on coverage, interference and security. Bandwidth describes a link's capacity, while actual throughput may be lower due to overhead, contention and loss. A client requests a service and a server provides it. A star topology connects nodes to a central device, so one branch failure usually affects only that node, while central-device failure affects the network segment. Network benefits include sharing files and printers, but require access control, maintenance and backups. Explain advantages in relation to users and data, not simply that networking is fast.",
+    "practice": [
+      {
+        "question": "Distinguish a LAN from a WAN.",
+        "reference_answer": "A LAN connects devices over a limited area such as a school building. A WAN connects networks across larger geographic areas, such as branches in different towns.",
+        "origin": "original"
+      },
+      {
+        "question": "Distinguish a switch from a router.",
+        "reference_answer": "A switch forwards frames within a LAN using MAC addresses. A router forwards packets between networks using IP routing information.",
+        "origin": "original"
+      },
+      {
+        "question": "State one benefit and one risk of a star network.",
+        "reference_answer": "A failed branch cable typically isolates only one device. Failure of the central switch can disrupt communication for all devices attached to it.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain the function of a network interface card.",
+        "reference_answer": "It provides the interface that connects a computer to a network so it can send and receive data.",
+        "origin": "booklet",
+        "source_location": "NYR 17(c)(ii)"
+      }
+    ]
+  },
+  "internet": {
+    "principles": "The Internet is a network of networks using the Internet protocol suite; the World Wide Web is one service running on it. A website contains related web pages and resources, accessed by URLs. A browser retrieves and displays web content; a search engine indexes resources to help users find them. DNS maps domain names to records such as IP addresses. HTTPS protects data in transit through encryption and server authentication; it does not prove all statements on a site are true. Email uses addresses to route messages. Distinguish To, Cc and Bcc, and avoid sharing recipient addresses unnecessarily. Spam is unsolicited bulk messaging; phishing attempts to deceive users into revealing information or performing unsafe actions. Downloading transfers data to the user's device while uploading sends it from that device. Evaluate sources using authorship, evidence, date and corroboration. A cookie stores small pieces of site-related data in a browser; it is not automatically a virus. Domain suffixes give clues about registration category or location but do not guarantee credibility.",
+    "practice": [
+      {
+        "question": "Distinguish a web browser from a search engine.",
+        "reference_answer": "A browser is software that retrieves and displays web pages. A search engine is a service that indexes and searches resources; it can be used through a browser.",
+        "origin": "original"
+      },
+      {
+        "question": "What is the purpose of DNS?",
+        "reference_answer": "The Domain Name System resolves names such as a website domain to records, including IP addresses, used to locate services.",
+        "origin": "original"
+      },
+      {
+        "question": "Distinguish upload from download.",
+        "reference_answer": "Uploading sends data from a local device to a remote system. Downloading transfers data from a remote system to the local device.",
+        "origin": "original"
+      },
+      {
+        "question": "Define a protocol, a website and a search engine.",
+        "reference_answer": "A protocol is a set of communication rules. A website is a collection of related web pages and resources. A search engine finds indexed resources matching a query.",
+        "origin": "booklet",
+        "source_location": "NYR 17(a)(i–iii)"
+      }
+    ]
+  },
+  "security": {
+    "principles": "Information security protects confidentiality, integrity and availability. Confidentiality restricts disclosure, integrity protects against unauthorised or accidental alteration, and availability keeps services accessible when needed. Identify the threat before selecting a control. Strong unique passwords and multi-factor authentication reduce account takeover; least-privilege permissions limit damage if an account is compromised. Malware is harmful software, including viruses, worms and ransomware with different behaviours. Updates close known vulnerabilities, while reputable anti-malware tools provide another layer rather than a guarantee. Phishing manipulates people, so verify suspicious requests through an independent channel. Backups support recovery and should include copies separated from the working device; test restoration. Encryption protects data readability without the key but cannot correct data already altered before encryption. Physical controls such as locked rooms protect devices; surge protection and UPS devices address electrical disruptions. Validation helps prevent input mistakes but is not a substitute for access control. Explain which property a control protects and its practical limitations.",
+    "practice": [
+      {
+        "question": "Name and explain the three main information security goals.",
+        "reference_answer": "Confidentiality limits who can read information; integrity protects accuracy and authorised changes; availability ensures authorised users can access systems when needed.",
+        "origin": "original"
+      },
+      {
+        "question": "Why should backups include a copy disconnected from the working computer?",
+        "reference_answer": "Malware or an accidental deletion may affect connected storage too. A separate offline copy improves recovery if the working device and connected copies are damaged.",
+        "origin": "original"
+      },
+      {
+        "question": "Give two actions to reduce phishing risk.",
+        "reference_answer": "Verify unexpected requests through a trusted independent channel and avoid entering credentials through suspicious message links. Multi-factor authentication adds another layer.",
+        "origin": "original"
+      }
+    ]
+  },
+  "ethics": {
+    "principles": "Computer ethics concerns responsible choices when using information systems. Respect privacy by collecting only necessary personal information, protecting it and using it for an agreed purpose. Copyright protects creative works; obtaining a file does not automatically grant permission to redistribute it. Follow software licence terms and attribute sources to avoid plagiarism. Accessibility means considering people with differing abilities, such as providing keyboard controls and text alternatives. Automated decisions can reproduce biases in data, so examine evidence and permit review where decisions affect people. ICT can improve communication and access to services while creating risks such as exclusion, surveillance, job displacement and electronic waste. Discuss benefits and costs with a concrete example and affected group. Ergonomics addresses healthy work practices, including screen position, suitable seating, breaks and lighting. Dispose of electronics through suitable recovery channels rather than ordinary dumping. Accessing systems without permission is not justified merely by curiosity; security testing needs explicit authorisation and a defined scope.",
+    "practice": [
+      {
+        "question": "Explain why copying an online paragraph into an assignment without acknowledgement is problematic.",
+        "reference_answer": "It presents another author’s work as one’s own, which is plagiarism. Attribution is required, and copyright permission or an applicable exception may also be needed.",
+        "origin": "original"
+      },
+      {
+        "question": "State two ways to protect student privacy in a school system.",
+        "reference_answer": "Restrict access to authorised staff according to role, and collect and retain only data needed for stated school purposes. Secure storage and transmission provide additional protection.",
+        "origin": "original"
+      },
+      {
+        "question": "Give one positive and one negative social effect of ICT with examples.",
+        "reference_answer": "Remote lessons can widen access for students far from school. Students without connectivity or suitable devices may be excluded, increasing inequality.",
+        "origin": "original"
+      }
+    ]
+  }
+}

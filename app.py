@@ -9,6 +9,7 @@ Run: python app.py   (needs .env with GEMINI_API_KEY; see .env.example)
 
 import base64
 import datetime
+import hashlib
 import json
 import os
 import secrets
@@ -293,7 +294,7 @@ def _lesson_sig(subject, topic, sid=None):
     under an older brief keeps teaching the way that brief said to."""
     return (profile.topic_signature(subject, topic, sid) + "|"
             + concepts.fingerprint(subject, topic) + "|" + notes.fingerprint(subject, topic)
-            + "|" + tutor.SCRIPT_VERSION)
+            + "|" + classifier.topic_fingerprint(subject, topic) + "|" + tutor.SCRIPT_VERSION)
 
 
 def _prefetch_narration(lesson):
@@ -311,15 +312,20 @@ def _prefetch_narration(lesson):
 def generate_lesson(subject, topic, sid=None):
     """Build one lesson and cache it. Raises if the model can't deliver."""
     sid = sid if sid is not None else profile.current_sid()
-    questions = classifier.questions_for_topic(subject, topic)
+    signature = _lesson_sig(subject, topic, sid)
+    questions = sorted(classifier.questions_for_topic(subject, topic),
+                       key=lambda q: not bool(q.get("reference_answer")))
     lesson = tutor.generate_lesson(
         subject, topic, [q["question"] for q in questions],
         adapt_context(subject, topic, sid),
         concept_list=concepts.concepts_for(subject, topic) or None,
         notes=notes.topic_notes(subject, topic) or None,
+        evidence=profile.lesson_evidence(subject, topic, sid),
+        reference_answers=[{"question": q["question"], "reference_answer": q["reference_answer"]}
+                           for q in questions if q.get("reference_answer")][:14],
     )
     profile.save_lesson(subject, topic, lesson,
-                        _lesson_sig(subject, topic, sid), sid=sid)
+                        signature, sid=sid)
     _prefetch_narration(lesson)
     return lesson
 
@@ -352,88 +358,19 @@ def lesson_state(subject, topic, work=False):
 
 
 def adapt_context(subject, topic, sid=None):
-    """Profile-aware instructions for the lesson generator, aimed at specific concepts."""
-    concepts = profile.get_concepts(subject, topic, sid)
-    if not concepts:
-        # No concept map yet, but the Exam Center may still have marked papers for this
-        # topic — a student who scored 0% on one is not starting from nothing.
-        answered = profile.get_topic_stats(subject, sid=sid).get(profile._key(subject, topic))
-        if answered and answered["answers"]:
-            acc = answered["accuracy"] or 0.0
-            top = max(answered["errors"].items(), key=lambda x: x[1])[0] if answered["errors"] else None
-            err_note = (f" Their most repeated mistake: {profile.ERROR_LABELS.get(top, top)}."
-                        if top else "")
-            if acc < 0.4:
-                mode = ("Simplify from the basics: short sentences, everyday language, a worked "
-                        "example for every step, and repeat the exam keywords they are missing.")
-            elif acc < 0.7:
-                mode = ("Teach the whole topic, but build the steps around the parts they lost "
-                        "marks on — extra steps and a labelled diagram there.")
-            else:
-                mode = ("Move briskly past the basics and spend the steps on exam traps, harder "
-                        "applications and marking-scheme precision.")
-            return (
-                f"STUDENT CONTEXT: this is NOT a first lesson. The student has answered "
-                f"{answered['answers']} exam question(s) on this topic and got {answered['correct']} "
-                f"right ({round(acc * 100)}%).{err_note} Those answers are not split by concept yet, "
-                f"so teach from the overall mark. {mode}"
-            )
-        confidence = (profile.get_student(sid) or {}).get("confidence")
-        if confidence == "pretty_strong":
-            return (
-                "STUDENT CONTEXT: first lesson on this topic, but the student rates themselves "
-                "confident overall. Skip the basics: teach at exam pace, keep definitions to one "
-                "line, and spend the steps on exam traps, harder applications and marking-scheme "
-                "precision."
-            )
-        if confidence == "getting_there":
-            return (
-                "STUDENT CONTEXT: first lesson on this topic and the student has some grounding. "
-                "Open each concept with a one-line recap, then move quickly into application and "
-                "worked exam-style examples."
-            )
-        return (
-            "STUDENT CONTEXT: first lesson on this topic — assume no prior mastery. "
-            "Start from plain definitions and build up slowly with a labelled diagram or "
-            "worked example for every concept."
-        )
-
-    tally = profile.get_error_tally(subject, topic, sid=sid)
-    weak, strong = [], []
-    for c in concepts:  # already sorted weakest first
-        errs = tally.get((c["key"], c["concept"]), {})
-        label = max(errs.items(), key=lambda x: x[1])[0] if errs else None
-        name = concepts.concept_name(subject, topic, c["concept"])
-        note = f"{name} ({round(c['p'] * 100)}%{', ' + profile.ERROR_LABELS.get(label, label) if label else ''})"
-        (weak if c["p"] < 0.6 else strong).append(note)
-    weakest = concepts[0]
-    mean = round(sum(c["p"] for c in concepts) / len(concepts), 3)
-
-    if mean < 0.4:
-        mode = (
-            "the student is still shaky across this topic. Simplify: short sentences, everyday "
-            "language, build every concept from basics, and add extra worked examples and labelled "
-            "diagrams. Repeat the exam keywords they keep missing."
-        )
-    elif mean < 0.7:
-        mode = (
-            "the student is partway there. Teach the whole topic, but give the weak concepts below "
-            "more steps, a labelled diagram and a worked example each, while the strong concepts get "
-            "a one-line recap and a harder application instead of re-teaching."
-        )
-    else:
-        mode = (
-            "the student is strong here overall. Move briskly: recap the strong concepts in one line "
-            "each and spend the steps on the weak ones below, on exam traps and on marking-scheme "
-            "precision."
-        )
+    stats = profile.get_topic_stats(subject, sid=sid).get(profile._key(subject, topic), {})
+    evidence = profile.lesson_evidence(subject, topic, sid)
+    state = profile.get_concepts(subject, topic, sid)
+    priorities = [concepts.concept_name(subject, topic, c["concept"])
+                  for c in state if c["p"] < 0.6]
     return (
-        f"STUDENT CONTEXT: this topic is tracked concept by concept. Average mastery {round(mean * 100)}% "
-        f"over {sum(c['answers'] for c in concepts)} graded answer(s). "
-        f"Weakest concepts, most urgent first: {', '.join(weak) or 'none below 60%'}. "
-        f"Already strong: {', '.join(strong) or 'nothing yet'}. "
-        f"Spend the most board time on '{concepts.concept_name(subject, topic, weakest['concept'])}'. "
-        f"Adapt the lesson because {mode}"
+        f"STUDENT CONTEXT: {stats.get('answers', 0)} recorded responses on this topic; "
+        "walkthrough self-checks may be included. Watching is not evidence of correctness. "
+        f"Concepts needing reinforcement: {', '.join(priorities) or 'none identified yet'}. "
+        "Teach foundations and full reasoning regardless of confidence. Spend extra time "
+        "on the supplied unresolved mistakes; never infer or invent earlier attempts. "
+        + ("Use the saved feedback to explain what to change next time." if evidence else
+           "No unresolved mistake with complete feedback is recorded here.")
     )
 
 
@@ -1000,9 +937,14 @@ def lesson(subject, topic):
         name=curriculum.topic_name(subject, topic),
         # A lesson that could not be redrawn is still the best board this topic has:
         # the page plays the stored one and says why it is not the newest.
-        lesson=cached if status in ("ready", "error") else None,
+        lesson=cached if status == "ready" else None,
         status=status,
         error=error,
+        learning_evidence=[{**r, "recorded_date": datetime.datetime.fromtimestamp(
+            r["ts"], datetime.timezone(datetime.timedelta(hours=3))).strftime("%d %b %Y, %H:%M EAT")}
+            for r in profile.lesson_evidence(subject, topic)],
+        learning_responses=profile.get_topic_stats(subject).get(profile._key(subject, topic), {}).get("answers", 0),
+        lesson_revision=hashlib.sha256(_lesson_sig(subject, topic).encode()).hexdigest(),
         server_tts=llm.tts_available(),
         practicable=topic_practicable(subject, topic),
         concept_names={c["slug"]: c["name"] for c in concepts.concepts_for(subject, topic)},
@@ -1017,7 +959,9 @@ def lesson_status(subject, topic):
 
 @app.route("/api/lesson/<subject>/<topic>/data")
 def lesson_data(subject, topic):
-    cached, _ = profile.load_lesson(subject, topic)
+    cached, signature = profile.load_lesson(subject, topic)
+    if cached is not None and signature != _lesson_sig(subject, topic):
+        return jsonify({"error": "Lesson needs refreshing"}), 409
     if cached is None:
         return jsonify({"error": "No lesson yet"}), 404
     return jsonify({"lesson": cached})
@@ -1251,7 +1195,8 @@ def ask():
     if not question:
         return jsonify({"error": "Empty question"}), 400
     try:
-        return jsonify(tutor.ask_question(subject, topic, narration, question[:1000], concept))
+        return jsonify(tutor.ask_question(subject, topic, narration, question[:1000], concept,
+                                          evidence=profile.lesson_evidence(subject, topic)))
     except Exception as exc:
         return jsonify({"error": _student_error(exc)}), 502
 
@@ -1334,7 +1279,9 @@ def run_grading(job_id, sid, subject, topic, answers, valid_keys=None):
         if open_items:
             marked = tutor.grade_answers(
                 subject, topic,
-                [{"question": a["question"], "answer": a["answer"]} for _, a in open_items],
+                [{"question": a["question"], "answer": a["answer"],
+                  "reference_answer": (classifier.question_by_uid(subject, a.get("uid")) or {}).get("reference_answer", "")}
+                 for _, a in open_items],
             )
             for (pos, _), verdict in zip(open_items, marked):
                 verdicts[pos] = verdict

@@ -16,6 +16,10 @@ window.Voice = (function () {
   let speechPath = null;    // "clip" | "browser" | null — decides how elapsed() is measured
   let speechStart = 0;      // performance.now() when the current line began
   let pauseAt = 0;          // performance.now() when it was paused, 0 while talking
+  let paused = false;
+  let started = false;
+  let wordProgress = 0;
+  let lineLength = 1;
   let heard = 0;            // sentence-seconds reported so far, kept after the line ends
 
   const useServer = () => typeof SERVER_TTS !== "undefined" && SERVER_TTS;
@@ -40,15 +44,18 @@ window.Voice = (function () {
     stopAudio();
     if (hasBrowser()) speechSynthesis.cancel();
     done = true;
+    paused = false;
   }
 
   function pause() {
+    paused = true;
     if (audioEl) { try { audioEl.pause(); } catch (e) { /* ignore */ } return; }
     pauseAt = performance.now();
     if (hasBrowser()) speechSynthesis.pause();
   }
 
   function resume() {
+    paused = false;
     if (audioEl) { const p = audioEl.play(); if (p && p.catch) p.catch(() => {}); return; }
     // The browser voice has no position to read, so its clock is wall time: freeze the
     // paused stretch out of it rather than letting the sentence run ahead of the ink.
@@ -64,13 +71,16 @@ window.Voice = (function () {
     if (speechPath === "clip") {
       if (audioEl && isFinite(audioEl.currentTime)) heard = audioEl.currentTime;
     } else if (speechPath === "browser" && !done) {
-      heard = Math.max(heard, ((performance.now() - speechStart) / 1000) * rate);
+      heard = Math.max(heard, (((pauseAt || performance.now()) - speechStart) / 1000) * rate);
     }
     return heard;
   }
 
   function beginLine() {
     speechPath = null;
+    started = false;
+    paused = false;
+    wordProgress = 0;
     speechStart = performance.now();
     pauseAt = 0;
     heard = 0;
@@ -82,6 +92,9 @@ window.Voice = (function () {
     speechSynthesis.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.rate = rate;
+    lineLength = text.length;
+    u.onstart = () => { if (tk === token) { started = true; speechStart = performance.now(); if (paused) speechSynthesis.pause(); } };
+    u.onboundary = (e) => { if (tk === token && e.charIndex >= 0) wordProgress = Math.max(wordProgress, e.charIndex / lineLength); };
     const finish = () => { if (tk === token && !done) { done = true; if (onEnd) onEnd(); } };
     u.onend = finish;
     u.onerror = finish;
@@ -90,7 +103,7 @@ window.Voice = (function () {
     // never fire onend). If nothing is actually talking shortly after, say so —
     // otherwise callers waiting on isDone() would hang forever.
     setTimeout(() => {
-      if (tk !== token || done) return;
+      if (tk !== token || done || paused) return;
       if (!speechSynthesis.speaking) { blocked = true; finish(); }
     }, 1500);
   }
@@ -123,16 +136,11 @@ window.Voice = (function () {
     speechPath = "clip";
     audioEl = new Audio(url);
     audioEl.playbackRate = rate;
+    audioEl.onplaying = () => { if (tk === token) started = true; };
     const finish = () => { if (tk === token && !done) { done = true; audioEl = null; if (onEnd) onEnd(); } };
     audioEl.onended = finish;
     audioEl.onerror = () => { if (tk === token) { audioEl = null; browserSpeak(text, tk, onEnd); } };
-    // A backgrounded or throttled tab can swallow the ended event; guard on the real
-    // clip length so narration can never freeze the lesson.
-    audioEl.onloadedmetadata = () => {
-      const secs = isFinite(audioEl.duration) && audioEl.duration > 0 ? audioEl.duration : 45;
-      setTimeout(finish, (secs * 1000) / rate + 5000);
-    };
-    const p = audioEl.play();
+    const p = paused ? null : audioEl.play();
     if (p && p.then) {
       p.then(() => { if (tk === token) blocked = false; })
        .catch((e) => {
@@ -211,6 +219,14 @@ window.Voice = (function () {
     resume,
     setRate,
     elapsed,
+    progress: (estimatedSeconds) => {
+      if (done) return 1;
+      if (!started) return 0;
+      if (speechPath === "clip" && audioEl && isFinite(audioEl.duration) && audioEl.duration > 0)
+        return Math.min(0.999, audioEl.currentTime / audioEl.duration);
+      // Word boundaries are preferred. Browsers without them use a bounded estimate.
+      return Math.min(0.98, wordProgress > 0 ? wordProgress : elapsed() / Math.max(1, estimatedSeconds));
+    },
     preload,
     isDone: () => done,
     isBlocked: () => blocked,

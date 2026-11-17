@@ -688,6 +688,30 @@ def get_history(limit=100, subject=None, sid=None):
     return out
 
 
+def lesson_evidence(subject, topic, sid=None, limit=3):
+    """Latest unresolved mistakes, scoped to this account and exact topic.
+
+    Any later response to the same question supersedes the old attempt, even if
+    the later response is also incorrect or has no feedback yet.
+    """
+    sid = _sid(sid)
+    if not sid:
+        return []
+    with _conn() as c:
+        rows = c.execute(
+            "SELECT h.id, h.ts, h.question, h.answer, h.feedback FROM history h "
+            "WHERE h.student_id = ? AND h.topic = ? AND h.correct = 0 "
+            "AND TRIM(COALESCE(h.question, '')) <> '' "
+            "AND TRIM(COALESCE(h.answer, '')) <> '' "
+            "AND TRIM(COALESCE(h.feedback, '')) <> '' "
+            "AND NOT EXISTS (SELECT 1 FROM history newer WHERE "
+            "newer.student_id = h.student_id AND newer.topic = h.topic "
+            "AND newer.question = h.question AND newer.id > h.id) "
+            "ORDER BY h.id DESC LIMIT ?", (sid, _key(subject, topic), max(1, min(limit, 10))),
+        ).fetchall()
+    return [dict(r) for r in rows]
+
+
 def topic_signature(subject, topic, sid=None):
     """Snapshot of everything the lesson generator adapts to for one topic."""
     sid = _sid(sid)
@@ -718,6 +742,7 @@ def topic_signature(subject, topic, sid=None):
             [[e["concept"], e["error_type"], e["count"]] for e in errs],
             [int(raw["answers"] or 0), int(raw["correct"] or 0)],
             [[e["error_type"], int(e["n"])] for e in raw_errs],
+            lesson_evidence(subject, topic, sid),
         ]
     )
 

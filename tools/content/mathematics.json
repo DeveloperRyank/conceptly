@@ -1,0 +1,402 @@
+{
+  "numbers": {
+    "principles": "A number's place value determines the value of each digit. Integers include negative numbers, zero and positive numbers. Rational numbers can be written as p/q with integers p and q, q not zero; terminating and recurring decimals are rational. Irrational numbers such as square root of 2 cannot be written that way. Apply brackets, indices, division and multiplication from left to right, then addition and subtraction from left to right. A negative squared inside brackets is positive, but -3² means -(3²). Factor numbers into primes to find HCF using shared factors with minimum powers and LCM using all factors with maximum powers. For fractions use a common denominator for addition, multiply numerators and denominators for multiplication, and multiply by the reciprocal to divide. In standard form write a × 10ⁿ with 1 ≤ a < 10. Significant figures start at the first nonzero digit. Keep extra digits during calculations and round only the final result. Estimate the order of magnitude before using a calculator.",
+    "practice": [
+      {
+        "question": "Evaluate -3 + 4 × (7 - 2).",
+        "reference_answer": "Brackets give 5; multiply 4 × 5 = 20 before adding. -3 + 20 = 17. Check by starting at -3 and adding 20.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the HCF and LCM of 36 and 48.",
+        "reference_answer": "36 = 2² × 3² and 48 = 2⁴ × 3. HCF = 2² × 3 = 12; LCM = 2⁴ × 3² = 144. Check: 12 × 144 = 36 × 48 = 1728.",
+        "origin": "original"
+      },
+      {
+        "question": "Calculate 3/4 ÷ 5/6, leaving a simplified fraction.",
+        "reference_answer": "3/4 × 6/5 = 18/20 = 9/10. Check: 9/10 × 5/6 = 3/4.",
+        "origin": "original"
+      },
+      {
+        "question": "Write 0.000456 in standard form and round to 2 significant figures.",
+        "reference_answer": "0.000456 = 4.56 × 10⁻⁴. To 2 significant figures it is 4.6 × 10⁻⁴, or 0.00046. The negative exponent represents a small positive number, not a negative value.",
+        "origin": "original"
+      }
+    ]
+  },
+  "algebraic_expressions": {
+    "principles": "An algebraic expression represents a quantity; an equation asserts two expressions are equal. Combine only like terms, whose variable parts and powers match. Use the distributive law to expand brackets and include every sign: -2(x - 3) = -2x + 6. Factorisation reverses expansion. First remove the greatest common factor, then look for identities such as a² - b² = (a - b)(a + b). For a quadratic with leading coefficient one, find two numbers whose sum is the coefficient of x and whose product is the constant term. Algebraic fractions can be cancelled only across factors, never across added terms. State excluded denominator values even after cancellation. Index laws apply to products and quotients with the same base: aᵐaⁿ = aᵐ⁺ⁿ and aᵐ/aⁿ = aᵐ⁻ⁿ for a not zero. A negative exponent means a reciprocal. Logarithms undo powers; log₁₀(1000) = 3 because 10³ = 1000. Check manipulations by expansion or substituting an allowed value.",
+    "practice": [
+      {
+        "question": "Simplify 3(2x - 5) - 2(x + 1).",
+        "reference_answer": "Expand: 6x - 15 - 2x - 2 = 4x - 17. Check x = 2: original 3(-1) - 2(3) = -9; simplified 8 - 17 = -9.",
+        "origin": "original"
+      },
+      {
+        "question": "Factorise x² - 5x + 6.",
+        "reference_answer": "Find numbers with sum -5 and product 6: -2 and -3. Thus (x - 2)(x - 3). Expanding gives x² - 3x - 2x + 6.",
+        "origin": "original"
+      },
+      {
+        "question": "Simplify (x² - 9)/(x - 3) and state the restriction.",
+        "reference_answer": "Factor the numerator as (x - 3)(x + 3). Cancel the factor x - 3 to get x + 3, with x ≠ 3. The original denominator is zero at 3, so the restriction remains.",
+        "origin": "original"
+      },
+      {
+        "question": "Simplify (2³ × 2⁵)/2⁴.",
+        "reference_answer": "Same-base index laws give 2^(3 + 5 - 4) = 2⁴ = 16. Check 8 × 32 ÷ 16 = 16.",
+        "origin": "original"
+      }
+    ]
+  },
+  "equations_inequalities": {
+    "principles": "Solve equations by performing equivalent operations on both sides. Clear brackets and fractions carefully, collect variable terms, then isolate the unknown. Check the result in the original equation, especially after squaring or clearing denominators. Simultaneous linear equations can be solved by substitution or elimination; choose the method that removes a variable with the least arithmetic. Quadratic equations can be factorised, completed to a square, or solved using x = (-b ± √(b² - 4ac))/(2a). The discriminant identifies whether there are two, one or no real roots. For inequalities addition or subtraction preserves direction, but multiplying or dividing by a negative number reverses it. Show solution sets on a number line with open endpoints for strict inequalities and closed endpoints for inclusive ones. Translate word problems by naming unknowns and their units, forming relationships, solving, then interpreting restrictions such as positive lengths. An algebraic root may fail the real-world conditions.",
+    "practice": [
+      {
+        "question": "Solve 3x - 7 = 11.",
+        "reference_answer": "Add 7 to both sides: 3x = 18. Divide by 3: x = 6. Check: 3(6) - 7 = 11.",
+        "origin": "original"
+      },
+      {
+        "question": "Solve x + y = 7 and 2x - y = 2.",
+        "reference_answer": "Add equations to eliminate y: 3x = 9, so x = 3. Then y = 4. Check: 3 + 4 = 7 and 6 - 4 = 2.",
+        "origin": "original"
+      },
+      {
+        "question": "Solve x² - 5x + 6 = 0.",
+        "reference_answer": "Factor: (x - 2)(x - 3) = 0. Hence x = 2 or x = 3. Check each in the original quadratic: both give zero.",
+        "origin": "original"
+      },
+      {
+        "question": "Solve -2x + 3 < 11.",
+        "reference_answer": "Subtract 3: -2x < 8. Divide by -2 and reverse the sign: x > -4. Check x = 0 satisfies 3 < 11; x = -5 fails because 13 < 11 is false.",
+        "origin": "original"
+      }
+    ]
+  },
+  "functions_graphs": {
+    "principles": "A function assigns one output to each permitted input. Domain describes permitted inputs and range describes outputs. Evaluate f(a) by replacing every x in the rule with a, keeping brackets for negative inputs. A straight line y = mx + c has gradient m and y-intercept c. Gradient is change in y divided by change in x using the same ordered pair direction in numerator and denominator. To draw a graph, choose a suitable scale, label both axes and units, plot a table of values, and join according to the relationship. A quadratic graph is a parabola: its roots are x-intercepts, its y-intercept is found at x = 0, and its axis of symmetry lies midway between the roots. Graphical solutions to simultaneous equations are intersection points. For an inverse, exchange input and output and solve for the new output, with suitable domain restrictions when necessary. Graph readings are approximate; distinguish them from exact algebraic results.",
+    "practice": [
+      {
+        "question": "If f(x) = 2x² - 3, find f(-2).",
+        "reference_answer": "f(-2) = 2(-2)² - 3 = 8 - 3 = 5. The square applies to the whole negative input.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the equation of the line with gradient 3 passing through (2, 7).",
+        "reference_answer": "Use y - 7 = 3(x - 2), giving y = 3x + 1. Check x = 2 gives y = 7.",
+        "origin": "original"
+      },
+      {
+        "question": "For y = x² - 4x + 3, find the roots and turning point.",
+        "reference_answer": "Factor: (x - 1)(x - 3), so roots are 1 and 3. Complete the square: y = (x - 2)² - 1, so minimum point is (2, -1).",
+        "origin": "original"
+      },
+      {
+        "question": "Find the inverse of f(x) = 3x - 2.",
+        "reference_answer": "Write y = 3x - 2, solve x = (y + 2)/3, then rename input: f⁻¹(x) = (x + 2)/3. Check f⁻¹(f(x)) = x.",
+        "origin": "original"
+      }
+    ]
+  },
+  "sequences_series": {
+    "principles": "A sequence is an ordered list; a series adds its terms. An arithmetic progression has constant difference d: nth term a + (n - 1)d, sum Sₙ = n[2a + (n - 1)d]/2. The n - 1 counts intervals from the first to nth term. A geometric progression has constant ratio r, with nth term arⁿ⁻¹ and finite sum a(1 - rⁿ)/(1 - r) when r ≠ 1. When r = 1 its sum is na. An infinite geometric sum exists only when |r| < 1, and equals a/(1 - r). Terms tending to zero is necessary here; do not use the infinite formula for a growing progression. Determine whether differences or ratios are constant before choosing a formula. In contextual problems define whether n counts payments, time periods or objects. Use the first few terms to check an nth-term rule; check a finite sum by direct addition for a small n.",
+    "practice": [
+      {
+        "question": "Find the 10th term of 5, 8, 11, ... .",
+        "reference_answer": "a = 5, d = 3. T₁₀ = 5 + 9 × 3 = 32. There are nine increments between the first and tenth terms.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the sum of the first 20 terms of 2, 5, 8, ... .",
+        "reference_answer": "a = 2, d = 3. S₂₀ = 20[4 + 19(3)]/2 = 610. Last term is 59; 20 × (2 + 59)/2 also gives 610.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the 6th term of the geometric sequence 3, 6, 12, ... .",
+        "reference_answer": "a = 3 and r = 2. T₆ = 3 × 2⁵ = 96. Listing 3, 6, 12, 24, 48, 96 checks the position.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the sum to infinity of 8 + 4 + 2 + ... .",
+        "reference_answer": "r = 1/2, so |r| < 1. S∞ = 8/(1 - 1/2) = 16. Finite partial sums are below 16 and approach it.",
+        "origin": "original"
+      }
+    ]
+  },
+  "trigonometry": {
+    "principles": "In a right-angled triangle, identify the hypotenuse opposite the right angle and label opposite and adjacent relative to the chosen acute angle. Then sin θ = opposite/hypotenuse, cos θ = adjacent/hypotenuse and tan θ = opposite/adjacent. Choose the ratio that connects the known and required quantities. Use inverse functions for angles, setting a calculator to degrees for degree questions. For a general triangle use the sine rule a/sin A = b/sin B when an opposite pair is known, or cosine rule a² = b² + c² - 2bc cos A when given two sides and their included angle. Area = 1/2 ab sin C with included angle C. Bearings are measured clockwise from north using three digits. Sketch north lines and convert bearings into internal triangle angles before calculating. Trigonometric equations can have several solutions over an interval; use quadrants and reference angles. Do not round intermediate lengths or angles. Check that the hypotenuse is largest, angles sum to 180°, and units match the quantity asked.",
+    "practice": [
+      {
+        "question": "A right triangle has opposite side 6 cm and adjacent side 8 cm relative to θ. Find tan θ and θ to 1 decimal place.",
+        "reference_answer": "tan θ = 6/8 = 0.75. θ = tan⁻¹(0.75) ≈ 36.9°. Hypotenuse is 10 cm, so sin θ = 0.6 gives the same angle.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the third side of a triangle with sides 5 cm and 7 cm enclosing 60°.",
+        "reference_answer": "c² = 25 + 49 - 2(5)(7)cos 60° = 39. c = √39 ≈ 6.24 cm. It lies between 7 - 5 = 2 cm and 12 cm as required.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the area of a triangle with sides 8 cm and 6 cm enclosing 30°.",
+        "reference_answer": "Area = 1/2 × 8 × 6 × sin 30° = 12 cm². Independent check: height to the 8 cm base is 6 sin 30° = 3 cm; half base × height = 12 cm².",
+        "origin": "original"
+      },
+      {
+        "question": "Solve sin θ = 1/2 for 0° ≤ θ ≤ 360°.",
+        "reference_answer": "Reference angle is 30°. Sine is positive in quadrants I and II, so θ = 30° or 150°. No other solutions in the stated interval.",
+        "origin": "original"
+      }
+    ]
+  },
+  "vectors": {
+    "principles": "A vector has magnitude and direction; a scalar has magnitude only. Column vectors describe displacements along perpendicular axes. Add vectors component by component and multiply each component for scalar multiplication. The vector from A to B is position vector B minus position vector A; reversing direction changes its sign. Magnitude in two dimensions is √(x² + y²), from Pythagoras, and in three dimensions is √(x² + y² + z²). A unit vector has magnitude one, found by dividing a nonzero vector by its magnitude. Parallel vectors are scalar multiples; a negative multiplier points in the opposite direction. For points on a line, use a starting position plus a scalar multiple of its direction. A midpoint is the average of endpoint position vectors. A point dividing AB internally in ratio m:n is (nA + mB)/(m + n), because it is fraction m/(m+n) of the way from A to B. Sketch arrows to avoid reversing differences. Check endpoint and ratio results against simple coordinate examples.",
+    "practice": [
+      {
+        "question": "Given A = (1, 2) and B = (7, 10), find AB and its magnitude.",
+        "reference_answer": "AB = (7 - 1, 10 - 2) = (6, 8). |AB| = √(36 + 64) = 10 units. BA = (-6, -8) has the same magnitude.",
+        "origin": "original"
+      },
+      {
+        "question": "Find a unit vector in the direction (3, 4).",
+        "reference_answer": "Magnitude = 5, so the unit vector is (3/5, 4/5). Check √(9/25 + 16/25) = 1.",
+        "origin": "original"
+      },
+      {
+        "question": "P divides A(2, 1) to B(8, 7) internally in the ratio AP:PB = 1:2. Find P.",
+        "reference_answer": "P = A + (1/3)(B - A) = (2, 1) + (2, 2) = (4, 3). AP = (2, 2), PB = (4, 4), verifying 1:2.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the magnitude of the vector (3, 2, 2).",
+        "reference_answer": "Magnitude = √(9 + 4 + 4) = √17 units, approximately 4.12. Its square equals the sum of squared components.",
+        "origin": "original"
+      }
+    ]
+  },
+  "matrices_transformations": {
+    "principles": "A matrix stores numbers in rows and columns. Its order is rows × columns. Addition requires equal orders and combines corresponding entries. For multiplication the number of columns of the first matrix must equal the rows of the second; each entry is the dot product of a row with a column. Matrix multiplication generally does not commute. A 2 × 2 matrix [[a,b],[c,d]] has determinant ad - bc. If this is nonzero, its inverse is [[d,-b],[-c,a]]/(ad - bc). A zero determinant means no inverse. To transform a point using column vectors, multiply the transformation matrix by the coordinate column. Reflection in the y-axis maps (x,y) to (-x,y); a 90° anticlockwise rotation about the origin maps it to (-y,x). In a composite transformation the rightmost matrix acts first. Translation adds a vector rather than using an ordinary 2 × 2 linear matrix. Check a proposed inverse by obtaining the identity and check a geometric transformation with a simple point.",
+    "practice": [
+      {
+        "question": "Find the determinant of [[2,1],[3,4]].",
+        "reference_answer": "det = 2 × 4 - 1 × 3 = 5.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the inverse of [[2,1],[3,4]].",
+        "reference_answer": "Determinant is 5, so inverse = (1/5)[[4,-1],[-3,2]]. Product with the original gives [[1,0],[0,1]].",
+        "origin": "original"
+      },
+      {
+        "question": "Rotate P(3,2) through 90° anticlockwise about the origin.",
+        "reference_answer": "Use [[0,-1],[1,0]] × (3,2) to obtain (-2,3). Distance from the origin remains √13.",
+        "origin": "original"
+      },
+      {
+        "question": "Reflect (4,-3) in the y-axis, then translate by (2,1).",
+        "reference_answer": "Reflection gives (-4,-3). Adding (2,1) gives (-2,-2). The translation is applied after reflection as specified.",
+        "origin": "original"
+      }
+    ]
+  },
+  "analytic_geometry": {
+    "principles": "Coordinates let geometric relationships be expressed algebraically. Distance between two points follows from Pythagoras: √[(x₂-x₁)² + (y₂-y₁)²]. The midpoint averages the x-coordinates and the y-coordinates separately. For nonvertical lines gradient is (y₂-y₁)/(x₂-x₁). Parallel lines have equal gradients. Nonvertical perpendicular lines have gradients whose product is -1; horizontal and vertical lines are a separate perpendicular pair. Use y-y₁ = m(x-x₁) to write a line through a known point. A vertical line has equation x = constant, not an infinite numerical gradient. A circle with centre (a,b) and radius r has equation (x-a)² + (y-b)² = r². Complete squares to identify centre and radius from an expanded equation. A tangent is perpendicular to the radius at its point of contact. Check an intersection by substituting into both equations. Distinguish a distance, which is nonnegative, from a signed coordinate or gradient.",
+    "practice": [
+      {
+        "question": "Find the distance and midpoint between (1,2) and (7,10).",
+        "reference_answer": "Distance = √(6² + 8²) = 10 units. Midpoint = ((1+7)/2,(2+10)/2) = (4,6).",
+        "origin": "original"
+      },
+      {
+        "question": "Find the equation of the line through (2,3) perpendicular to y = 2x + 1.",
+        "reference_answer": "Perpendicular gradient is -1/2. y - 3 = -(x - 2)/2, so y = -x/2 + 4. Product of gradients is -1 and (2,3) satisfies the result.",
+        "origin": "original"
+      },
+      {
+        "question": "State the centre and radius of x² + y² - 6x + 4y - 12 = 0.",
+        "reference_answer": "Completing squares gives (x - 3)² + (y + 2)² = 25. Centre (3,-2), radius 5 units.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the equation of the tangent to x² + y² = 25 at (3,4).",
+        "reference_answer": "Radius gradient is 4/3; tangent gradient is -3/4. y - 4 = -3(x - 3)/4, giving 3x + 4y = 25. The contact point satisfies both circle and tangent.",
+        "origin": "original"
+      }
+    ]
+  },
+  "calculus": {
+    "principles": "Differentiation measures instantaneous rate of change and the gradient of a curve. For a power term axⁿ, derivative is anxⁿ⁻¹; constants differentiate to zero. After differentiating a position function with respect to time, interpret velocity and then acceleration, retaining units. A stationary point has first derivative zero; a positive second derivative identifies a local minimum and a negative one a local maximum. If the second derivative is zero, use further reasoning or sign changes. A tangent gradient is the derivative evaluated at the contact point; use the line equation through that point. Integration reverses differentiation. For xⁿ with n ≠ -1, an antiderivative is xⁿ⁺¹/(n+1); add an arbitrary constant for indefinite integration. A definite integral evaluates antiderivative at the upper limit minus its value at the lower. Signed areas below the x-axis are negative; total geometric area may need splitting at roots. Check integrals by differentiation and check units: integrating a rate over time gives the underlying quantity.",
+    "practice": [
+      {
+        "question": "Differentiate y = 3x³ - 4x² + 5x - 7.",
+        "reference_answer": "dy/dx = 9x² - 8x + 5, applying the power rule term by term. The derivative of -7 is zero.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the stationary point of y = x² - 6x + 5 and classify it.",
+        "reference_answer": "dy/dx = 2x - 6 = 0 gives x = 3. y = -4. Second derivative is 2 > 0, so (3,-4) is a minimum. Completing the square gives (x-3)² - 4 as a check.",
+        "origin": "original"
+      },
+      {
+        "question": "Evaluate the integral from 0 to 2 of 3x² dx.",
+        "reference_answer": "Antiderivative is x³. Evaluate 2³ - 0³ = 8. Differentiating x³ returns 3x².",
+        "origin": "original"
+      },
+      {
+        "question": "Find the tangent to y = x² at x = 2.",
+        "reference_answer": "Point is (2,4), derivative 2x gives slope 4. y - 4 = 4(x - 2), so y = 4x - 4. Check it passes through (2,4).",
+        "origin": "original"
+      }
+    ]
+  },
+  "probability": {
+    "principles": "Probability measures likelihood and lies between zero and one. For equally likely outcomes use favourable outcomes divided by total outcomes. The complement rule is P(not A) = 1 - P(A). For any events P(A or B) = P(A) + P(B) - P(A and B), avoiding double-counting. Mutually exclusive events cannot occur together, so their intersection has probability zero; they are not the same as independent events. Independent events do not affect each other's probabilities, giving P(A and B) = P(A)P(B). For dependent events use conditional probability: P(A and B) = P(A)P(B given A). On a probability tree, multiply along a path and add disjoint paths. Drawing without replacement changes both the total objects and relevant counts on the second draw. Drawing with replacement restores them. For at least one success it is often simpler to subtract the probability of no successes from one. Check that the probabilities of all branches from any node add to one.",
+    "practice": [
+      {
+        "question": "A fair die is rolled. Find the probability of an even result.",
+        "reference_answer": "Even outcomes are 2,4,6 out of 6 equally likely outcomes. Probability = 3/6 = 1/2.",
+        "origin": "original"
+      },
+      {
+        "question": "Two fair coins are tossed independently. Find the probability of exactly one head.",
+        "reference_answer": "Equally likely outcomes are HH, HT, TH, TT. Two have exactly one head, so probability = 2/4 = 1/2.",
+        "origin": "original"
+      },
+      {
+        "question": "A bag contains 3 red and 2 blue balls. Two are drawn without replacement. Find the probability both are red.",
+        "reference_answer": "First red probability 3/5. After a red, 2 of 4 balls are red. Product = (3/5)(2/4) = 3/10. Replacement would instead give 9/25.",
+        "origin": "original"
+      },
+      {
+        "question": "P(A) = 0.4, P(B) = 0.5 and P(A and B) = 0.2. Find P(A or B).",
+        "reference_answer": "0.4 + 0.5 - 0.2 = 0.7. Subtract the intersection because it was counted twice.",
+        "origin": "original"
+      }
+    ]
+  },
+  "statistics": {
+    "principles": "Statistics organises and summarises data. The mean is the sum of observations divided by their number. For a frequency table use sum(fx)/sum(f). Median is the middle ordered observation, or the mean of the two middle values for an even count. Mode is the most frequent value and need not be unique. Outliers affect the mean more than the median, so choose a measure appropriate to the data. Range is maximum minus minimum; variance measures average squared deviations from the mean, and standard deviation is its square root. For population variance use sum(fx²)/N - mean². Grouped-data means are estimates based on class midpoints, not exact means of hidden raw data. In a histogram with unequal class widths use frequency density, frequency divided by class width, so area represents frequency. Cumulative frequency supports estimates of medians, quartiles and percentiles. Keep frequencies nonnegative and ensure they sum to the sample size. Include units on means and standard deviations; variance has squared units.",
+    "practice": [
+      {
+        "question": "Find the mean, median and mode of 2,3,3,8.",
+        "reference_answer": "Mean = 16/4 = 4. Median = (3+3)/2 = 3. Mode = 3. The high value 8 pulls the mean above the median.",
+        "origin": "original"
+      },
+      {
+        "question": "Values 1,2,3 have frequencies 2,3,1. Find the mean.",
+        "reference_answer": "N = 6; sum(fx) = 2 + 6 + 3 = 11. Mean = 11/6 ≈ 1.83. It lies between 1 and 3.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the population variance and standard deviation of 2,4,6.",
+        "reference_answer": "Mean = 4. Squared deviations are 4,0,4. Variance = 8/3; standard deviation = √(8/3) ≈ 1.63. Do not divide by n-1 because population variance was requested.",
+        "origin": "original"
+      },
+      {
+        "question": "A histogram class from 10 to 20 has frequency 30. Find its frequency density.",
+        "reference_answer": "Class width = 10, density = 30/10 = 3. Histogram area 10 × 3 = 30 represents the frequency.",
+        "origin": "original"
+      }
+    ]
+  },
+  "commercial_arithmetic": {
+    "principles": "Percentages compare a change with a stated base. Profit percentage is usually profit divided by cost price, while profit margin uses selling price; read the wording. A discount reduces marked price by a fraction of that price. Simple interest I = Prt uses the original principal throughout, with rate r as a decimal per time period. Compound amount A = P(1+r)ⁿ applies interest to the growing balance; depreciation uses P(1-r)ⁿ. Keep the rate and number of periods consistent. Hire purchase cost is deposit plus all instalments; compare it with cash price to find extra cost. Currency conversions use the stated buying or selling rate from the institution's point of view. For taxation, apply each tax rate only to the portion of taxable income in that band, then apply any specified relief. Distinguish gross and net income. Check commercial calculations by reversing the multiplier; a 20% increase followed by a 20% decrease does not return to the original amount because the bases differ.",
+    "practice": [
+      {
+        "question": "An article costs KSh 800 and sells for KSh 1000. Find the profit percentage on cost.",
+        "reference_answer": "Profit = 1000 - 800 = KSh 200. Percentage = 200/800 × 100 = 25%. Profit margin on sales would instead be 20%.",
+        "origin": "original"
+      },
+      {
+        "question": "Find simple interest on KSh 20000 at 6% per year for 3 years.",
+        "reference_answer": "I = 20000 × 0.06 × 3 = KSh 3600. Total amount = KSh 23600. Annual interest is KSh 1200, checking three years gives KSh 3600.",
+        "origin": "original"
+      },
+      {
+        "question": "KSh 10000 is invested at 10% compound interest per year for 2 years. Find the amount.",
+        "reference_answer": "A = 10000(1.1)² = KSh 12100. Year one gives 11000; year two adds 1100. Interest earned is KSh 2100.",
+        "origin": "original"
+      },
+      {
+        "question": "A machine worth KSh 50000 depreciates by 20% each year. Find its value after 2 years.",
+        "reference_answer": "Value = 50000(0.8)² = KSh 32000. Sequentially: 40000 after year one and 32000 after year two.",
+        "origin": "original"
+      }
+    ]
+  },
+  "linear_programming": {
+    "principles": "Linear programming chooses the best value of a linear objective subject to linear constraints. Define the variables and their units, translate each resource limit into an inequality, and include nonnegative constraints when quantities cannot be negative. Draw each boundary line using intercepts or two points. Test a point away from the line to identify the allowed half-plane; shade consistently and find the common feasible region. The objective might be profit to maximise or cost to minimise. For a bounded polygon and a linear objective, an optimum occurs at a vertex, although an entire edge can tie. Find vertex coordinates by solving boundary equations, then substitute each feasible vertex into the objective. Include axis vertices and do not choose an intersection outside the feasible region. If quantities must be whole numbers, inspect feasible integer candidates; merely rounding a continuous optimum can violate constraints. State the production plan and objective value in context. Check the chosen solution against every resource inequality.",
+    "practice": [
+      {
+        "question": "State inequalities for x desks and y chairs when x,y are nonnegative and each desk uses 2 hours, each chair 1 hour, with at most 10 hours available.",
+        "reference_answer": "x ≥ 0, y ≥ 0 and 2x + y ≤ 10. At most means less than or equal to, not equality in every feasible plan.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the intercepts of 2x + y = 10.",
+        "reference_answer": "At x = 0, y = 10. At y = 0, x = 5. Intercepts are (0,10) and (5,0).",
+        "origin": "original"
+      },
+      {
+        "question": "Maximise P = 3x + 2y for x ≥ 0, y ≥ 0, x + y ≤ 4 and x ≤ 2.",
+        "reference_answer": "Vertices are (0,0),(2,0),(2,2),(0,4). Objective values are 0,6,10,8. Maximum P = 10 at (2,2). Both resource inequalities hold.",
+        "origin": "original"
+      },
+      {
+        "question": "Does (3,2) satisfy x + y ≤ 4 and x ≤ 2? Explain.",
+        "reference_answer": "No. x + y = 5 > 4 and x = 3 > 2, so it violates both constraints and is outside the feasible region.",
+        "origin": "original"
+      }
+    ]
+  },
+  "volume_area": {
+    "principles": "Perimeter measures boundary length, area measures a surface and volume measures three-dimensional space. Convert lengths to a common unit before applying formulas. Squaring a length conversion squares its factor; cubing it cubes the factor. A triangle has area 1/2 base × perpendicular height. A trapezium has area 1/2(sum of parallel sides) × perpendicular distance. A circle has circumference 2πr and area πr². A prism has volume cross-sectional area × length. A cylinder has volume πr²h, curved area 2πrh and closed total area 2πrh + 2πr². A cone's volume is πr²h/3, with perpendicular height h; its curved area πrl uses slant height l instead. A sphere has volume 4πr³/3 and surface area 4πr². Distinguish open from closed containers and exclude shared internal faces in composite solids. If similar solids have length scale factor k, areas scale by k² and volumes by k³. Check dimensions: volume cannot be expressed in square centimetres.",
+    "practice": [
+      {
+        "question": "Find the volume and total surface area of a closed cuboid 4 cm by 3 cm by 2 cm.",
+        "reference_answer": "Volume = 4 × 3 × 2 = 24 cm³. Area = 2(4×3 + 4×2 + 3×2) = 52 cm². Each pair of opposite faces has equal area.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the volume of a cylinder of radius 7 cm and height 10 cm, using π = 22/7.",
+        "reference_answer": "V = πr²h = (22/7) × 49 × 10 = 1540 cm³. Base area is 154 cm²; multiplying by height checks the result.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the curved surface area of a cone with radius 3 cm and slant height 5 cm.",
+        "reference_answer": "Curved area = πrl = 15π cm². Total area including its circular base would be 15π + 9π = 24π cm².",
+        "origin": "original"
+      },
+      {
+        "question": "Similar solids have corresponding lengths in the ratio 2:3. Find their volume ratio.",
+        "reference_answer": "Cube the length ratio: 2³:3³ = 8:27. Area ratio would be 4:9, a different quantity.",
+        "origin": "original"
+      }
+    ]
+  },
+  "solid_geometry": {
+    "principles": "Solid geometry extends plane geometry to three dimensions. Start with a clear sketch showing a plan, elevation or a useful cross-section. A line's angle to a plane is the angle between the line and its perpendicular projection onto the plane. Find the foot of a perpendicular and draw the right triangle containing the actual line and its projection; an arbitrary angle to an edge is not necessarily the angle to the plane. The angle between two planes is measured in a cross-section perpendicular to their line of intersection. In a cuboid, first find a face diagonal by Pythagoras, then combine it with the perpendicular remaining edge to get the space diagonal. For lengths l,w,h this gives √(l²+w²+h²). Parallel and perpendicular relations should follow from the geometry, not from appearance in a perspective drawing. Nets unfold surfaces without changing face dimensions; account for every face exactly once when calculating area. Check that a space diagonal exceeds each edge and each relevant face diagonal.",
+    "practice": [
+      {
+        "question": "Find the space diagonal of a cuboid with edges 3 cm, 4 cm and 12 cm.",
+        "reference_answer": "Base diagonal = √(3² + 4²) = 5 cm. Space diagonal = √(5² + 12²) = 13 cm. Check 13² = 9 + 16 + 144.",
+        "origin": "original"
+      },
+      {
+        "question": "A cuboid has base 3 cm by 4 cm and height 12 cm. Find the angle its space diagonal makes with the base, to 1 decimal place.",
+        "reference_answer": "Projection onto the base is its 5 cm diagonal. tan θ = 12/5, giving θ ≈ 67.4°. Check sin θ = 12/13 gives the same angle.",
+        "origin": "original"
+      },
+      {
+        "question": "A square pyramid has base side 6 cm and vertical height 4 cm. Find the slant height from the apex to the midpoint of a base edge.",
+        "reference_answer": "Horizontal distance from base centre to edge midpoint is 3 cm. Slant height = √(4² + 3²) = 5 cm. The distance to a base vertex is different.",
+        "origin": "original"
+      },
+      {
+        "question": "Find the total surface area of that square pyramid with base side 6 cm and face slant height 5 cm.",
+        "reference_answer": "Four triangular faces have combined area 4 × (1/2 × 6 × 5) = 60 cm². Add base area 36 cm² to get 96 cm².",
+        "origin": "original"
+      }
+    ]
+  }
+}

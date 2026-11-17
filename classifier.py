@@ -61,23 +61,25 @@ def load_subject(subject):
     # Concept tags are optional and blank until the bank is tagged; keep them as
     # None (not "" or "nan") so BKT skips untagged questions.
     if "concept" in df.columns:
-        tags = df["concept"].fillna("").astype(str).str.strip().str.lower()
-        df["concept"] = tags.where(tags != "", None)
+        tags = df["concept"].astype(object).fillna("").astype(str).str.strip().str.lower()
+        df["concept"] = tags.astype(object).where(tags != "", None)
     else:
         df["concept"] = None
     # Multiple-choice items carry four options, a key letter and a written explanation.
     # Items without them stay free-response and are marked by the LLM as before.
     if "options" in df.columns:
-        df["options"] = df["options"].fillna("").astype(str).map(parse_options)
+        df["options"] = df["options"].astype(object).fillna("").astype(str).map(parse_options)
     else:
         df["options"] = [[] for _ in range(len(df))]
     if "answer" in df.columns:
-        keys = df["answer"].fillna("").astype(str).str.strip().str.upper().str[:1]
-        df["key"] = keys.where(keys.isin(list("ABCD")), None)
+        keys = df["answer"].astype(object).fillna("").astype(str).str.strip().str.upper().str[:1]
+        df["key"] = keys.astype(object).where(keys.isin(list("ABCD")), None)
     else:
         df["key"] = None
-    df["explanation"] = (df["explanation"].fillna("").astype(str).str.strip()
+    df["explanation"] = (df["explanation"].astype(object).fillna("").astype(str).str.strip()
                          if "explanation" in df.columns else "")
+    df["reference_answer"] = (df["reference_answer"].astype(object).fillna("").astype(str).str.strip()
+                              if "reference_answer" in df.columns else "")
     for i, row in enumerate(df.itertuples()):
         # Free-response rows carry neither column. A row that carries one but not the
         # other would silently stop being marked, so fail loudly at load time instead.
@@ -193,3 +195,9 @@ def load_all():
     """Warm the cache for every subject that has data (call at startup)."""
     for s in curriculum.valid_subjects():
         load_subject(s)
+
+
+def topic_fingerprint(subject, topic):
+    rows = questions_for_topic(subject, topic)
+    import json
+    return hashlib.sha256(json.dumps(rows, sort_keys=True, default=str).encode()).hexdigest()

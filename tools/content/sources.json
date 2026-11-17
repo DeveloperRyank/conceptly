@@ -1,0 +1,10 @@
+{
+  "chemistry": {
+    "file": "CHEMISTRY-BOOKLET-1.doc",
+    "sha256": "a3d8448feef6eab7425c6d0fde589e193ddb46dc716e728324156b99e5841723"
+  },
+  "computer": {
+    "file": "COMPUTER-STUDIES-BOOKLET.doc",
+    "sha256": "347f9e20eef5fa72dfa335a4a69ee50ca54984cf08ed6d8acf774ad96ab94f71"
+  }
+}

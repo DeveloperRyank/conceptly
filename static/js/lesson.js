@@ -30,6 +30,7 @@ const SEEK_STEP = 0.1;
 // the wide sheet a desk gets. It is the breakpoint the layout of the page already moves at.
 const SMALL_BOARD = window.matchMedia ? window.matchMedia("(max-width: 720px)") : null;
 
+let exploreController = null;
 let wb = null;            // the Whiteboard engine
 let plan = null;          // wb.planScript(): scenes, beats and one absolute clock
 let beats = [];           // wb.schedule(): the lines to be spoken, in order
@@ -54,7 +55,7 @@ let lastFrame = null;
 let seekEl, nowEl, totalEl, captionEl, sheetEl, noteEl, playBtn;
 
 // The board this tab has already seen for this topic, in this account.
-const LESSON_CACHE = "lesson." + CACHE_SCOPE + "." + SUBJECT + "." + TOPIC;
+const LESSON_CACHE = "lesson." + CACHE_SCOPE + "." + SUBJECT + "." + TOPIC + "." + LESSON_REVISION;
 let fromCache = null;      // painted from that cache, waiting for the real answer
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -67,6 +68,15 @@ document.addEventListener("DOMContentLoaded", () => {
   noteEl = document.getElementById("board-note");
   playBtn = document.getElementById("btn-playpause");
   wireControls();
+  wireKeywordInterruptions();
+  if (window.initLessonExplore) exploreController = window.initLessonExplore(SUBJECT, TOPIC, () => {
+    stopKeywordListening();
+    playing = false;
+    voicing = null;
+    Voice.cancel();
+    spoken = beatAt(t) - 1;
+    paintPlay();
+  }, resumeLesson);
 
   requestAnimationFrame(loop);
 
@@ -78,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // A board from the last visit beats an error box over an empty canvas: the student
     // can still work, and the reason the refresh failed is said out loud. The server
     // sends its stored lesson here precisely because it is the one it could not improve.
-    const remembered = embedded || cacheRead(LESSON_CACHE);
+    const remembered = cacheRead(LESSON_CACHE);
     if (remembered) {
       if (embedded) cacheWrite(LESSON_CACHE, embedded);
       loadScript(remembered);
@@ -91,13 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // A lesson that is still being written should not leave the student staring at an
     // animation of nothing: the last board for this topic plays at once and the fresh
     // one takes over, but only while they are still on the first line.
-    const remembered = cacheRead(LESSON_CACHE);
-    if (remembered) {
-      fromCache = remembered;
-      loadScript(remembered);
-    } else {
-      showLoading();
-    }
+    showLoading();
     pollStatus();
   }
 });
@@ -251,11 +255,13 @@ function advance(dtWall) {
   if (voicing) {
     voicing.wall += dtWall;
     const patience = (voicing.dur + 10) / SPEEDS[speedKey];
-    if (Voice.isDone() || voicing.wall > patience) voicing = null;
-    else {
-      // The voice is the clock: the board sits at the word being said, no further.
-      t = Math.max(t, Math.min(plan.total, voicing.base + Voice.elapsed()));
-      startDue();
+    if (Voice.isDone() || voicing.wall > patience) {
+      if (voicing.wall > patience) Voice.cancel();
+      t = Math.min(plan.total, voicing.base + voicing.dur);
+      voicing = null;
+    } else {
+      const fraction = Voice.progress(voicing.dur);
+      t = Math.min(plan.total, voicing.base + fraction * voicing.dur);
       return;
     }
   }
@@ -284,7 +290,7 @@ function startDue() {
 function speakBeat(i, offset) {
   const b = beats[i];
   const part = offset > 0.05 ? remainder(b.text, offset / (b.speech || b.dur)) : b.text;
-  voicing = { i, base: b.at + offset, dur: Math.max(0.3, b.dur - offset), wall: 0 };
+  voicing = { i, base: b.at + offset, dur: Math.max(0.3, (b.speech || b.dur) - offset), wall: 0 };
   if (!part || !Voice.available()) { voicing = null; return; }
   Voice.setRate(SPEEDS[speedKey]);
   Voice.speak(part);
@@ -327,6 +333,7 @@ function setPlaying(on) {
   if (!plan || on === playing) return;
   // A press of play during a detour means "carry on with the lesson", not "freeze the
   // board with an answer card open" — the clock cannot advance while asking is set.
+  if (on && exploreController) exploreController.close();
   if (on && asking) closeDetour();
   if (on && t >= plan.total - 0.005) seekTo(0, false);
   playing = on;
@@ -403,6 +410,7 @@ function wireControls() {
   document.getElementById("speed").addEventListener("change", (e) => {
     speedKey = e.target.value;
     Voice.setRate(SPEEDS[speedKey]);
+    if (plan && !asking) seekTo(t, playing);
   });
   document.getElementById("btn-replay").addEventListener("click", () => {
     closeDetour();
@@ -456,7 +464,10 @@ function wireControls() {
     // between the two sheets it writes on. The ink is the same; its rows are not.
     if (wb && wb.narrow(SMALL_BOARD.matches) && lesson) replan();
   });
-  window.addEventListener("beforeunload", () => Voice.cancel());
+  window.addEventListener("beforeunload", () => { stopKeywordListening(); stopMic(); Voice.cancel(); });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) { stopKeywordListening(); stopMic(); setPlaying(false); }
+  });
 }
 
 // ---------- sound ----------
@@ -492,6 +503,7 @@ function currentLine() {
 
 function openAskPanel() {
   if (!plan) return;
+  stopKeywordListening();
   asking = true;
   playing = false;
   voicing = null;
@@ -513,10 +525,16 @@ function closeAsk() {
   document.getElementById("ask-panel").classList.remove("open");
 }
 
+let askRequest = null;
+let askSerial = 0;
+
 async function sendQuestion() {
   const question = document.getElementById("ask-input").value.trim();
   if (!question) return;
   stopMic();
+  if (askRequest) askRequest.abort();
+  askRequest = new AbortController();
+  const serial = ++askSerial;
   closeAsk();
   const bar = document.getElementById("ask-bar");
   bar.classList.add("open");
@@ -531,6 +549,7 @@ async function sendQuestion() {
 
   try {
     const resp = await fetch("/api/ask", {
+      signal: askRequest.signal,
       method: "POST",
       headers: csrfHeaders({ "Content-Type": "application/json" }),
       body: JSON.stringify({
@@ -539,10 +558,12 @@ async function sendQuestion() {
       }),
     });
     const data = await readJSON(resp);
+    if (serial !== askSerial || !asking) return;
     if (!resp.ok) throw new Error(data.error || "Request failed");
     document.getElementById("ask-bar-state").textContent = "";
     renderAnswer(data, question);
   } catch (err) {
+    if (serial !== askSerial || err.name === "AbortError") return;
     document.getElementById("ask-bar-state").textContent = "";
     card.innerHTML = '<div class="tc-eyebrow">Tutor</div><div class="tc-ask">“' +
       escapeHtml(question) + '”</div><div class="tc-body">Couldn’t reach the tutor: ' +
@@ -576,7 +597,7 @@ function renderAnswer(data, question) {
   if (data.answer && Voice.available()) Voice.speak(data.answer);
   // A student who has read the answer should not have to wait for the voice, but the
   // lesson has to pick up where it left off, so the wait ends with the sentence.
-  waitVoice(() => { if (asking) resumeLesson(); });
+  // Keep the answer available until the student explicitly resumes.
 }
 
 let answerWait = null;
@@ -597,6 +618,10 @@ function waitVoice(then) {
 }
 
 function closeDetour() {
+  askSerial++;
+  if (askRequest) askRequest.abort();
+  askRequest = null;
+  stopMic();
   stopAnswer();
   asking = false;
   closeAsk();
@@ -605,6 +630,7 @@ function closeDetour() {
 }
 
 function resumeLesson() {
+  if (exploreController) exploreController.close();
   closeDetour();
   playing = true;
   paintPlay();
@@ -651,7 +677,8 @@ function toggleMic() {
     document.getElementById("btn-mic").classList.remove("listening");
     document.getElementById("mic-state").textContent = "";
   };
-  rec.start();
+  rec.onerror = (e) => { document.getElementById("mic-state").textContent = "Microphone error: " + e.error; };
+  try { rec.start(); } catch (_) { rec = null; document.getElementById("mic-state").textContent = "Microphone unavailable; type your question."; return; }
   document.getElementById("btn-mic").classList.add("listening");
   document.getElementById("mic-state").textContent = "listening… tap the microphone again to stop";
 }
@@ -682,4 +709,53 @@ async function regenerate() {
   } finally {
     btn.disabled = false;
   }
+}
+
+
+// Opt-in keyword recognition shares one microphone with question dictation.
+let keywordRec = null;
+let keywordEnabled = false;
+function stopKeywordListening() {
+  keywordEnabled = false;
+  if (keywordRec) { try { keywordRec.abort(); } catch (_) {} keywordRec = null; }
+  const button = document.getElementById("keyword-listen");
+  if (button) { button.setAttribute("aria-pressed", "false"); button.textContent = "Enable voice interruptions"; }
+}
+function wireKeywordInterruptions() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const button = document.getElementById("keyword-listen");
+  const state = document.getElementById("keyword-state");
+  if (!SR) { button.disabled = true; state.textContent = "Voice recognition is unavailable here. Press A or use Stop and ask; typing always works."; return; }
+  button.addEventListener("click", () => {
+    if (keywordEnabled) { stopKeywordListening(); state.textContent = "Voice interruptions off."; return; }
+    stopMic();
+    keywordEnabled = true;
+    button.setAttribute("aria-pressed", "true");
+    button.textContent = "Disable voice interruptions";
+    const recognition = new SR();
+    keywordRec = recognition;
+    recognition.lang = "en-KE";
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.onresult = (event) => {
+      for (let i = event.resultIndex; i < event.results.length; i++) {
+        const text = event.results[i][0].transcript.trim();
+        const match = /\b(?:hey tutor|tutor pause|i have a question)\b[,.!?\s]*(.*)/i.exec(text);
+        if (!match || !keywordEnabled || !plan) continue;
+        stopKeywordListening();
+        openAskPanel();
+        document.getElementById("ask-input").value = match[1] || "";
+        state.textContent = "Lesson paused. Finish your question by typing or use the question microphone, then press Ask the tutor.";
+        break;
+      }
+    };
+    recognition.onerror = (event) => { stopKeywordListening(); state.textContent = "Microphone stopped (" + event.error + "). Use Stop and ask, or enable again."; };
+    recognition.onend = () => {
+      if (keywordRec !== recognition) return;
+      stopKeywordListening();
+      state.textContent = "Listening ended. Enable again to listen for a keyword, or press A to ask.";
+    };
+    try { recognition.start(); state.textContent = "Listening for Hey tutor, Tutor pause, or I have a question. Use headphones; disable when finished."; }
+    catch (_) { stopKeywordListening(); state.textContent = "Could not start the microphone. Use Stop and ask."; }
+  });
 }

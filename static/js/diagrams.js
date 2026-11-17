@@ -1226,7 +1226,7 @@ const TEMPLATES = {
         ...arrowOps(414, 278, 546, 278, { color: "#D9A648", width: 2, head: 11 }),
         ...arrowOps(414, 318, 546, 318, { color: "#D9A648", width: 2, head: 11 }),
         { slot: "title", x: 120, y: 132, size: 18, def: "Parallel-plate capacitor" },
-        ...callout("Plate on the + terminal holds +Q", 620, 210, 566, 232, { maxRight: 930 }),
+        ...callout("Plate on the + terminal holds +Q", 150, 178, 394, 232, { maxRight: 930 }),
         ...callout("Facing plate holds the same charge, minus", 620, 348, 566, 330, { maxRight: 930 }),
         { slot: "gap", x: 640, y: 420, size: 15, color: "#BFB09C", def: "Field runs across the air gap d" },
         { slot: "note", x: 150, y: 545, size: 16, def: "C = Q / V, in farads" },
@@ -1237,7 +1237,7 @@ const TEMPLATES = {
         ...arrowOps(414, 278, 546, 278, { color: "#74A98D", width: 2, head: 11 }),
         { slot: "title", x: 120, y: 132, size: 18, def: "Capacitor with a dielectric" },
         ...callout("Mica, paper or oil between the plates", 150, 178, 420, 212, { maxRight: 620 }),
-        { slot: "effect", x: 640, y: 300, size: 16, def: "The same charge, a lower p.d: C rises" },
+        { slot: "effect", x: 640, y: 300, size: 16, def: "Cell connected: V fixed, Q rises" },
         { slot: "note", x: 150, y: 545, size: 16, def: "C = k A / d for a parallel-plate capacitor" },
       ],
       series: [

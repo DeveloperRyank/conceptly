@@ -1,0 +1,285 @@
+question,topic,concept,options,answer,explanation,reference_answer
+"Name the process carried out by an apparatus with a thermometer, round flask of salt solution, and Liebig condenser",separation_techniques,,,,,
+"Name the piece of apparatus used to cool and condense vapour back into liquid, positioned after the flask and before the collecting vessel",separation_techniques,,,,,
+State the function of the thermometer placed at the neck of the distillation flask,separation_techniques,,,,,
+State the function of pieces of broken porcelain added to the salt solution before heating,separation_techniques,,,,,
+State any two differences between solids and liquids in terms of shape and behaviour when cooled,states_of_matter,,,,,
+Identify the gas formed when charcoal burns in a plentiful supply of air,combustion,,,,,
+State the observation made when carbon burns in a good supply of oxygen to form carbon dioxide,combustion,,,,,
+Write a chemical equation for the formation of carbon monoxide when carbon dioxide passes over hot carbon,combustion,,,,,
+How would one avoid the production of carbon monoxide gas when using a charcoal jiko indoors,combustion,,,,,
+State the observation made in a combustion tube when dry hydrogen gas is passed over heated copper(II) oxide,redox_reactions,,,,,
+Write the equation for the reaction between hydrogen gas and copper(II) oxide in a heated combustion tube,redox_reactions,,,,,
+What property of hydrogen gas is demonstrated when it reduces copper(II) oxide to copper metal,redox_reactions,,,,,
+"Apart from hydrogen gas, name two other gases that can be used to reduce copper(II) oxide",redox_reactions,,,,,
+"What is the name of the industrial process used to manufacture sodium carbonate from limestone, ammonia and brine",industrial_processes,,,,,
+Name the three main raw materials used in the Solvay process,industrial_processes,,,,,
+"Identify the substances labelled S, F and Z in a Solvay process flow chart",industrial_processes,,,,,
+Write the overall equation taking place in the carbonating tower of the Solvay process,industrial_processes,,,,,
+Give a reason why a Solvay process plant is usually located near a river,industrial_processes,,,,,
+Write the formulae of two substances that are recycled in the Solvay process,industrial_processes,,,,,
+"Write the equation for the reaction taking place in the ammonia recovery chamber of the Solvay process, between calcium hydroxide and ammonium chloride",industrial_processes,,,,,
+Explain why the atomic radius of the elements decreases from magnesium to chlorine across a period,periodicity,,,,,
+Explain why the ionisation energy of the elements increases from magnesium to chlorine across a period,periodicity,,,,,
+Explain in terms of structure and bonding why the melting point of aluminium is higher than that of magnesium,periodicity,,,,,
+Explain in terms of structure and bonding why the melting point of phosphorus is higher than that of chlorine,periodicity,,,,,
+"Give the formula of the oxides of magnesium, aluminium, silicon and phosphorus and state their acid-base character",periodicity,,,,,
+"Name the type of bond present in sulphur dichloride, S2Cl2",periodicity,,,,,
+Determine the oxidation number of sulphur in the chloride S2Cl2,periodicity,,,,,
+Name the organic compound with the structural formula CH3(CH2)5CH3,organic_chemistry,,,,,
+Name the organic compound with the structural formula CH3(CH2)3C triple bond CH,organic_chemistry,,,,,
+Identify gas C produced during the roasting of copper pyrites in the extraction of copper,extraction_of_metals,,,,,
+Write an equation for the reaction that takes place in chamber 1 during the extraction of copper from copper pyrites,extraction_of_metals,,,,,
+Identify substance B added during the extraction of copper from copper pyrites,extraction_of_metals,,,,,
+Give the formula of the main compound found in the slag formed during copper extraction,extraction_of_metals,,,,,
+Write equations for the two reactions that take place in chamber 3 during copper extraction,extraction_of_metals,,,,,
+Describe the process used to purify impure copper obtained from extraction,extraction_of_metals,,,,,
+Explain why copper coins turn green when left exposed to air for a long time,extraction_of_metals,,,,,
+State what is meant by the standard enthalpy of formation of a compound,thermochemistry,,,,,
+Write the thermochemical equation for the formation of carbon dioxide gas,thermochemistry,,,,,
+Write the thermochemical equation for the formation of water,thermochemistry,,,,,
+Use an energy level diagram and enthalpy of formation data to determine the value of a given enthalpy change,thermochemistry,,,,,
+Calculate the enthalpy change for a reaction using Hess's law and given enthalpy of formation values,thermochemistry,,,,,
+Calculate the heat change produced when a sample of butane is burned and used to heat a known mass of water,thermochemistry,,,,,
+Calculate the mass of butane burned given the heat of combustion of butane and the heat produced,thermochemistry,,,,,
+"Describe how a sample of chlorine gas can be prepared from solid sodium chloride, solid manganese(IV) oxide and concentrated sulphuric acid",halogens,,,,,
+Give the name of the compound formed when chlorine gas reacts with iron,halogens,,,,,
+State the reagent and conditions necessary for chlorine gas to form sodium chlorate,halogens,,,,,
+Give the formulae of the two compounds formed when chlorine gas reacts with phosphorus,halogens,,,,,
+Write an equation for the reaction between chlorine gas and aqueous hydrogen sulphide,halogens,,,,,
+State the observation made when chlorine gas is bubbled into aqueous potassium iodide,halogens,,,,,
+State the observation made when moist red litmus paper is placed in a gas jar of chlorine gas,halogens,,,,,
+Write an ionic equation for the reaction between aqueous lead(II) nitrate and aqueous potassium chloride,halogens,,,,,
+State the reason why chlorine is used in water treatment,halogens,,,,,
+"Identify the anode and cathode in the Down's cell used for extraction of sodium, giving a reason for each",extraction_of_metals,,,,,
+State the purpose of the steel gauze diaphragm in the Down's cell,extraction_of_metals,,,,,
+"Given the melting and boiling points of sodium and sodium chloride, state how the operating temperature of the Down's cell is achieved",extraction_of_metals,,,,,
+State the advantage of operating the Down's cell at a lower temperature than the melting point of sodium chloride,extraction_of_metals,,,,,
+State the physical state in which sodium is obtained from the Down's cell and give a reason,extraction_of_metals,,,,,
+Calculate the mass of sodium produced starting with a given mass of sodium chloride,extraction_of_metals,,,,,
+Explain how a sample of solid sodium should be stored in the laboratory,extraction_of_metals,,,,,
+State one industrial use of sodium,extraction_of_metals,,,,,
+State the conditions required for the products of electrolysis of aqueous copper(II) sulphate to be oxygen and copper,electrochemistry,,,,,
+State the conditions required for the products of electrolysis of aqueous copper(II) sulphate to be copper at both electrodes,electrochemistry,,,,,
+Write the half equation for the reaction that took place during electrolysis of an electrolyte containing A3+ ions,electrochemistry,,,,,
+"Determine the relative atomic mass of a metal deposited during electrolysis given the current, time and mass, using Faraday's constant",electrochemistry,,,,,
+State what the symbol // represents in a cell representation diagram,electrochemistry,,,,,
+Write an equation for the reaction that occurs in an electrochemical cell given its cell representation,electrochemistry,,,,,
+Calculate the standard electrode potential of a half-cell given the standard cell e.m.f. and the other half-cell electrode potential,electrochemistry,,,,,
+State how the e.m.f. of a cell can be used to predict whether a reaction is feasible,electrochemistry,,,,,
+Explain why corrosion of aluminium is protective while corrosion of iron is destructive,electrochemistry,,,,,
+State and explain how an increase in pressure affects the rate of a gaseous reaction,reaction_kinetics,,,,,
+State and explain how an increase in temperature affects the rate of a reaction,reaction_kinetics,,,,,
+Write an equation for the reaction between ethanoic acid and copper(II) carbonate,reaction_kinetics,,,,,
+Give a reason why excess copper(II) carbonate was used in a rate of reaction experiment,reaction_kinetics,,,,,
+Draw a graph of volume of gas produced against time from given experimental data,reaction_kinetics,,,,,
+Use a graph to determine the rate of reaction at a given time,reaction_kinetics,,,,,
+Give a reason for the difference between average rates of reaction calculated at two different times,reaction_kinetics,,,,,
+"Name another apparatus, apart from the Bunsen burner, used for heating in the laboratory",lab_techniques,,,,,
+Explain why a non-luminous flame is preferred for heating in the laboratory,lab_techniques,,,,,
+What is an electrode,electrochemistry,,,,,
+State what particles are responsible for electrical conductivity in solid magnesium metal,electrochemistry,,,,,
+State what particles are responsible for electrical conductivity in molten magnesium chloride,electrochemistry,,,,,
+What is a proton,atomic_structure,,,,,
+"Given the percentage abundance and number of neutrons of two isotopes of an element, calculate its relative atomic mass",atomic_structure,,,,,
+Draw and name all the possible isomers of the organic compound C4H8,organic_chemistry,,,,,
+Describe how a dry sample of lead(II) chloride can be obtained from a mixture of iron filings and silver chloride,separation_techniques,,,,,
+State Graham's law of diffusion,reaction_kinetics,,,,,
+"Given the rate of diffusion of sulphur(IV) oxide gas, calculate the rate of diffusion of carbon(IV) oxide gas under the same conditions using Graham's law",reaction_kinetics,,,,,
+Explain why universal indicator is preferred over phenolphthalein to distinguish hydrochloric acid from ethanoic acid,acids_bases_salts,,,,,
+Describe how a simple acid-base indicator can be prepared from flower petals,acids_bases_salts,,,,,
+"Given the percentage of copper in a hydrated copper(II) sulphate salt, determine the number of water molecules of crystallization",mole_concept,,,,,
+Draw a well-labelled diagram for preparing and collecting a sample of hydrogen gas in the laboratory,lab_techniques,,,,,
+State and explain the observation made when hydrogen gas is passed over heated copper(II) oxide,redox_reactions,,,,,
+Write a balanced equation for the formation of the resulting solution when hydrogen reduces copper(II) oxide,redox_reactions,,,,,
+"Using soap-lathering data for three water samples, identify which sample is likely to be rain water",hard_water,,,,,
+"Identify the chemical used to treat a hard water sample based on soap-lathering data, and explain your answer",hard_water,,,,,
+State and explain the type of hardness present in a water sample that stops staining fabric after boiling,hard_water,,,,,
+Use an equation to explain why concentrated sulphuric acid cannot be used to dry ammonia gas,acids_bases_salts,,,,,
+Calculate the percentage of nitrogen in the nitrogenous fertilizer formed when concentrated sulphuric acid reacts with ammonia,mole_concept,,,,,
+Describe how a sample of sodium sulphate can be prepared from sulphuric acid,acids_bases_salts,,,,,
+"Given the temperature rise recorded for three acid-base neutralization pairs, identify which pair showed the highest temperature rise and explain why",thermochemistry,,,,,
+"Given the atomic numbers of four elements, name the type of bond formed between two of them",periodicity,,,,,
+"Given the atomic numbers of four elements, select the element representing the strongest reducing agent and give a reason",periodicity,,,,,
+"During soap preparation a fatty acid is hydrolyzed by sodium hydroxide, name this process",organic_chemistry,,,,,
+Describe the cleaning action of soap,organic_chemistry,,,,,
+"In a hexane-water mixture separated using a separating funnel, identify which liquid is on top and which is at the bottom",separation_techniques,,,,,
+"Apart from density, state one other property that allows hexane and water to be separated using a separating funnel",separation_techniques,,,,,
+Explain why cryolite is added to aluminium oxide during aluminium extraction,extraction_of_metals,,,,,
+Explain why the graphite anode is replaced from time to time during aluminium extraction,extraction_of_metals,,,,,
+Give one environmental effect associated with the extraction of aluminium,extraction_of_metals,,,,,
+Write a chemical equation for the formation of a solid product when dry chlorine gas reacts with iron filings,halogens,,,,,
+"Given a cell representation with a standard e.m.f. and the e.m.f. of the half-cell that gained electrons, calculate the e.m.f. of the half-cell that lost electrons",electrochemistry,,,,,
+Give one application of electrolysis,electrochemistry,,,,,
+Briefly explain how rubber is vulcanized,organic_chemistry,,,,,
+State two properties of vulcanized rubber,organic_chemistry,,,,,
+State the name given to the regularly repeating arrangement of particles in a crystalline solid,periodicity,,,,,
+Explain the difference in melting points of chlorine and bromine given both are held by weak forces of attraction,periodicity,,,,,
+State the observation made when concentrated nitric(V) acid is added to charcoal and the mixture is heated,redox_reactions,,,,,
+Write a balanced equation for the reaction between charcoal and concentrated nitric(V) acid,redox_reactions,,,,,
+State what property of carbon is demonstrated in its reaction with concentrated nitric(V) acid,redox_reactions,,,,,
+Calculate the volume of 0.1M sodium hydroxide needed to neutralize a given volume of 0.1M sulphuric(VI) acid,mole_concept,,,,,
+Explain why chlorinated water still has the smell of chlorine after treatment,halogens,,,,,
+State and explain how the lingering smell of chlorine can be removed from treated water,halogens,,,,,
+"Given the structure of a synthetic polymer, draw and name the structures of its two monomers",organic_chemistry,,,,,
+Give one use of a given synthetic polymer,organic_chemistry,,,,,
+"Given a periodic table grid of unlabeled elements, give the type of bond formed when two of them react and give a reason",periodicity,,,,,
+Explain the difference in atomic and ionic radii of a given element,periodicity,,,,,
+Explain how the atomic radii of two given elements compare,periodicity,,,,,
+"Given the molar gas volume, calculate the mass of a metal that reacted completely with a given volume of gas",mole_concept,,,,,
+"Using melting and boiling point data for period 3 elements, choose two substances that are gases at room temperature and give a reason",periodicity,,,,,
+Explain why a given period 3 element has two melting point values listed,periodicity,,,,,
+State and explain the observation made when a period 3 element is dissolved in water and blue litmus paper is added to the solution,periodicity,,,,,
+"Given a reaction scheme showing organic compounds, name the product formed",organic_chemistry,,,,,
+State the reagent and condition used for a given step in an organic reaction scheme,organic_chemistry,,,,,
+Name a substance formed in an organic reaction scheme,organic_chemistry,,,,,
+State one use of a substance formed in an organic reaction scheme,organic_chemistry,,,,,
+Name and draw the structure of the two monomers of a given polymer,organic_chemistry,,,,,
+Give one environmental effect of using a given polymer,organic_chemistry,,,,,
+Write an equation for the combustion of a given organic compound,organic_chemistry,,,,,
+Write an equation for a given step in an organic reaction scheme,organic_chemistry,,,,,
+Describe how two given organic compounds can be distinguished chemically,organic_chemistry,,,,,
+"Given a flow chart of industrial processes producing two nitrogenous fertilizers, name a labelled process",industrial_processes,,,,,
+Identify a gas in a flow chart of nitrogenous fertilizer production,industrial_processes,,,,,
+Identify a substance in a flow chart of nitrogenous fertilizer production,industrial_processes,,,,,
+Write a chemical equation for a labelled process in a nitrogenous fertilizer flow chart,industrial_processes,,,,,
+State two optimum conditions in the catalytic chamber of an industrial process,industrial_processes,,,,,
+Explain why a gas is dissolved in concentrated sulphuric(VI) acid in the dilution chamber of an industrial process,industrial_processes,,,,,
+State one use of zinc metal,extraction_of_metals,,,,,
+State one use of sulphuric(VI) acid,industrial_processes,,,,,
+Define the term solubility,solutions_and_solubility,,,,,
+"Given solubility data for two salts at different temperatures, plot a graph of solubility against temperature for both salts",solutions_and_solubility,,,,,
+"Using a solubility graph, state the solubility of each salt at a given temperature",solutions_and_solubility,,,,,
+"Given a saturated solution of a salt cooled from one temperature to another, determine the mass of salt that will crystallize",solutions_and_solubility,,,,,
+Determine the concentration of a salt in moles per litre when two salts are equally soluble,solutions_and_solubility,,,,,
+State and explain the observation made when a mixture of two salt solutions is heated and then cooled,solutions_and_solubility,,,,,
+"Given standard reduction potentials for five half-cells, identify the weakest reducing agent with a reason",electrochemistry,,,,,
+Identify which half-cell in a table of standard reduction potentials is likely to be hydrogen,electrochemistry,,,,,
+Draw an electrochemical cell formed when two given half-cells are combined,electrochemistry,,,,,
+Calculate the e.m.f. of an electrochemical cell formed from two given half-cells,electrochemistry,,,,,
+"Given the electrolysis of dilute sulphuric acid, name the gases produced at each electrode",electrochemistry,,,,,
+Write the equation for the reaction that produces a given gas during electrolysis of dilute sulphuric acid,electrochemistry,,,,,
+Explain the difference in the volumes of gases produced at the electrodes during electrolysis of dilute sulphuric acid,electrochemistry,,,,,
+"Given the current and time passed during electrolysis, calculate the volume of gas produced at the anode using Faraday's constant",electrochemistry,,,,,
+State the aim of an experiment to determine the percentage of oxygen in air using a burning candle,lab_techniques,,,,,
+Identify one mistake in the set-up of an experiment to determine the percentage of oxygen in air,lab_techniques,,,,,
+"Given that a student calculated the volume of air used as 19.2 percent in an oxygen-in-air experiment, comment on the result",lab_techniques,,,,,
+State one modification needed to adapt an oxygen-in-air experiment to use phosphorus instead of a burning candle,lab_techniques,,,,,
+Describe an experiment using phosphorus to determine the percentage of oxygen in air,lab_techniques,,,,,
+State and explain the observation made when methyl orange indicator is added to the trough after an oxygen-in-air experiment,acids_bases_salts,,,,,
+Define heat of neutralization,thermochemistry,,,,,
+Write an ionic equation for the neutralization of hydrochloric acid and sodium hydroxide,acids_bases_salts,,,,,
+"Given temperature and mass data from a neutralization experiment, calculate the amount of heat produced",thermochemistry,,,,,
+Calculate the molar heat of neutralization for a given acid-base reaction from experimental data,thermochemistry,,,,,
+Explain why the molar heat of neutralization of sodium hydroxide and ethanoic acid would be less than that of a strong acid and strong base,thermochemistry,,,,,
+Write the thermochemical equation for the neutralization of sodium hydroxide and dilute hydrochloric acid,thermochemistry,,,,,
+Draw an energy level diagram for a given neutralization reaction,thermochemistry,,,,,
+Distinguish a physical change from a chemical change with examples.,introduction_to_chemistry,,,,,Melting ice is physical: water remains H₂O. Burning magnesium is chemical: magnesium reacts with oxygen to form magnesium oxide.
+Why does opening a Bunsen burner air hole reduce soot?,introduction_to_chemistry,,,,,"More oxygen mixes with the fuel before burning, promoting more complete combustion. Less unburnt carbon is produced as soot."
+Which instrument delivers a fixed accurate 25.0 cm³ volume in titration?,introduction_to_chemistry,,,,,A 25.0 cm³ volumetric pipette. A measuring cylinder is less suitable when accurate fixed delivery is required.
+Explain why a Bunsen burner with its air hole fully open produces a non-luminous flame.,introduction_to_chemistry,,,,,"The gas mixes with sufficient oxygen and burns more completely, so little unburnt carbon or soot remains."
+What is a drug? Give two commonly abused examples.,introduction_to_chemistry,,,,,A drug is a substance that alters body chemistry or function when taken. Examples are alcohol and tobacco.
+State two differences between a luminous and a non-luminous Bunsen flame.,introduction_to_chemistry,,,,,A luminous flame is yellow and produces soot; a non-luminous flame is blue and does not normally deposit soot.
+"Distinguish an element, a compound and a mixture.",classification_of_substances,,,,,"An element has one proton-number type, such as copper. A compound has elements chemically combined in fixed proportions, such as water. A mixture has variable proportions, such as salt water."
+What generally happens to the melting behaviour of a pure crystalline solid when an impurity is added?,classification_of_substances,,,,,Its melting temperature is usually lowered and the sharp melting point becomes a broader melting range.
+Explain why pencil is used for the baseline in paper chromatography.,classification_of_substances,,,,,"Graphite does not normally dissolve and travel with the solvent, whereas ink can separate into its own spots and interfere with results."
+"How would dilute acid distinguish copper(II) oxide from charcoal, both black solids?",classification_of_substances,,,,,Copper(II) oxide dissolves in suitable dilute mineral acid to give a blue copper(II) solution. Charcoal does not dissolve under those conditions.
+"Classify neutralisation, sublimation, fractional distillation and displacement as chemical or physical changes.",classification_of_substances,,,,,Neutralisation: chemical. Sublimation: physical. Fractional distillation: physical. Displacement reaction: chemical. Chemical changes form new substances; the physical changes separate or change states.
+State two physical properties used to assess a substance’s purity.,classification_of_substances,,,,,"Melting point and boiling point, measured at stated pressure and compared with characteristic values. Other useful properties include density and refractive index."
+Describe how to recover dry salt and sand from their mixture.,separation_techniques,,,,,"Add water to dissolve salt, filter to retain sand, wash and dry the residue. Concentrate the filtrate and crystallise the salt, then separate and dry the crystals."
+Why is fractional distillation more suitable than filtration for separating ethanol and water?,separation_techniques,,,,,Both liquids pass through a filter and are miscible. Fractional distillation uses their different volatilities and repeated condensation and vaporisation to enrich the more volatile ethanol.
+A spot travels 4.0 cm while the solvent front travels 8.0 cm. Calculate Rf.,separation_techniques,,,,,"Rf = 4.0/8.0 = 0.50, with no units. The value lies between zero and one under the usual procedure."
+Copper turnings are contaminated with copper(II) oxide. Describe how to recover the copper.,separation_techniques,,,,,"Add excess dilute hydrochloric or sulfuric acid to dissolve the copper(II) oxide. Copper remains unreacted. Filter, wash the copper with distilled water, and dry it."
+Define chromatography and give two applications.,separation_techniques,,,,,It separates mixture components by their different rates of movement with a solvent through a stationary medium. Applications include separating dyes and analysing food colourings.
+Describe separating solid ammonium chloride from anhydrous calcium chloride.,separation_techniques,,,,,"Heat the mixture under suitable supervised conditions. Ammonium chloride forms vapour and deposits on a cooler surface, while calcium chloride remains in the heated region. Collect the deposit."
+Explain parallax error when reading a measuring cylinder.,laboratory_techniques,,,,,"If the eye is above or below the meniscus, its apparent level shifts relative to the scale. Read at eye level to reduce this error."
+A burette reads 2.30 cm³ initially and 24.85 cm³ finally. Find the volume delivered.,laboratory_techniques,,,,,24.85 - 2.30 = 22.55 cm³. The initial liquid already below the zero mark must be accounted for.
+Why must a pipette not be filled by mouth?,laboratory_techniques,,,,,Chemicals could enter the mouth or be inhaled. Use a suitable pipette filler to reduce exposure.
+Why is a Bunsen burner set to a luminous flame when it is not being used for heating?,laboratory_techniques,,,,,"The luminous flame is clearly visible, making an unattended flame easier to notice and reducing accidental contact."
+Give two reasons why a luminous Bunsen flame is unsuitable for heating.,laboratory_techniques,,,,,It is smoky or sooty and is less hot than the non-luminous heating flame. Soot contaminates apparatus.
+Distinguish a base from an alkali.,acids_bases_indicators,,,,,A base neutralises acid; an alkali is a base that dissolves in water to produce hydroxide ions. Copper(II) oxide is a base but not an alkali.
+Distinguish a strong acid from a concentrated acid.,acids_bases_indicators,,,,,Strong describes near-complete ionisation in water. Concentrated describes a large amount of acid per unit volume. Strength and concentration are different properties.
+Give the ionic equation for neutralisation of a strong acid by a strong alkali.,acids_bases_indicators,,,,,H⁺(aq) + OH⁻(aq) → H₂O(l). Spectator ions are omitted because they do not change in this reaction.
+Name the two most abundant gases in dry air with approximate percentages.,air_and_combustion,,,,,Nitrogen about 78% and oxygen about 21% by volume.
+Write the balanced equation for complete combustion of methane.,air_and_combustion,,,,,"CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O. Count C:1, H:4 and O:4 on each side."
+State the conditions necessary for rusting iron and one prevention method.,air_and_combustion,,,,,Oxygen and water are both needed. Painting prevents contact with them when the coating is intact.
+State a chemical test for water.,water_and_hydrogen,,,,,"Anhydrous copper(II) sulfate changes from white to blue when water is added. This demonstrates presence, not purity."
+Write the equation for zinc reacting with dilute hydrochloric acid.,water_and_hydrogen,,,,,Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g). One mole of zinc produces one mole of hydrogen.
+Why can hydrogen be collected over water?,water_and_hydrogen,,,,,It is only slightly soluble in water and does not react significantly with it under the collection conditions.
+What causes water hardness?,hard_water,,,,,Dissolved calcium and magnesium ions cause hardness by forming insoluble salts with soap.
+Write the equation for removing temporary calcium hardness by boiling.,hard_water,,,,,Ca(HCO₃)₂(aq) → CaCO₃(s) + CO₂(g) + H₂O(l) on heating.
+Explain how washing soda softens water containing calcium ions.,hard_water,,,,,It supplies carbonate ions: Ca²⁺(aq) + CO₃²⁻(aq) → CaCO₃(s). The precipitate removes dissolved calcium ions.
+"Without adding another laboratory chemical, how can calcium hydrogencarbonate solution be distinguished from sodium hydrogencarbonate solution?",hard_water,,,,,Boil samples separately. Calcium hydrogencarbonate forms a white calcium carbonate precipitate. Sodium hydrogencarbonate solution remains without that precipitate under the comparison conditions.
+Explain why gases are more compressible than liquids.,states_of_matter,,,,,"Gas particles are separated by large spaces that can be reduced. Liquid particles are already close together, leaving much less room for compression."
+A gas occupies 200 cm³ at 100 kPa. Find its volume at 250 kPa at constant temperature.,states_of_matter,,,,,"P₁V₁ = P₂V₂, so V₂ = 100 × 200/250 = 80 cm³. The greater pressure produces a smaller volume."
+A gas has volume 300 cm³ at 27°C. Find its volume at 127°C at constant pressure. Use 273 for the Celsius-to-kelvin offset.,states_of_matter,,,,,"T₁ = 300 K, T₂ = 400 K. V₂ = 300 × 400/300 = 400 cm³. Celsius ratios would be incorrect."
+A crystal of copper(II) sulfate is left in water for two days without shaking. State and explain the observation.,states_of_matter,,,,,The crystal dissolves and blue colour spreads through the water. Dissolved particles move randomly and diffuse from the initially concentrated region into the surrounding water.
+Name the change when solid carbon dioxide turns directly into gas.,states_of_matter,,,,,Sublimation: the solid changes directly to gas without a liquid stage under the conditions.
+"A neutral atom has proton number 11 and nucleon number 23. State its proton, neutron and electron counts.",atomic_structure,,,,,Protons 11; neutrons 23 - 11 = 12; electrons 11. Neutrality requires equal proton and electron counts.
+State the electron arrangement of sodium and its Na⁺ ion.,atomic_structure,,,,,"Neutral sodium: 2,8,1. Na⁺ has lost one electron, giving 2,8; its proton number remains 11."
+An element has 75% isotope mass 35 and 25% isotope mass 37. Calculate its relative atomic mass.,atomic_structure,,,,,(75×35 + 25×37)/100 = 35.5. It lies between 35 and 37 and is nearer the more abundant mass 35.
+"An atom has electron arrangement 2,8,2. State its period and main group in KCSE group notation.",periodic_table,,,,,Period 3 because there are three occupied shells; Group II because there are two outer-shell electrons.
+Explain why Group I elements commonly form +1 ions.,periodic_table,,,,,"They lose their single outer electron, leaving a filled underlying shell and one more proton than electrons."
+Why are noble gases generally unreactive?,periodic_table,,,,,"Their outer electron shells are filled, so gaining, losing or sharing electrons is usually energetically unfavourable under ordinary conditions."
+Explain why atomic radius generally decreases from sodium to chlorine across Period 3.,periodicity,,,,,"Nuclear charge increases while electrons are added to the same main shell. Greater effective attraction pulls the electron cloud closer, so radius decreases."
+Why is potassium more reactive than sodium in typical Group I reactions?,periodicity,,,,,"Potassium’s outer electron is farther from the nucleus and more shielded, so it is more easily lost."
+Na⁺ and Mg²⁺ each have 10 electrons. Which is smaller and why?,periodicity,,,,,Mg²⁺ is smaller because its 12 protons attract the same number of electrons more strongly than sodium’s 11 protons.
+Explain why sodium chloride conducts when molten but not when solid.,chemical_bonding,,,,,In solid NaCl the ions are held in fixed lattice positions. When molten the ions move and carry electric charge.
+Compare the bonding structures of methane and diamond.,chemical_bonding,,,,,"Methane consists of small covalent molecules with weak attractions between molecules. Diamond is a giant covalent network with strong bonds throughout, requiring much more energy to disrupt."
+State methane’s molecular shape and approximate H-C-H angle.,chemical_bonding,,,,,"Tetrahedral, approximately 109.5°. Four bonding pairs around carbon repel into this arrangement."
+Calculate the moles in 5.85 g NaCl. Use Na = 23 and Cl = 35.5.,mole_concept,,,,,M = 58.5 g mol⁻¹. n = 5.85/58.5 = 0.100 mol. Multiplying 0.100 × 58.5 recovers the given mass.
+Find moles of HCl in 25.0 cm³ of 0.200 mol dm⁻³ acid.,mole_concept,,,,,Volume = 0.0250 dm³. n = cV = 0.200 × 0.0250 = 0.00500 mol.
+Calculate the mass of MgO formed from 2.4 g Mg in excess oxygen. Use Mg = 24 and O = 16.,mole_concept,,,,,2Mg + O₂ → 2MgO. n(Mg) = 2.4/24 = 0.100 mol; the ratio gives 0.100 mol MgO. Mass = 0.100 × 40 = 4.0 g.
+A salt has solubility 40 g per 100 g water at 60°C and 25 g at 20°C. How much crystallises from a saturated solution containing 100 g water on cooling?,solutions_and_solubility,,,,,"Initially 40 g is dissolved. At 20°C only 25 g remains dissolved, so 40 - 25 = 15 g crystallises, assuming no water loss."
+What volume of 2.0 mol dm⁻³ solution is needed to prepare 250 cm³ of 0.20 mol dm⁻³ solution?,solutions_and_solubility,,,,,c₁V₁ = c₂V₂ gives V₁ = 0.20 × 250/2.0 = 25 cm³. Dilute this to a final volume of 250 cm³.
+Convert 4.0 g dm⁻³ NaOH to mol dm⁻³. Use NaOH molar mass 40 g mol⁻¹.,solutions_and_solubility,,,,,"4.0/40 = 0.10 mol dm⁻³. Each mole contributes 40 g, so the reverse conversion gives 4.0 g dm⁻³."
+An exothermic reaction raises 100 g of solution by 5.0°C. Calculate heat gained using c = 4.2 J g⁻¹ °C⁻¹.,thermochemistry,,,,,q = mcΔT = 100 × 4.2 × 5.0 = 2100 J = 2.1 kJ. The reaction releases this amount under the stated approximation.
+"If 0.050 mol reacted in that experiment, calculate the approximate molar enthalpy change.",thermochemistry,,,,,ΔH = -2.1/0.050 = -42 kJ mol⁻¹. The sign is negative because the solution warmed as the reaction released heat.
+How does a catalyst change an energy profile?,thermochemistry,,,,,It lowers activation energy by providing an alternative pathway. It does not change the enthalpy difference between reactants and products.
+Describe preparing copper(II) sulfate crystals from copper(II) oxide and dilute sulfuric acid.,acids_bases_salts,,,,,"Add excess CuO to warm dilute acid with stirring, filter unreacted oxide, gently concentrate the blue filtrate, cool to crystallise, then separate and dry crystals."
+Write the ionic equation for precipitating silver chloride.,acids_bases_salts,,,,,Ag⁺(aq) + Cl⁻(aq) → AgCl(s). The white precipitate forms when suitable soluble solutions are mixed.
+Why is titration used when preparing sodium chloride from hydrochloric acid and sodium hydroxide?,acids_bases_salts,,,,,"Both reactants are soluble, so excess cannot be filtered off. Titration determines neutralising volumes; repeat without indicator to obtain an uncontaminated salt solution."
+Write the cathode half-equation for molten lead(II) bromide.,electrolysis,,,,,"Pb²⁺ + 2e⁻ → Pb. Lead ions gain electrons, so this is reduction."
+Write the anode half-equation for molten lead(II) bromide.,electrolysis,,,,,"2Br⁻ → Br₂ + 2e⁻. Bromide ions lose electrons, so this is oxidation. Atom and charge totals balance."
+What happens to a copper anode in electrolysis of aqueous copper(II) sulfate using copper electrodes?,electrolysis,,,,,"It dissolves as Cu(s) → Cu²⁺(aq) + 2e⁻, losing mass while supplying copper ions to the solution."
+"For Zn + Cu²⁺ → Zn²⁺ + Cu, identify the reducing agent.",redox_reactions,,,,,Zinc is the reducing agent: Zn → Zn²⁺ + 2e⁻. It donates electrons and is oxidised.
+Find sulfur’s oxidation number in SO₄²⁻.,redox_reactions,,,,,"Let sulfur be x. x + 4(-2) = -2, so x = +6."
+Explain why an oxidising agent is reduced.,redox_reactions,,,,,"It causes another species to lose electrons by accepting those electrons itself, so its own oxidation number decreases."
+Explain why powdered calcium carbonate reacts faster than large chips of the same mass with excess acid.,reaction_kinetics,,,,,"Powder exposes a larger surface area, allowing more acid-particle collisions per second. The final carbon dioxide amount is the same if the same carbonate mass reacts completely."
+A reaction produces 60 cm³ of gas in the first 30 s. Find its average rate over this interval.,reaction_kinetics,,,,,Average rate = 60/30 = 2.0 cm³ s⁻¹. This is not necessarily the instantaneous rate at 30 s.
+Why does increasing temperature usually increase reaction rate?,reaction_kinetics,,,,,"A larger fraction of particles has energy at least the activation energy, so more collisions are successful. Collision frequency also increases."
+Define dynamic equilibrium.,chemical_equilibrium,,,,,"In a closed system the forward and reverse reactions continue at equal rates, maintaining constant macroscopic concentrations."
+"For N₂(g) + 3H₂(g) ⇌ 2NH₃(g), explain the effect of increased pressure on equilibrium yield.",chemical_equilibrium,,,,,"There are four gas moles on the left and two on the right. Higher pressure favours the side with fewer gas particles, increasing ammonia equilibrium yield."
+Does a catalyst change the equilibrium ammonia yield at fixed temperature and pressure?,chemical_equilibrium,,,,,No. It accelerates both forward and reverse reactions and reduces time to equilibrium without changing the equilibrium composition.
+Write the overall equation for a zinc-copper cell with Zn²⁺ and Cu²⁺ solutions.,electrochemistry,,,,,Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s). Zinc is oxidised and copper ions are reduced.
+State the direction of electron flow in the external circuit of that cell.,electrochemistry,,,,,From zinc anode to copper cathode through the wire. Conventional current is in the opposite direction.
+Explain the function of a salt bridge.,electrochemistry,,,,,It allows ions to migrate to maintain charge balance and completes the internal circuit while limiting direct bulk mixing. It is not an electron-conducting wire.
+Write the balanced Haber process equation.,nitrogen,,,,,N₂(g) + 3H₂(g) ⇌ 2NH₃(g). It is reversible and exothermic in the forward direction.
+State a test for ammonia gas.,nitrogen,,,,,It turns damp red litmus paper blue. It also forms white fumes of ammonium chloride with hydrogen chloride gas.
+Write the ionic equation for ammonia released when an ammonium salt is warmed with alkali.,nitrogen,,,,,NH₄⁺(aq) + OH⁻(aq) → NH₃(g) + H₂O(l). Warm gently in supervised conditions; do not smell directly.
+Write the equation for burning sulfur in oxygen.,sulphur,,,,,S(s) + O₂(g) → SO₂(g). The product is sulfur dioxide.
+Give the catalyst for SO₂ oxidation in the Contact process.,sulphur,,,,,"Vanadium(V) oxide, V₂O₅. It increases rate without changing the equilibrium yield at fixed conditions."
+Describe a test for sulfate ions.,sulphur,,,,,Acidify with dilute hydrochloric acid and add barium chloride solution. A white precipitate of BaSO₄ indicates sulfate: Ba²⁺ + SO₄²⁻ → BaSO₄(s).
+Write the ionic equation for chlorine displacing bromine from bromide solution.,halogens,,,,,Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂. Chlorine gains electrons and is the stronger oxidising agent.
+Why is damp litmus needed to test chlorine bleaching?,halogens,,,,,Water enables formation of bleaching species such as hypochlorous acid. Dry chlorine does not bleach dry litmus in the usual test.
+Describe the silver nitrate test for chloride ions.,halogens,,,,,Acidify the sample with dilute nitric acid and add silver nitrate. A white precipitate of AgCl forms: Ag⁺ + Cl⁻ → AgCl(s).
+Name the process when red litmus turns white in chlorine water.,halogens,,,,,"Bleaching. Chlorine water oxidises the coloured material, removing its colour."
+State the general formulas for open-chain alkanes and monoalkenes.,organic_chemistry,,,,,"Alkanes: CₙH₂ₙ₊₂. Monoalkenes: CₙH₂ₙ, with one C=C double bond and no rings."
+Describe how bromine water distinguishes ethene from ethane under ordinary conditions without ultraviolet light.,organic_chemistry,,,,,Ethene rapidly decolourises bromine water through addition at the double bond. Ethane does not under these test conditions.
+Write the complete combustion equation for ethane.,organic_chemistry,,,,,"2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O. Carbon, hydrogen and oxygen counts balance."
+Explain why crude oil is separated by fractional distillation.,crude_oil,,,,,It contains miscible hydrocarbons with different boiling ranges. A temperature gradient and repeated vaporisation and condensation separate fractions by volatility.
+Complete the cracking equation C₁₀H₂₂ → C₈H₁₈ + X.,crude_oil,,,,,"X is C₂H₄, ethene. Carbon: 10 = 8 + 2; hydrogen: 22 = 18 + 4."
+Compare the viscosity and volatility of shorter-chain and longer-chain hydrocarbon fractions.,crude_oil,,,,,Shorter-chain fractions are generally less viscous and more volatile. Longer chains have stronger overall intermolecular attractions and usually higher boiling ranges.
+Write the equation for fermentation of glucose to ethanol.,organic_chemistry_2,,,,,"C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂, with yeast enzymes under suitable warm anaerobic conditions."
+Write the equation for ethanoic acid reacting with sodium hydrogencarbonate.,organic_chemistry_2,,,,,CH₃COOH + NaHCO₃ → CH₃COONa + CO₂ + H₂O. Effervescence is caused by carbon dioxide.
+Name the ester formed from ethanol and ethanoic acid.,organic_chemistry_2,,,,,Ethyl ethanoate. The reaction also forms water: CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O.
+Name the process by which propene molecules join into a giant molecule.,organic_chemistry_2,,,,,"Addition polymerisation, forming poly(propene) by opening carbon-carbon double bonds and joining monomers."
+Write the equation for reduction of iron(III) oxide by carbon monoxide.,extraction_of_metals,,,,,Fe₂O₃ + 3CO → 2Fe + 3CO₂. Iron(III) is reduced while carbon monoxide is oxidised.
+Explain the role of limestone in the blast furnace.,extraction_of_metals,,,,,CaCO₃ decomposes to CaO + CO₂. CaO reacts with acidic silica impurity to form calcium silicate slag: CaO + SiO₂ → CaSiO₃.
+Why is aluminium extracted by electrolysis rather than carbon reduction?,extraction_of_metals,,,,,Aluminium is more reactive than carbon and its oxide is too stable for ordinary carbon reduction. Electrolysis of a molten electrolyte is used instead.
+Why is a moderate temperature used in the Haber process rather than the lowest possible temperature?,industrial_processes,,,,,Lower temperature favours the exothermic equilibrium yield but slows the reaction. A compromise temperature with a catalyst gives an economical production rate.
+Why are unused nitrogen and hydrogen recycled after ammonia is separated?,industrial_processes,,,,,Conversion in one pass is incomplete. Recycling gives unreacted feed further opportunities to react and reduces raw-material waste.
+Explain why sulfur trioxide is not simply added directly to water in the Contact process.,industrial_processes,,,,,"Its highly exothermic reaction produces an acid mist that is hard to condense. It is absorbed in concentrated sulfuric acid to form oleum, then diluted carefully."
+A sample has mass 80 mg and half-life 5 days. How much undecayed material remains after 15 days?,radioactivity,,,,,15/5 = 3 half-lives. Remaining mass = 80 × (1/2)³ = 10 mg. This refers to the original radioactive isotope.
+How do nucleon and proton numbers change in alpha decay?,radioactivity,,,,,Nucleon number falls by 4 and proton number falls by 2 because an alpha particle is a helium-4 nucleus.
+A measured count rate is 140 counts per minute with background 20 counts per minute. Find the corrected count rate.,radioactivity,,,,,140 - 20 = 120 counts per minute. Background must be subtracted before comparing decay measurements.

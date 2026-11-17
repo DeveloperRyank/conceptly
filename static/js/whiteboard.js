@@ -150,8 +150,7 @@ class Whiteboard {
         continue;
       }
       if (op.op === "say") {
-        if (beat.text && beat.items.length) beat = this._beat(scene);
-        else if (beat.text) { scene.beats.pop(); beat = this._beat(scene); }
+        if (beat.text) beat = this._beat(scene);
         beat.text = String(op.text || "").trim();
         beat.dur = wbClamp(Number(op.dur) || this._estimate(beat.text), 0.8, 45);
         beat.speech = beat.dur;          // how long the line takes to say, before reading room
@@ -209,7 +208,9 @@ class Whiteboard {
         // Ink slower than the sentence is stretched to fill it; ink quicker than the
         // sentence gets the room, so the pen never races the voice.
         const span = Math.max(natural, beat.dur + (beat.text ? 0.3 : 0));
-        const stretch = natural > 0 ? span / natural : 1;
+        if (beat.text) beat.speech = Math.max(0.1, span - 0.3);
+        const inkSpan = beat.text ? beat.speech : span;
+        const stretch = natural > 0 ? inkSpan / natural : 1;
         let at = 0;
         for (const it of beat.items) {
           const own = it.dur;

@@ -1,0 +1,718 @@
+{
+  "introduction_to_chemistry": {
+    "principles": "Chemistry studies matter, its properties, composition and transformations. An observation is what is measured or sensed; an explanation connects it to particles and evidence. A physical change does not form a new substance, while a chemical change rearranges atoms into new substances. Reversibility alone does not define the difference. Choose apparatus by its function and required precision: a beaker holds or mixes, a measuring cylinder measures approximate volume, a pipette delivers a fixed accurate volume and a burette delivers variable measured volumes. A Bunsen burner's open air hole mixes more oxygen with the gas, producing a hotter non-luminous flame with more complete combustion. A luminous safety flame is easier to see and should not be used for clean heating because it can deposit soot. Connect every claim to a test or observation and keep the explanation distinct. Do not infer the identity of labelled apparatus when its diagram is absent.",
+    "practice": [
+      {
+        "question": "Distinguish a physical change from a chemical change with examples.",
+        "reference_answer": "Melting ice is physical: water remains H₂O. Burning magnesium is chemical: magnesium reacts with oxygen to form magnesium oxide.",
+        "origin": "original"
+      },
+      {
+        "question": "Why does opening a Bunsen burner air hole reduce soot?",
+        "reference_answer": "More oxygen mixes with the fuel before burning, promoting more complete combustion. Less unburnt carbon is produced as soot.",
+        "origin": "original"
+      },
+      {
+        "question": "Which instrument delivers a fixed accurate 25.0 cm³ volume in titration?",
+        "reference_answer": "A 25.0 cm³ volumetric pipette. A measuring cylinder is less suitable when accurate fixed delivery is required.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain why a Bunsen burner with its air hole fully open produces a non-luminous flame.",
+        "reference_answer": "The gas mixes with sufficient oxygen and burns more completely, so little unburnt carbon or soot remains.",
+        "origin": "booklet",
+        "source_location": "Introduction 3(a)"
+      },
+      {
+        "question": "What is a drug? Give two commonly abused examples.",
+        "reference_answer": "A drug is a substance that alters body chemistry or function when taken. Examples are alcohol and tobacco.",
+        "origin": "booklet",
+        "source_location": "Introduction 4"
+      },
+      {
+        "question": "State two differences between a luminous and a non-luminous Bunsen flame.",
+        "reference_answer": "A luminous flame is yellow and produces soot; a non-luminous flame is blue and does not normally deposit soot.",
+        "origin": "booklet",
+        "source_location": "Classification 2(a)"
+      }
+    ]
+  },
+  "classification_of_substances": {
+    "principles": "An element contains atoms of one proton number; a compound contains elements chemically combined in fixed proportions. A mixture contains substances physically combined in variable proportions and can often be separated using physical properties. Homogeneous mixtures are uniform on the scale considered; heterogeneous mixtures have distinct phases. Pure substances have characteristic melting and boiling temperatures at a stated pressure, while mixtures commonly show ranges. Impurities often lower and broaden the melting range of a crystalline solid. During melting, energy changes particle arrangement rather than raising the temperature of a pure substance at constant pressure. Use several measurements to support a purity conclusion rather than relying on colour alone. In chromatography a sample separates because its components have differing affinities for the mobile and stationary phases. A single spot under one set of conditions is evidence consistent with purity, not absolute proof. Keep the solvent below the baseline and mark with pencil so the baseline does not dissolve.",
+    "practice": [
+      {
+        "question": "Distinguish an element, a compound and a mixture.",
+        "reference_answer": "An element has one proton-number type, such as copper. A compound has elements chemically combined in fixed proportions, such as water. A mixture has variable proportions, such as salt water.",
+        "origin": "original"
+      },
+      {
+        "question": "What generally happens to the melting behaviour of a pure crystalline solid when an impurity is added?",
+        "reference_answer": "Its melting temperature is usually lowered and the sharp melting point becomes a broader melting range.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain why pencil is used for the baseline in paper chromatography.",
+        "reference_answer": "Graphite does not normally dissolve and travel with the solvent, whereas ink can separate into its own spots and interfere with results.",
+        "origin": "original"
+      },
+      {
+        "question": "How would dilute acid distinguish copper(II) oxide from charcoal, both black solids?",
+        "reference_answer": "Copper(II) oxide dissolves in suitable dilute mineral acid to give a blue copper(II) solution. Charcoal does not dissolve under those conditions.",
+        "origin": "booklet",
+        "source_location": "Classification 6"
+      },
+      {
+        "question": "Classify neutralisation, sublimation, fractional distillation and displacement as chemical or physical changes.",
+        "reference_answer": "Neutralisation: chemical. Sublimation: physical. Fractional distillation: physical. Displacement reaction: chemical. Chemical changes form new substances; the physical changes separate or change states.",
+        "origin": "booklet",
+        "source_location": "Classification 18 (duplicate 20 withheld)"
+      },
+      {
+        "question": "State two physical properties used to assess a substance’s purity.",
+        "reference_answer": "Melting point and boiling point, measured at stated pressure and compared with characteristic values. Other useful properties include density and refractive index.",
+        "origin": "booklet",
+        "source_location": "Classification 22"
+      }
+    ]
+  },
+  "separation_techniques": {
+    "principles": "Choose a separation method from a difference in physical properties. Filtration separates an insoluble solid from a fluid: the residue remains on the filter and filtrate passes through. Crystallisation recovers a soluble solid by concentrating a solution and cooling; evaporating to dryness can decompose some salts. Simple distillation recovers a solvent from a solution or separates liquids with sufficiently different volatilities. Fractional distillation improves separation of miscible liquids with closer boiling points through repeated vaporisation and condensation. A separating funnel separates immiscible liquid layers; identify the denser lower layer before opening the tap. Sublimation can separate a solid that forms vapour readily from one that does not under the same conditions. Chromatography separates dissolved components by different movement in a stationary phase with a mobile solvent. Rf is distance travelled by solute from baseline divided by solvent-front distance, measured in the same direction and units. Apparatus must not be sealed during heating, and a condenser is supplied with cooling water from the lower inlet to keep its jacket full.",
+    "practice": [
+      {
+        "question": "Describe how to recover dry salt and sand from their mixture.",
+        "reference_answer": "Add water to dissolve salt, filter to retain sand, wash and dry the residue. Concentrate the filtrate and crystallise the salt, then separate and dry the crystals.",
+        "origin": "original"
+      },
+      {
+        "question": "Why is fractional distillation more suitable than filtration for separating ethanol and water?",
+        "reference_answer": "Both liquids pass through a filter and are miscible. Fractional distillation uses their different volatilities and repeated condensation and vaporisation to enrich the more volatile ethanol.",
+        "origin": "original"
+      },
+      {
+        "question": "A spot travels 4.0 cm while the solvent front travels 8.0 cm. Calculate Rf.",
+        "reference_answer": "Rf = 4.0/8.0 = 0.50, with no units. The value lies between zero and one under the usual procedure.",
+        "origin": "original"
+      },
+      {
+        "question": "Copper turnings are contaminated with copper(II) oxide. Describe how to recover the copper.",
+        "reference_answer": "Add excess dilute hydrochloric or sulfuric acid to dissolve the copper(II) oxide. Copper remains unreacted. Filter, wash the copper with distilled water, and dry it.",
+        "origin": "booklet",
+        "source_location": "Classification 5"
+      },
+      {
+        "question": "Define chromatography and give two applications.",
+        "reference_answer": "It separates mixture components by their different rates of movement with a solvent through a stationary medium. Applications include separating dyes and analysing food colourings.",
+        "origin": "booklet",
+        "source_location": "Classification 7"
+      },
+      {
+        "question": "Describe separating solid ammonium chloride from anhydrous calcium chloride.",
+        "reference_answer": "Heat the mixture under suitable supervised conditions. Ammonium chloride forms vapour and deposits on a cooler surface, while calcium chloride remains in the heated region. Collect the deposit.",
+        "origin": "booklet",
+        "source_location": "Classification 24(b)"
+      }
+    ]
+  },
+  "laboratory_techniques": {
+    "principles": "Laboratory work requires identifying hazards and choosing controls before starting. Wear suitable eye protection, secure loose hair, keep containers labelled and never taste chemicals or pipette by mouth. Read a liquid meniscus at eye level to reduce parallax; for a clear aqueous solution use the bottom of the meniscus. A burette volume delivered is final reading minus initial reading, not the final reading alone. Rinse apparatus appropriately to avoid dilution or contamination: a burette with the solution it will deliver and a pipette with the solution it will measure. A conical titration flask may be rinsed with distilled water because extra water does not change the moles already pipetted into it. Record measurements with units and appropriate precision and repeat readings to identify consistency. Heat a test tube gently with its opening pointed away from people, and use a holder. Deal with spills under laboratory supervision. Never supply missing experimental readings or infer an unshown apparatus label.",
+    "practice": [
+      {
+        "question": "Explain parallax error when reading a measuring cylinder.",
+        "reference_answer": "If the eye is above or below the meniscus, its apparent level shifts relative to the scale. Read at eye level to reduce this error.",
+        "origin": "original"
+      },
+      {
+        "question": "A burette reads 2.30 cm³ initially and 24.85 cm³ finally. Find the volume delivered.",
+        "reference_answer": "24.85 - 2.30 = 22.55 cm³. The initial liquid already below the zero mark must be accounted for.",
+        "origin": "original"
+      },
+      {
+        "question": "Why must a pipette not be filled by mouth?",
+        "reference_answer": "Chemicals could enter the mouth or be inhaled. Use a suitable pipette filler to reduce exposure.",
+        "origin": "original"
+      },
+      {
+        "question": "Why is a Bunsen burner set to a luminous flame when it is not being used for heating?",
+        "reference_answer": "The luminous flame is clearly visible, making an unattended flame easier to notice and reducing accidental contact.",
+        "origin": "booklet",
+        "source_location": "Classification 2(b)"
+      },
+      {
+        "question": "Give two reasons why a luminous Bunsen flame is unsuitable for heating.",
+        "reference_answer": "It is smoky or sooty and is less hot than the non-luminous heating flame. Soot contaminates apparatus.",
+        "origin": "booklet",
+        "source_location": "Classification 19 (duplicate 21 withheld)"
+      }
+    ]
+  },
+  "acids_bases_indicators": {
+    "principles": "An acid supplies hydrogen ions in aqueous solution, while an alkali supplies hydroxide ions. A base neutralises an acid and may be insoluble; an alkali is a soluble base. Acids turn blue litmus red and alkalis turn red litmus blue. Indicators change colour over a range of pH, so select an indicator suited to the reaction. Universal indicator estimates pH but does not directly measure concentration. At about 25°C neutral water has pH 7, acids below 7 and alkaline solutions above 7. Acid strength describes the extent of ionisation, while concentration describes amount per volume. A dilute strong acid is therefore possible. Neutralisation removes hydrogen and hydroxide ions to form water. Acid-carbonate reactions also release carbon dioxide, which turns limewater milky. Avoid confusing a colour change with the identity of a substance; use suitable confirmatory tests and controls. For titration distinguish an indicator endpoint from the exact chemical equivalence point.",
+    "practice": [
+      {
+        "question": "Distinguish a base from an alkali.",
+        "reference_answer": "A base neutralises acid; an alkali is a base that dissolves in water to produce hydroxide ions. Copper(II) oxide is a base but not an alkali.",
+        "origin": "original"
+      },
+      {
+        "question": "Distinguish a strong acid from a concentrated acid.",
+        "reference_answer": "Strong describes near-complete ionisation in water. Concentrated describes a large amount of acid per unit volume. Strength and concentration are different properties.",
+        "origin": "original"
+      },
+      {
+        "question": "Give the ionic equation for neutralisation of a strong acid by a strong alkali.",
+        "reference_answer": "H⁺(aq) + OH⁻(aq) → H₂O(l). Spectator ions are omitted because they do not change in this reaction.",
+        "origin": "original"
+      }
+    ]
+  },
+  "air_and_combustion": {
+    "principles": "Dry air is approximately 78% nitrogen, 21% oxygen and about 1% other gases by volume, with variable water vapour in ordinary air. Combustion is reaction with oxygen that releases energy; other forms of oxidation may occur slowly without a flame. Complete combustion of a hydrocarbon in sufficient oxygen produces carbon dioxide and water. Limited oxygen can form toxic carbon monoxide and soot. Burning magnesium forms magnesium oxide; oxide behaviour depends on the element, with many metal oxides basic and many nonmetal oxides acidic. Test oxygen using a glowing splint, which relights under suitable conditions. Test carbon dioxide using limewater, which becomes milky due to calcium carbonate. Excess carbon dioxide may later dissolve the precipitate. Rusting of iron needs both oxygen and water; coatings exclude them, galvanising also offers sacrificial protection. A change in gas volume in an experiment must account for cooling, pressure and gases absorbed, not simply attribute all loss to oxygen.",
+    "practice": [
+      {
+        "question": "Name the two most abundant gases in dry air with approximate percentages.",
+        "reference_answer": "Nitrogen about 78% and oxygen about 21% by volume.",
+        "origin": "original"
+      },
+      {
+        "question": "Write the balanced equation for complete combustion of methane.",
+        "reference_answer": "CH₄(g) + 2O₂(g) → CO₂(g) + 2H₂O. Count C:1, H:4 and O:4 on each side.",
+        "origin": "original"
+      },
+      {
+        "question": "State the conditions necessary for rusting iron and one prevention method.",
+        "reference_answer": "Oxygen and water are both needed. Painting prevents contact with them when the coating is intact.",
+        "origin": "original"
+      }
+    ]
+  },
+  "water_and_hydrogen": {
+    "principles": "Water is a compound of hydrogen and oxygen with formula H₂O. Its bent molecule and polar bonds help explain its solvent behaviour and hydrogen bonding between molecules. Tests include anhydrous copper(II) sulfate changing from white to blue and blue cobalt chloride paper turning pink. These show water is present but do not prove a sample is pure. Pure water has characteristic boiling and freezing temperatures at specified pressure. Hydrogen can be prepared by reacting a suitable metal such as zinc with dilute acid in supervised laboratory conditions. Discard the initial gas-air mixture before testing small samples because hydrogen mixed with air is flammable. Hydrogen burns with a squeaky pop in a small test. Collecting over water is suitable because it is only slightly soluble. Hydrogen can reduce some metal oxides to metal on heating, forming water; relate this to relative reactivity rather than assuming every oxide is reduced. Balance equations by conserving atoms, not by changing chemical formulas.",
+    "practice": [
+      {
+        "question": "State a chemical test for water.",
+        "reference_answer": "Anhydrous copper(II) sulfate changes from white to blue when water is added. This demonstrates presence, not purity.",
+        "origin": "original"
+      },
+      {
+        "question": "Write the equation for zinc reacting with dilute hydrochloric acid.",
+        "reference_answer": "Zn(s) + 2HCl(aq) → ZnCl₂(aq) + H₂(g). One mole of zinc produces one mole of hydrogen.",
+        "origin": "original"
+      },
+      {
+        "question": "Why can hydrogen be collected over water?",
+        "reference_answer": "It is only slightly soluble in water and does not react significantly with it under the collection conditions.",
+        "origin": "original"
+      }
+    ]
+  },
+  "hard_water": {
+    "principles": "Hard water contains appreciable dissolved calcium or magnesium ions, which form insoluble scum with soap and reduce lather formation. Temporary hardness is associated with dissolved hydrogencarbonates and can be reduced by boiling. On heating, calcium hydrogencarbonate decomposes to calcium carbonate precipitate, carbon dioxide and water. Permanent hardness arises from salts such as calcium or magnesium sulfates and chlorides and is not removed by boiling. Washing soda supplies carbonate ions to precipitate calcium ions. Ion-exchange resins exchange hardness ions for other ions and require regeneration. Distillation also removes dissolved salts but uses energy. Synthetic detergents often work better than soap in hard water because they do not form the same insoluble salts. Hardness can cause scale in kettles and boilers, reducing heat transfer, but calcium and magnesium are useful nutrients. Compare samples using equal volumes and the same soap solution, then control shaking and endpoint criteria.",
+    "practice": [
+      {
+        "question": "What causes water hardness?",
+        "reference_answer": "Dissolved calcium and magnesium ions cause hardness by forming insoluble salts with soap.",
+        "origin": "original"
+      },
+      {
+        "question": "Write the equation for removing temporary calcium hardness by boiling.",
+        "reference_answer": "Ca(HCO₃)₂(aq) → CaCO₃(s) + CO₂(g) + H₂O(l) on heating.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain how washing soda softens water containing calcium ions.",
+        "reference_answer": "It supplies carbonate ions: Ca²⁺(aq) + CO₃²⁻(aq) → CaCO₃(s). The precipitate removes dissolved calcium ions.",
+        "origin": "original"
+      },
+      {
+        "question": "Without adding another laboratory chemical, how can calcium hydrogencarbonate solution be distinguished from sodium hydrogencarbonate solution?",
+        "reference_answer": "Boil samples separately. Calcium hydrogencarbonate forms a white calcium carbonate precipitate. Sodium hydrogencarbonate solution remains without that precipitate under the comparison conditions.",
+        "origin": "booklet",
+        "source_location": "Classification 10"
+      }
+    ]
+  },
+  "states_of_matter": {
+    "principles": "The particle model explains solids, liquids and gases through arrangement, motion and forces. Solid particles vibrate about fixed positions; liquid particles remain close but move past one another; gas particles are widely spaced and move randomly. Heating increases average kinetic energy except during a phase change of a pure substance at constant pressure, when energy changes interactions and arrangement. Diffusion is net spreading caused by random motion down a concentration gradient; higher temperature generally increases its rate. Gas pressure results from particle collisions with container walls. For a fixed amount of gas, Boyle's law relates pressure inversely to volume at constant temperature; Charles' law relates volume to absolute temperature at constant pressure. Use kelvin, T/K = θ/°C + 273 approximately, in gas proportionalities. Do not combine temperatures in Celsius in a direct ratio. Real gases depart from ideal behaviour at high pressure or near condensation. Keep pressure and volume units consistent in before-and-after calculations.",
+    "practice": [
+      {
+        "question": "Explain why gases are more compressible than liquids.",
+        "reference_answer": "Gas particles are separated by large spaces that can be reduced. Liquid particles are already close together, leaving much less room for compression.",
+        "origin": "original"
+      },
+      {
+        "question": "A gas occupies 200 cm³ at 100 kPa. Find its volume at 250 kPa at constant temperature.",
+        "reference_answer": "P₁V₁ = P₂V₂, so V₂ = 100 × 200/250 = 80 cm³. The greater pressure produces a smaller volume.",
+        "origin": "original"
+      },
+      {
+        "question": "A gas has volume 300 cm³ at 27°C. Find its volume at 127°C at constant pressure. Use 273 for the Celsius-to-kelvin offset.",
+        "reference_answer": "T₁ = 300 K, T₂ = 400 K. V₂ = 300 × 400/300 = 400 cm³. Celsius ratios would be incorrect.",
+        "origin": "original"
+      },
+      {
+        "question": "A crystal of copper(II) sulfate is left in water for two days without shaking. State and explain the observation.",
+        "reference_answer": "The crystal dissolves and blue colour spreads through the water. Dissolved particles move randomly and diffuse from the initially concentrated region into the surrounding water.",
+        "origin": "booklet",
+        "source_location": "Introduction 10"
+      },
+      {
+        "question": "Name the change when solid carbon dioxide turns directly into gas.",
+        "reference_answer": "Sublimation: the solid changes directly to gas without a liquid stage under the conditions.",
+        "origin": "booklet",
+        "source_location": "Classification 4(a)"
+      }
+    ]
+  },
+  "atomic_structure": {
+    "principles": "Atoms contain protons and neutrons in the nucleus and electrons outside it. Proton number Z identifies the element; nucleon number A counts protons plus neutrons. For a neutral atom electrons equal protons. Positive ions form by losing electrons and negative ions by gaining them; ordinary chemical reactions do not change the proton number. Isotopes have equal proton numbers but different neutron numbers. Their similar electron arrangements explain similar chemical behaviour, while masses differ. Relative atomic mass is the weighted average of isotope masses relative to one twelfth of carbon-12, so it need not be an integer. For introductory electron arrangements use shell filling suited to the elements under discussion, such as 2,8,1 for sodium. An atom's valence electrons influence bonding. Distinguish an atom from its ion when counting electrons, and state charge explicitly. In isotope calculations percentages must sum to 100 and the average must lie between the isotope masses.",
+    "practice": [
+      {
+        "question": "A neutral atom has proton number 11 and nucleon number 23. State its proton, neutron and electron counts.",
+        "reference_answer": "Protons 11; neutrons 23 - 11 = 12; electrons 11. Neutrality requires equal proton and electron counts.",
+        "origin": "original"
+      },
+      {
+        "question": "State the electron arrangement of sodium and its Na⁺ ion.",
+        "reference_answer": "Neutral sodium: 2,8,1. Na⁺ has lost one electron, giving 2,8; its proton number remains 11.",
+        "origin": "original"
+      },
+      {
+        "question": "An element has 75% isotope mass 35 and 25% isotope mass 37. Calculate its relative atomic mass.",
+        "reference_answer": "(75×35 + 25×37)/100 = 35.5. It lies between 35 and 37 and is nearer the more abundant mass 35.",
+        "origin": "original"
+      }
+    ]
+  },
+  "periodic_table": {
+    "principles": "The periodic table arranges elements by increasing proton number. A period corresponds to occupied electron shells in the introductory main-group model, while members of a main group have related valence electron arrangements and chemical behaviour. Group I metals lose one electron to form +1 ions; Group II commonly forms +2 ions. Group VII halogens commonly gain one electron to form -1 ions. Group 0 noble gases have filled outer shells under ordinary conditions and low reactivity; helium has two outer electrons rather than eight. Metallic character is generally found on the left and decreases across a period, while nonmetals occupy the right. Use an element's electron arrangement to infer its position, then explain its likely ion formation. Hydrogen has distinctive chemistry and should not be treated as an ordinary alkali metal. Transition elements occupy the central block and can show variable oxidation states and coloured compounds. Position gives trends, but use actual evidence when comparing specific substances.",
+    "practice": [
+      {
+        "question": "An atom has electron arrangement 2,8,2. State its period and main group in KCSE group notation.",
+        "reference_answer": "Period 3 because there are three occupied shells; Group II because there are two outer-shell electrons.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain why Group I elements commonly form +1 ions.",
+        "reference_answer": "They lose their single outer electron, leaving a filled underlying shell and one more proton than electrons.",
+        "origin": "original"
+      },
+      {
+        "question": "Why are noble gases generally unreactive?",
+        "reference_answer": "Their outer electron shells are filled, so gaining, losing or sharing electrons is usually energetically unfavourable under ordinary conditions.",
+        "origin": "original"
+      }
+    ]
+  },
+  "periodicity": {
+    "principles": "A trend needs an explanation from charge, distance and shielding. Across a period proton number increases while added electrons enter the same main shell. Increasing effective nuclear attraction generally decreases atomic radius and raises the energy needed to remove an outer electron, with exceptions due to subshell arrangements. Down a main group more occupied shells increase distance and shielding, so atomic radius generally increases. Group I metals become more reactive down the group because the outer electron is lost more readily. Halogens become less reactive down the group as attraction for an added electron becomes less effective. Compare ions with their parent atoms carefully: a positive ion is usually smaller and a negative ion larger. For isoelectronic ions with the same electron count, greater nuclear charge generally gives the smaller radius. Do not explain a trend simply by saying reactivity increases; identify the electron transfer and the physical reason for it.",
+    "practice": [
+      {
+        "question": "Explain why atomic radius generally decreases from sodium to chlorine across Period 3.",
+        "reference_answer": "Nuclear charge increases while electrons are added to the same main shell. Greater effective attraction pulls the electron cloud closer, so radius decreases.",
+        "origin": "original"
+      },
+      {
+        "question": "Why is potassium more reactive than sodium in typical Group I reactions?",
+        "reference_answer": "Potassium’s outer electron is farther from the nucleus and more shielded, so it is more easily lost.",
+        "origin": "original"
+      },
+      {
+        "question": "Na⁺ and Mg²⁺ each have 10 electrons. Which is smaller and why?",
+        "reference_answer": "Mg²⁺ is smaller because its 12 protons attract the same number of electrons more strongly than sodium’s 11 protons.",
+        "origin": "original"
+      }
+    ]
+  },
+  "chemical_bonding": {
+    "principles": "Ionic bonding is electrostatic attraction between oppositely charged ions, commonly formed by electron transfer between a metal and a nonmetal. An ionic crystal is an extended lattice, not a collection of isolated molecules. Covalent bonding involves shared electron pairs. Simple molecular substances may have strong covalent bonds within molecules but relatively weak intermolecular attractions, so low boiling points do not imply weak intramolecular bonds. Giant covalent structures such as diamond have strong bonds throughout the lattice. Graphite has layered bonding and mobile electrons, giving electrical conductivity unlike diamond. Metallic bonding involves positive metal centres and delocalised electrons, explaining conductivity and malleability. Ionic substances conduct when molten or in solution because ions can move, but not when solid. Methane is tetrahedral with angles about 109.5°; water is bent about 104.5° because lone pairs affect electron-pair repulsion. Diagrams are models and electron-dot counts must match valence totals and charges.",
+    "practice": [
+      {
+        "question": "Explain why sodium chloride conducts when molten but not when solid.",
+        "reference_answer": "In solid NaCl the ions are held in fixed lattice positions. When molten the ions move and carry electric charge.",
+        "origin": "original"
+      },
+      {
+        "question": "Compare the bonding structures of methane and diamond.",
+        "reference_answer": "Methane consists of small covalent molecules with weak attractions between molecules. Diamond is a giant covalent network with strong bonds throughout, requiring much more energy to disrupt.",
+        "origin": "original"
+      },
+      {
+        "question": "State methane’s molecular shape and approximate H-C-H angle.",
+        "reference_answer": "Tetrahedral, approximately 109.5°. Four bonding pairs around carbon repel into this arrangement.",
+        "origin": "original"
+      }
+    ]
+  },
+  "mole_concept": {
+    "principles": "The mole counts particles using Avogadro's constant, approximately 6.02 × 10²³ per mole. Molar mass in g mol⁻¹ converts mass to amount: n = m/M. A balanced equation gives mole ratios, not mass ratios. Convert given quantities to moles, apply coefficients, then convert to the requested quantity. For solution concentration c in mol dm⁻³ and volume V in dm³, n = cV; divide cm³ by 1000 before substitution. Gas molar volume depends on temperature and pressure, so use the value stated in the question rather than assuming it universally. A limiting reagent determines the maximum product; compare available moles divided by stoichiometric coefficients. Percentage yield is actual/theoretical × 100 and percentage purity is mass of pure material/sample mass × 100. Empirical formula is the simplest atom ratio, while molecular formula is a whole-number multiple. Preserve units and precision and verify atom counts in every equation before calculating.",
+    "practice": [
+      {
+        "question": "Calculate the moles in 5.85 g NaCl. Use Na = 23 and Cl = 35.5.",
+        "reference_answer": "M = 58.5 g mol⁻¹. n = 5.85/58.5 = 0.100 mol. Multiplying 0.100 × 58.5 recovers the given mass.",
+        "origin": "original"
+      },
+      {
+        "question": "Find moles of HCl in 25.0 cm³ of 0.200 mol dm⁻³ acid.",
+        "reference_answer": "Volume = 0.0250 dm³. n = cV = 0.200 × 0.0250 = 0.00500 mol.",
+        "origin": "original"
+      },
+      {
+        "question": "Calculate the mass of MgO formed from 2.4 g Mg in excess oxygen. Use Mg = 24 and O = 16.",
+        "reference_answer": "2Mg + O₂ → 2MgO. n(Mg) = 2.4/24 = 0.100 mol; the ratio gives 0.100 mol MgO. Mass = 0.100 × 40 = 4.0 g.",
+        "origin": "original"
+      }
+    ]
+  },
+  "solutions_and_solubility": {
+    "principles": "A solution contains solute dispersed in a solvent. A saturated solution is in equilibrium with undissolved solute at a specified temperature; solubility commonly means grams of solute per 100 g solvent at that temperature. It is not the same as grams per 100 g solution. Many solids become more soluble as temperature rises, but not all; read the supplied curve rather than assume. Cooling a saturated solution may crystallise excess solute. Calculate the amount remaining dissolved at the new temperature using the same mass of solvent. Concentration may be expressed in g dm⁻³ or mol dm⁻³; convert using molar mass. Dilution adds solvent without changing solute moles, so c₁V₁ = c₂V₂ when no reaction or loss occurs. Dissolving faster through stirring does not necessarily increase equilibrium solubility. Gas solubility often decreases with temperature and increases with gas pressure. Keep temperature and solvent quantity explicit in comparisons.",
+    "practice": [
+      {
+        "question": "A salt has solubility 40 g per 100 g water at 60°C and 25 g at 20°C. How much crystallises from a saturated solution containing 100 g water on cooling?",
+        "reference_answer": "Initially 40 g is dissolved. At 20°C only 25 g remains dissolved, so 40 - 25 = 15 g crystallises, assuming no water loss.",
+        "origin": "original"
+      },
+      {
+        "question": "What volume of 2.0 mol dm⁻³ solution is needed to prepare 250 cm³ of 0.20 mol dm⁻³ solution?",
+        "reference_answer": "c₁V₁ = c₂V₂ gives V₁ = 0.20 × 250/2.0 = 25 cm³. Dilute this to a final volume of 250 cm³.",
+        "origin": "original"
+      },
+      {
+        "question": "Convert 4.0 g dm⁻³ NaOH to mol dm⁻³. Use NaOH molar mass 40 g mol⁻¹.",
+        "reference_answer": "4.0/40 = 0.10 mol dm⁻³. Each mole contributes 40 g, so the reverse conversion gives 4.0 g dm⁻³.",
+        "origin": "original"
+      }
+    ]
+  },
+  "thermochemistry": {
+    "principles": "An exothermic reaction transfers energy to the surroundings and has negative enthalpy change; an endothermic reaction absorbs energy and has positive enthalpy change. On an energy profile products lie below reactants for an exothermic process. Activation energy is the barrier from reactants to the transition region; a catalyst provides an alternative route with a lower barrier without changing the reactant-product enthalpy difference. Bond breaking requires energy and bond formation releases it. Approximate reaction enthalpy equals energy for bonds broken minus energy released by bonds formed. In calorimetry q = mcΔT estimates heat gained by the solution; the reaction's heat has the opposite sign. Divide by reacting moles for molar enthalpy and convert joules to kilojoules. State assumptions such as negligible heat loss, solution density near water and heat capacity taken as water's. Heat loss commonly reduces the measured temperature rise and underestimates the magnitude of an exothermic enthalpy. Hess's law combines equations with their enthalpy changes, reversing signs when equations are reversed.",
+    "practice": [
+      {
+        "question": "An exothermic reaction raises 100 g of solution by 5.0°C. Calculate heat gained using c = 4.2 J g⁻¹ °C⁻¹.",
+        "reference_answer": "q = mcΔT = 100 × 4.2 × 5.0 = 2100 J = 2.1 kJ. The reaction releases this amount under the stated approximation.",
+        "origin": "original"
+      },
+      {
+        "question": "If 0.050 mol reacted in that experiment, calculate the approximate molar enthalpy change.",
+        "reference_answer": "ΔH = -2.1/0.050 = -42 kJ mol⁻¹. The sign is negative because the solution warmed as the reaction released heat.",
+        "origin": "original"
+      },
+      {
+        "question": "How does a catalyst change an energy profile?",
+        "reference_answer": "It lowers activation energy by providing an alternative pathway. It does not change the enthalpy difference between reactants and products.",
+        "origin": "original"
+      }
+    ]
+  },
+  "acids_bases_salts": {
+    "principles": "Salts form when acid hydrogen is replaced by a metal or ammonium ion. Select preparation by solubility and reactivity. To make a soluble salt from an insoluble base or carbonate, add excess solid to warm dilute acid, filter off excess and crystallise the filtrate. Excess ensures the acid is used up. To prepare a soluble sodium, potassium or ammonium salt from an alkali, use titration to find neutralising volumes, then repeat without indicator before crystallising. An insoluble salt can be made by precipitation from two soluble solutions, followed by filtration, washing and drying. Do not attempt to filter a dissolved salt out of solution. Carbonates react with acids to form salt, water and carbon dioxide; oxides and hydroxides form salt and water. Include states in ionic equations and cancel spectator ions. Hydrated salts incorporate water in their crystals; heating may remove it, but strong heating can also decompose the salt.",
+    "practice": [
+      {
+        "question": "Describe preparing copper(II) sulfate crystals from copper(II) oxide and dilute sulfuric acid.",
+        "reference_answer": "Add excess CuO to warm dilute acid with stirring, filter unreacted oxide, gently concentrate the blue filtrate, cool to crystallise, then separate and dry crystals.",
+        "origin": "original"
+      },
+      {
+        "question": "Write the ionic equation for precipitating silver chloride.",
+        "reference_answer": "Ag⁺(aq) + Cl⁻(aq) → AgCl(s). The white precipitate forms when suitable soluble solutions are mixed.",
+        "origin": "original"
+      },
+      {
+        "question": "Why is titration used when preparing sodium chloride from hydrochloric acid and sodium hydroxide?",
+        "reference_answer": "Both reactants are soluble, so excess cannot be filtered off. Titration determines neutralising volumes; repeat without indicator to obtain an uncontaminated salt solution.",
+        "origin": "original"
+      }
+    ]
+  },
+  "electrolysis": {
+    "principles": "Electrolysis uses electrical energy to drive a chemical change in a molten or dissolved electrolyte. Mobile ions carry current through the electrolyte; electrons carry current in external metal wires. Cations move toward the negative cathode and gain electrons by reduction. Anions move toward the positive anode and lose electrons by oxidation. In molten binary salts identify products from the two ions. In aqueous solutions water-derived species also compete, so use reactivity, concentration and electrode material. Inert graphite or platinum differs from reactive copper electrodes. For aqueous copper(II) sulfate with copper electrodes, copper dissolves at the anode and deposits at the cathode, approximately maintaining solution concentration under suitable conditions. Balance both atoms and charge in half-equations. Product mass depends on charge passed and the electron-to-product ratio; do not infer a gas or metal solely from the sign of an electrode. Describe observations separately from half-equations.",
+    "practice": [
+      {
+        "question": "Write the cathode half-equation for molten lead(II) bromide.",
+        "reference_answer": "Pb²⁺ + 2e⁻ → Pb. Lead ions gain electrons, so this is reduction.",
+        "origin": "original"
+      },
+      {
+        "question": "Write the anode half-equation for molten lead(II) bromide.",
+        "reference_answer": "2Br⁻ → Br₂ + 2e⁻. Bromide ions lose electrons, so this is oxidation. Atom and charge totals balance.",
+        "origin": "original"
+      },
+      {
+        "question": "What happens to a copper anode in electrolysis of aqueous copper(II) sulfate using copper electrodes?",
+        "reference_answer": "It dissolves as Cu(s) → Cu²⁺(aq) + 2e⁻, losing mass while supplying copper ions to the solution.",
+        "origin": "original"
+      }
+    ]
+  },
+  "redox_reactions": {
+    "principles": "Oxidation and reduction always occur together. Oxidation can be described as electron loss or increase in oxidation number, and reduction as electron gain or decrease in oxidation number. An oxidising agent accepts electrons and is itself reduced; a reducing agent donates electrons and is itself oxidised. In a simple displacement, a more reactive metal transfers electrons to ions of a less reactive metal. Oxidation number is a bookkeeping value, not always an actual ionic charge in covalent substances. Elements in their uncombined form have oxidation number zero; oxygen is usually -2 and hydrogen usually +1, with recognised exceptions. The sum equals the overall charge. Balance redox equations using half-equations, conserving atoms and charge and multiplying to cancel transferred electrons. In acidic solution H⁺ and water may balance hydrogen and oxygen. Use observed changes, such as copper coating or colour loss, to support the proposed transfer. Do not classify a reaction solely because oxygen is absent or present.",
+    "practice": [
+      {
+        "question": "For Zn + Cu²⁺ → Zn²⁺ + Cu, identify the reducing agent.",
+        "reference_answer": "Zinc is the reducing agent: Zn → Zn²⁺ + 2e⁻. It donates electrons and is oxidised.",
+        "origin": "original"
+      },
+      {
+        "question": "Find sulfur’s oxidation number in SO₄²⁻.",
+        "reference_answer": "Let sulfur be x. x + 4(-2) = -2, so x = +6.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain why an oxidising agent is reduced.",
+        "reference_answer": "It causes another species to lose electrons by accepting those electrons itself, so its own oxidation number decreases.",
+        "origin": "original"
+      }
+    ]
+  },
+  "reaction_kinetics": {
+    "principles": "Reaction rate is change in amount or concentration per unit time. A graph's gradient shows rate; a tangent estimates instantaneous rate while a chord gives an average over an interval. Collision theory requires particles to collide with sufficient energy and suitable orientation. Increasing concentration or gas pressure increases collision frequency, often increasing rate. Breaking a solid into smaller pieces increases exposed surface area for a heterogeneous reaction without changing its mass. Higher temperature increases collision frequency and, more significantly, the fraction of collisions exceeding activation energy. A catalyst provides a lower-activation-energy route and is regenerated overall. It changes speed, not the maximum yield fixed by the limiting reagent in a complete irreversible reaction. Compare rates with other variables controlled: same mass, temperature, concentration or surface area as appropriate. A plateau in gas volume often means a limiting reactant is exhausted; it is not proof that no particles remain. Specify whether an experimental time is time to a fixed endpoint or total completion.",
+    "practice": [
+      {
+        "question": "Explain why powdered calcium carbonate reacts faster than large chips of the same mass with excess acid.",
+        "reference_answer": "Powder exposes a larger surface area, allowing more acid-particle collisions per second. The final carbon dioxide amount is the same if the same carbonate mass reacts completely.",
+        "origin": "original"
+      },
+      {
+        "question": "A reaction produces 60 cm³ of gas in the first 30 s. Find its average rate over this interval.",
+        "reference_answer": "Average rate = 60/30 = 2.0 cm³ s⁻¹. This is not necessarily the instantaneous rate at 30 s.",
+        "origin": "original"
+      },
+      {
+        "question": "Why does increasing temperature usually increase reaction rate?",
+        "reference_answer": "A larger fraction of particles has energy at least the activation energy, so more collisions are successful. Collision frequency also increases.",
+        "origin": "original"
+      }
+    ]
+  },
+  "chemical_equilibrium": {
+    "principles": "In a closed system a reversible reaction can reach dynamic equilibrium: forward and reverse rates are equal, so concentrations remain constant although both reactions continue. Equal rates do not imply equal concentrations. Le Chatelier's principle predicts the direction of response to a change in concentration, pressure or temperature. Adding a reactant tends to favour its consumption. Increasing pressure in a gaseous equilibrium favours the side with fewer gas molecules, if the two sides differ. Heating favours the endothermic direction; for an exothermic forward reaction this reduces equilibrium product yield. A catalyst speeds both directions and brings equilibrium sooner without changing its composition at fixed conditions. Industrial conditions compromise yield, rate, cost and safety. Removing product can shift the equilibrium toward further product formation. Distinguish an equilibrium change from a rate change and state which reaction direction releases heat before predicting temperature effects. The system must remain closed for the simple equilibrium model to apply.",
+    "practice": [
+      {
+        "question": "Define dynamic equilibrium.",
+        "reference_answer": "In a closed system the forward and reverse reactions continue at equal rates, maintaining constant macroscopic concentrations.",
+        "origin": "original"
+      },
+      {
+        "question": "For N₂(g) + 3H₂(g) ⇌ 2NH₃(g), explain the effect of increased pressure on equilibrium yield.",
+        "reference_answer": "There are four gas moles on the left and two on the right. Higher pressure favours the side with fewer gas particles, increasing ammonia equilibrium yield.",
+        "origin": "original"
+      },
+      {
+        "question": "Does a catalyst change the equilibrium ammonia yield at fixed temperature and pressure?",
+        "reference_answer": "No. It accelerates both forward and reverse reactions and reduces time to equilibrium without changing the equilibrium composition.",
+        "origin": "original"
+      }
+    ]
+  },
+  "electrochemistry": {
+    "principles": "A simple electrochemical cell converts a spontaneous redox reaction into electrical energy. Oxidation occurs at the anode and reduction at the cathode in both cells and electrolysis, but electrode signs differ: a galvanic cell anode is negative and cathode positive. In a zinc-copper cell zinc loses electrons and copper ions gain them. Electrons flow through the external wire from zinc to copper; a salt bridge completes the internal circuit through ion migration and maintains charge balance. Electrons do not travel through the salt bridge as they do through a wire. Use an inert electrolyte that does not interfere significantly with the cell reaction. The more readily oxidised metal generally serves as the anode under the conditions considered. A cell's output depends on chemical conditions, and a dry cell is not literally free of moisture: it uses a paste electrolyte. Corrosion is an electrochemical process; sacrificial protection uses a more readily oxidised metal to protect iron.",
+    "practice": [
+      {
+        "question": "Write the overall equation for a zinc-copper cell with Zn²⁺ and Cu²⁺ solutions.",
+        "reference_answer": "Zn(s) + Cu²⁺(aq) → Zn²⁺(aq) + Cu(s). Zinc is oxidised and copper ions are reduced.",
+        "origin": "original"
+      },
+      {
+        "question": "State the direction of electron flow in the external circuit of that cell.",
+        "reference_answer": "From zinc anode to copper cathode through the wire. Conventional current is in the opposite direction.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain the function of a salt bridge.",
+        "reference_answer": "It allows ions to migrate to maintain charge balance and completes the internal circuit while limiting direct bulk mixing. It is not an electron-conducting wire.",
+        "origin": "original"
+      }
+    ]
+  },
+  "nitrogen": {
+    "principles": "Nitrogen gas is relatively unreactive at room temperature because its triple bond is strong. In the Haber process nitrogen and hydrogen react reversibly to form ammonia: N₂ + 3H₂ ⇌ 2NH₃. The forward reaction is exothermic and reduces gas moles, so high pressure favours yield while lower temperature favours equilibrium yield but slows reaction. Industrial operation uses a compromise temperature, pressure and iron catalyst, followed by cooling to separate ammonia and recycling unused gases. Ammonia is very soluble in water and produces an alkaline solution. It turns damp red litmus blue and forms white ammonium chloride fumes with hydrogen chloride. Ammonium salts release ammonia when warmed with a strong alkali. Nitric acid is an oxidising acid and its metal reactions differ from simple dilute-acid hydrogen production. Nitrogen compounds are important in fertilisers, but runoff can promote eutrophication; link the nutrient increase to algal growth and oxygen depletion during decomposition.",
+    "practice": [
+      {
+        "question": "Write the balanced Haber process equation.",
+        "reference_answer": "N₂(g) + 3H₂(g) ⇌ 2NH₃(g). It is reversible and exothermic in the forward direction.",
+        "origin": "original"
+      },
+      {
+        "question": "State a test for ammonia gas.",
+        "reference_answer": "It turns damp red litmus paper blue. It also forms white fumes of ammonium chloride with hydrogen chloride gas.",
+        "origin": "original"
+      },
+      {
+        "question": "Write the ionic equation for ammonia released when an ammonium salt is warmed with alkali.",
+        "reference_answer": "NH₄⁺(aq) + OH⁻(aq) → NH₃(g) + H₂O(l). Warm gently in supervised conditions; do not smell directly.",
+        "origin": "original"
+      }
+    ]
+  },
+  "sulphur": {
+    "principles": "Sulfur occurs in several forms and oxidation states. Burning sulfur in oxygen produces sulfur dioxide, a toxic gas that forms an acidic solution in water. Sulfur dioxide can act as a reducing agent and decolourise acidified potassium manganate(VII). Its bleaching action involves reduction and can be temporary, unlike chlorine's oxidative bleaching under suitable conditions. In the Contact process SO₂ is oxidised reversibly to SO₃ using oxygen and a vanadium(V) oxide catalyst under compromise conditions. Sulfur trioxide is absorbed in concentrated sulfuric acid to form oleum, then diluted carefully; direct addition to water creates a difficult acid mist. Concentrated sulfuric acid is corrosive and a dehydrating agent; dilution releases heat, so acid is added slowly to water under supervision. Test sulfate ions by acidifying with dilute hydrochloric acid then adding barium chloride; a persistent white barium sulfate precipitate supports their presence. Acidification removes interfering carbonate ions. Sulfur oxides contribute to acid rain.",
+    "practice": [
+      {
+        "question": "Write the equation for burning sulfur in oxygen.",
+        "reference_answer": "S(s) + O₂(g) → SO₂(g). The product is sulfur dioxide.",
+        "origin": "original"
+      },
+      {
+        "question": "Give the catalyst for SO₂ oxidation in the Contact process.",
+        "reference_answer": "Vanadium(V) oxide, V₂O₅. It increases rate without changing the equilibrium yield at fixed conditions.",
+        "origin": "original"
+      },
+      {
+        "question": "Describe a test for sulfate ions.",
+        "reference_answer": "Acidify with dilute hydrochloric acid and add barium chloride solution. A white precipitate of BaSO₄ indicates sulfate: Ba²⁺ + SO₄²⁻ → BaSO₄(s).",
+        "origin": "original"
+      }
+    ]
+  },
+  "halogens": {
+    "principles": "Halogens are Group VII elements that commonly form diatomic molecules and -1 ions. Down the group melting and boiling points generally rise, while oxidising power decreases. A more reactive halogen displaces a less reactive one from its halide solution: chlorine displaces bromine and iodine. Chlorine dissolves in water to form hydrochloric acid and hypochlorous acid in equilibrium; its bleaching action requires moisture and is oxidative. Damp blue litmus first turns red then can be bleached white, while dry chlorine does not bleach dry litmus under the usual test. Chlorine is toxic and must be handled only with proper laboratory controls. Test halides by acidifying with dilute nitric acid and adding silver nitrate: chloride gives white silver chloride, bromide cream and iodide yellow precipitates. Using hydrochloric acid would add chloride and invalidate the test. Interpret colour with care and use ammonia solubility as an additional distinction when specified.",
+    "practice": [
+      {
+        "question": "Write the ionic equation for chlorine displacing bromine from bromide solution.",
+        "reference_answer": "Cl₂ + 2Br⁻ → 2Cl⁻ + Br₂. Chlorine gains electrons and is the stronger oxidising agent.",
+        "origin": "original"
+      },
+      {
+        "question": "Why is damp litmus needed to test chlorine bleaching?",
+        "reference_answer": "Water enables formation of bleaching species such as hypochlorous acid. Dry chlorine does not bleach dry litmus in the usual test.",
+        "origin": "original"
+      },
+      {
+        "question": "Describe the silver nitrate test for chloride ions.",
+        "reference_answer": "Acidify the sample with dilute nitric acid and add silver nitrate. A white precipitate of AgCl forms: Ag⁺ + Cl⁻ → AgCl(s).",
+        "origin": "original"
+      },
+      {
+        "question": "Name the process when red litmus turns white in chlorine water.",
+        "reference_answer": "Bleaching. Chlorine water oxidises the coloured material, removing its colour.",
+        "origin": "booklet",
+        "source_location": "Classification 4(b)"
+      }
+    ]
+  },
+  "organic_chemistry": {
+    "principles": "Organic chemistry studies carbon compounds. Carbon forms four bonds and can build chains, branches and rings. A homologous series has the same functional group and general formula with successive members differing by CH₂; chemical behaviour is similar while physical properties change gradually. Alkanes are saturated hydrocarbons with only carbon-carbon single bonds and formula CₙH₂ₙ₊₂ for open chains. Alkenes contain a carbon-carbon double bond and open-chain monoalkenes have formula CₙH₂ₙ. Name a chain by its carbon count and the functional group, locating multiple bonds when needed. Structural isomers have the same molecular formula but different connectivity. Alkenes decolourise bromine water by addition, while alkanes do not under ordinary test conditions without ultraviolet light. Alkanes can undergo substitution with halogens under ultraviolet light. Complete combustion gives carbon dioxide and water; insufficient oxygen may produce carbon monoxide and soot. Draw structures with every carbon having four bonds, and balance equations using atom counts.",
+    "practice": [
+      {
+        "question": "State the general formulas for open-chain alkanes and monoalkenes.",
+        "reference_answer": "Alkanes: CₙH₂ₙ₊₂. Monoalkenes: CₙH₂ₙ, with one C=C double bond and no rings.",
+        "origin": "original"
+      },
+      {
+        "question": "Describe how bromine water distinguishes ethene from ethane under ordinary conditions without ultraviolet light.",
+        "reference_answer": "Ethene rapidly decolourises bromine water through addition at the double bond. Ethane does not under these test conditions.",
+        "origin": "original"
+      },
+      {
+        "question": "Write the complete combustion equation for ethane.",
+        "reference_answer": "2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O. Carbon, hydrogen and oxygen counts balance.",
+        "origin": "original"
+      }
+    ]
+  },
+  "crude_oil": {
+    "principles": "Crude oil is a mixture dominated by hydrocarbons, not one pure compound. Fractional distillation separates it into fractions by boiling ranges, using a column hot at the bottom and cooler at the top. A fraction is itself a mixture of hydrocarbons with similar boiling behaviour. Shorter-chain fractions are generally more volatile and less viscous than longer-chain ones; their molecules have weaker overall intermolecular attractions. Refinery gases, petrol-range fuels, kerosene, diesel and heavier oils have different uses. Cracking breaks larger hydrocarbons into smaller molecules, often producing alkanes and alkenes useful for fuels and polymers. It is a chemical change distinct from physical distillation. Balance cracking equations by conserving carbon and hydrogen and ensure products are plausible. Burning fuels produces carbon dioxide; impurities containing sulfur can form sulfur dioxide and cause pollution. Incomplete combustion produces carbon monoxide, so ventilation and efficient combustion matter. Do not assign a single exact boiling point or molecular formula to an entire fraction.",
+    "practice": [
+      {
+        "question": "Explain why crude oil is separated by fractional distillation.",
+        "reference_answer": "It contains miscible hydrocarbons with different boiling ranges. A temperature gradient and repeated vaporisation and condensation separate fractions by volatility.",
+        "origin": "original"
+      },
+      {
+        "question": "Complete the cracking equation C₁₀H₂₂ → C₈H₁₈ + X.",
+        "reference_answer": "X is C₂H₄, ethene. Carbon: 10 = 8 + 2; hydrogen: 22 = 18 + 4.",
+        "origin": "original"
+      },
+      {
+        "question": "Compare the viscosity and volatility of shorter-chain and longer-chain hydrocarbon fractions.",
+        "reference_answer": "Shorter-chain fractions are generally less viscous and more volatile. Longer chains have stronger overall intermolecular attractions and usually higher boiling ranges.",
+        "origin": "original"
+      }
+    ]
+  },
+  "organic_chemistry_2": {
+    "principles": "Alcohols contain a hydroxyl functional group, while carboxylic acids contain the carboxyl group. Ethanol has formula CH₃CH₂OH and ethanoic acid CH₃COOH. Fermentation converts sugar to ethanol and carbon dioxide using enzymes from yeast under suitable warm anaerobic conditions; excessive heat damages enzymes. Distillation concentrates ethanol but ordinary simple fractionation does not produce perfectly pure ethanol from all compositions. Ethanol burns and can be oxidised to ethanoic acid using suitable oxidising conditions. Carboxylic acids react with carbonates to release carbon dioxide and form salts. An alcohol and carboxylic acid react reversibly to form an ester and water, often with an acid catalyst. Addition polymerisation joins many unsaturated monomers by opening their double bonds without losing a small molecule; condensation polymerisation involves loss of small molecules. Use structural formulas to distinguish substances sharing molecular formulas, and name the functional group rather than just counting oxygen atoms.",
+    "practice": [
+      {
+        "question": "Write the equation for fermentation of glucose to ethanol.",
+        "reference_answer": "C₆H₁₂O₆ → 2C₂H₅OH + 2CO₂, with yeast enzymes under suitable warm anaerobic conditions.",
+        "origin": "original"
+      },
+      {
+        "question": "Write the equation for ethanoic acid reacting with sodium hydrogencarbonate.",
+        "reference_answer": "CH₃COOH + NaHCO₃ → CH₃COONa + CO₂ + H₂O. Effervescence is caused by carbon dioxide.",
+        "origin": "original"
+      },
+      {
+        "question": "Name the ester formed from ethanol and ethanoic acid.",
+        "reference_answer": "Ethyl ethanoate. The reaction also forms water: CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O.",
+        "origin": "original"
+      },
+      {
+        "question": "Name the process by which propene molecules join into a giant molecule.",
+        "reference_answer": "Addition polymerisation, forming poly(propene) by opening carbon-carbon double bonds and joining monomers.",
+        "origin": "booklet",
+        "source_location": "Classification 4(c)"
+      }
+    ]
+  },
+  "extraction_of_metals": {
+    "principles": "An ore contains a metal compound in an amount that makes extraction worthwhile under current conditions. Extraction method depends on reactivity and practical economics. Very reactive metals such as aluminium require electrolysis of molten compounds; less reactive metal oxides may be reduced by carbon or carbon monoxide. In the blast furnace carbon monoxide reduces iron(III) oxide, while limestone decomposes to calcium oxide, which reacts with silica impurities to form slag. Coke supplies heat and contributes to reducing gases. Aluminium oxide is dissolved in molten cryolite to lower operating temperature and improve practical electrolysis conditions. Aluminium forms at the cathode; oxygen produced at carbon anodes reacts with them, so the anodes are consumed. Recycling can reduce energy demand and mining waste, though sorting and contamination remain issues. A metal alloy is a mixture designed to alter properties; distorted layers can make an alloy harder than the pure metal. Explain corrosion protection by barriers or sacrificial action with a stated metal pair.",
+    "practice": [
+      {
+        "question": "Write the equation for reduction of iron(III) oxide by carbon monoxide.",
+        "reference_answer": "Fe₂O₃ + 3CO → 2Fe + 3CO₂. Iron(III) is reduced while carbon monoxide is oxidised.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain the role of limestone in the blast furnace.",
+        "reference_answer": "CaCO₃ decomposes to CaO + CO₂. CaO reacts with acidic silica impurity to form calcium silicate slag: CaO + SiO₂ → CaSiO₃.",
+        "origin": "original"
+      },
+      {
+        "question": "Why is aluminium extracted by electrolysis rather than carbon reduction?",
+        "reference_answer": "Aluminium is more reactive than carbon and its oxide is too stable for ordinary carbon reduction. Electrolysis of a molten electrolyte is used instead.",
+        "origin": "original"
+      }
+    ]
+  },
+  "industrial_processes": {
+    "principles": "Industrial chemistry applies reactions at scale under economic, environmental and safety constraints. A high equilibrium yield alone is not enough if the rate is impractically slow. In the Haber process the exothermic reaction N₂ + 3H₂ ⇌ 2NH₃ uses an iron catalyst, elevated pressure and a compromise temperature; cooling removes ammonia and unreacted gases are recycled. The Contact process oxidises SO₂ to SO₃ using vanadium(V) oxide, then absorbs SO₃ in sulfuric acid before controlled dilution. Know each raw material, transformation, separation and recycle stream rather than memorising one equation. Catalysts improve rate but do not shift equilibrium at fixed conditions. High pressure requires energy and stronger equipment, so its benefit must justify cost and risk. Industrial pollution controls can capture acidic gases, treat effluent and reduce waste. Use balanced equations to calculate theoretical yields, then account for incomplete conversion, recycling and losses separately. Never imply that a classroom apparatus model is a literal plant design.",
+    "practice": [
+      {
+        "question": "Why is a moderate temperature used in the Haber process rather than the lowest possible temperature?",
+        "reference_answer": "Lower temperature favours the exothermic equilibrium yield but slows the reaction. A compromise temperature with a catalyst gives an economical production rate.",
+        "origin": "original"
+      },
+      {
+        "question": "Why are unused nitrogen and hydrogen recycled after ammonia is separated?",
+        "reference_answer": "Conversion in one pass is incomplete. Recycling gives unreacted feed further opportunities to react and reduces raw-material waste.",
+        "origin": "original"
+      },
+      {
+        "question": "Explain why sulfur trioxide is not simply added directly to water in the Contact process.",
+        "reference_answer": "Its highly exothermic reaction produces an acid mist that is hard to condense. It is absorbed in concentrated sulfuric acid to form oleum, then diluted carefully.",
+        "origin": "original"
+      }
+    ]
+  },
+  "radioactivity": {
+    "principles": "Radioactivity is spontaneous nuclear decay, distinct from ordinary reactions that rearrange electrons. Alpha particles are helium nuclei with charge +2, strongly ionising and weakly penetrating. Beta-minus particles are electrons emitted when a neutron converts into a proton; the electron is not an orbital electron simply leaving the atom. Gamma radiation is high-energy electromagnetic radiation with no charge or rest mass and relatively high penetration. In nuclear equations conserve nucleon number and charge number. Alpha decay reduces A by 4 and Z by 2; beta-minus decay leaves A unchanged and increases Z by 1. Half-life is the time for the number of undecayed nuclei or activity to halve, statistically; it does not mean all nuclei decay after two half-lives. After n half-lives the remaining fraction is (1/2)ⁿ. Subtract background when using count rates to estimate activity. Radiation uses include tracers and treatment, but exposure should be controlled by reducing time, increasing distance and choosing appropriate shielding. Penetration and ionisation are different properties.",
+    "practice": [
+      {
+        "question": "A sample has mass 80 mg and half-life 5 days. How much undecayed material remains after 15 days?",
+        "reference_answer": "15/5 = 3 half-lives. Remaining mass = 80 × (1/2)³ = 10 mg. This refers to the original radioactive isotope.",
+        "origin": "original"
+      },
+      {
+        "question": "How do nucleon and proton numbers change in alpha decay?",
+        "reference_answer": "Nucleon number falls by 4 and proton number falls by 2 because an alpha particle is a helium-4 nucleus.",
+        "origin": "original"
+      },
+      {
+        "question": "A measured count rate is 140 counts per minute with background 20 counts per minute. Find the corrected count rate.",
+        "reference_answer": "140 - 20 = 120 counts per minute. Background must be subtracted before comparing decay measurements.",
+        "origin": "original"
+      }
+    ]
+  }
+}
