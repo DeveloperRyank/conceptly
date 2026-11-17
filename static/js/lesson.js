@@ -501,9 +501,9 @@ function currentLine() {
   return cue && cue.kind === "say" ? cue.text : "";
 }
 
-function openAskPanel() {
+function openAskPanel(stopListening = true) {
   if (!plan) return;
-  stopKeywordListening();
+  if (stopListening !== false) stopKeywordListening();
   asking = true;
   playing = false;
   voicing = null;
@@ -532,6 +532,7 @@ async function sendQuestion() {
   const question = document.getElementById("ask-input").value.trim();
   if (!question) return;
   stopMic();
+  stopKeywordListening();
   if (askRequest) askRequest.abort();
   askRequest = new AbortController();
   const serial = ++askSerial;
@@ -661,6 +662,7 @@ function toggleMic() {
     return;
   }
   if (rec) { rec.stop(); return; }
+  stopKeywordListening();
   rec = new SR();
   rec.lang = "en-GB";
   rec.interimResults = true;
@@ -737,16 +739,29 @@ function wireKeywordInterruptions() {
     recognition.lang = "en-KE";
     recognition.continuous = true;
     recognition.interimResults = true;
+    let captureIndex = -1;
     recognition.onresult = (event) => {
-      for (let i = event.resultIndex; i < event.results.length; i++) {
-        const text = event.results[i][0].transcript.trim();
-        const match = /\b(?:hey tutor|tutor pause|i have a question)\b[,.!?\s]*(.*)/i.exec(text);
-        if (!match || !keywordEnabled || !plan) continue;
+      if (!keywordEnabled || !plan) return;
+      if (captureIndex < 0) {
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          if (!/\b(?:hey tutor|tutor pause|i have a question)\b/i.test(event.results[i][0].transcript)) continue;
+          captureIndex = i;
+          openAskPanel(false);
+          state.textContent = "Lesson paused. Ask your question; it will be sent after you finish speaking. You can also type and press Ask the tutor.";
+          break;
+        }
+      }
+      if (captureIndex < 0) return;
+      let text = "";
+      for (let i = captureIndex; i < event.results.length; i++) text += " " + event.results[i][0].transcript;
+      const match = /\b(?:hey tutor|tutor pause|i have a question)\b[,.!?\s]*(.*)/i.exec(text);
+      const question = match ? match[1].trim() : "";
+      document.getElementById("ask-input").value = question;
+      const last = event.results[event.results.length - 1];
+      if (question && last.isFinal) {
         stopKeywordListening();
-        openAskPanel();
-        document.getElementById("ask-input").value = match[1] || "";
-        state.textContent = "Lesson paused. Finish your question by typing or use the question microphone, then press Ask the tutor.";
-        break;
+        state.textContent = "Question captured. Voice interruptions are off until you enable them again.";
+        sendQuestion();
       }
     };
     recognition.onerror = (event) => { stopKeywordListening(); state.textContent = "Microphone stopped (" + event.error + "). Use Stop and ask, or enable again."; };

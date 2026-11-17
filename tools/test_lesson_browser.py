@@ -66,8 +66,11 @@ def main():
                         assert page.locator('#ask-panel').evaluate('e=>e.classList.contains("open")')
                         assert page.locator('#ask-input').input_value()=='why cubic units'
                         assert not page.evaluate('playing')
+                        assert page.locator('#keyword-listen').get_attribute('aria-pressed')=='true'
+                        # Final recognition completes the question naturally and submits once.
+                        page.evaluate('''() => { const r=window.__recognitions[0]; const result=[{transcript:"Hey tutor why cubic units"}]; result.isFinal=true; r.onresult({resultIndex:0,results:[result]}); }''')
+                        page.locator('#tc-resume').wait_for()
                         assert page.locator('#keyword-listen').get_attribute('aria-pressed')=='false'
-                        page.locator('#btn-send-ask').click();page.locator('#tc-resume').wait_for()
                         assert not page.evaluate('playing')
                         page.locator('#tc-resume').click();assert page.evaluate('playing')
                         # 3D controls pause the lesson, update real dimensions, and require explicit resume.
