@@ -1,0 +1,42 @@
+{
+  "waves_ii": [
+    {
+      "question": "A ripple-tank source has frequency 20 Hz. Five consecutive crests span 12 cm. Calculate the wavelength and wave speed.",
+      "reference_answer": "Five crests span four wavelengths. Wavelength = 12/4 = 3 cm = 0.030 m. Speed = 20 × 0.030 = 0.60 m/s. Check: in one period, 1/20 = 0.050 s, the wave travels 0.60 × 0.050 = 0.030 m; four wavelengths span 0.12 m."
+    },
+    {
+      "question": "Water waves of frequency 5.0 Hz travel at 0.40 m/s in deep water and 0.30 m/s in shallow water. They meet the boundary at 30° to the normal. Find both wavelengths and the angle of refraction.",
+      "reference_answer": "Frequency remains 5.0 Hz. Deep wavelength = 0.40/5.0 = 0.080 m; shallow wavelength = 0.30/5.0 = 0.060 m. sin r = (0.30/0.40) sin 30° = 0.375, so r ≈ 22°. The wave bends towards the normal. Check: sin 30°/sin r = 4/3, matching the speed ratio before rounding."
+    },
+    {
+      "question": "A string fixed at both ends is 1.5 m long and forms three antinodes when driven at 120 Hz. Find its wavelength and wave speed.",
+      "reference_answer": "Three antinodes correspond to three half-wavelengths. L = 3λ/2, so λ = 2(1.5)/3 = 1.0 m. Speed = 120 × 1.0 = 120 m/s. Check: the fundamental frequency is v/(2L) = 40 Hz; the third harmonic is 3 × 40 = 120 Hz."
+    },
+    {
+      "question": "Two coherent sound sources are in phase at 400 Hz. Sound speed is 340 m/s. Their waves reach a listener with equal amplitudes. Predict interference for path differences 0.85 m and 0.425 m.",
+      "reference_answer": "Wavelength = 340/400 = 0.85 m. A path difference 0.85 m is one wavelength, giving constructive interference. A difference 0.425 m is half a wavelength, giving destructive interference and ideal cancellation for equal amplitudes. Check phases: 2πΔ/λ equals 2π and π respectively. These are spatial path differences, not beat frequencies."
+    }
+  ],
+  "capacitors": [
+    {
+      "question": "A 20 µF capacitor is charged to 12 V. Calculate its charge and stored energy.",
+      "reference_answer": "C = 20 × 10⁻⁶ F. Q = CV = 240 × 10⁻⁶ C = 240 µC. E = 1/2 CV² = 0.00144 J. Independent check: E = 1/2 QV = 1/2 × 240 × 10⁻⁶ × 12 = 0.00144 J. This uses total charge and charge-averaged voltage V/2, not average charge."
+    },
+    {
+      "question": "Capacitors of 3 µF and 6 µF are connected in parallel across 12 V. Find equivalent capacitance, each charge, total charge and total energy.",
+      "reference_answer": "Parallel voltage is 12 V across each capacitor. C_total = 9 µF. Q1 = 36 µC, Q2 = 72 µC and Q_total = 108 µC. E_total = 1/2 × 9 × 10⁻⁶ × 12² = 0.000648 J. Check: individual energies 0.000216 J and 0.000432 J sum to 0.000648 J."
+    },
+    {
+      "question": "Initially uncharged 3 µF and 6 µF capacitors are connected in series across 12 V. Find equivalent capacitance, charge, each voltage and total stored energy.",
+      "reference_answer": "1/C_total = 1/3 + 1/6 in inverse microfarads, so C_total = 2 µF. Series charge magnitude is 24 µC on each capacitor. V1 = 24/3 = 8 V; V2 = 24/6 = 4 V. Their sum is exactly 12 V for these values. E_total = 0.000144 J. Check: 1/2 Q(V1 + V2) = 1/2 × 24 × 10⁻⁶ × 12 = 0.000144 J."
+    },
+    {
+      "question": "A 50 µF capacitor is charged to 20 V. The supply is disconnected, then a resistor is connected across the capacitor. Find the initial energy and the energy transferred to the resistor when the voltage has fallen to 10 V.",
+      "reference_answer": "Initial E = 1/2 × 50 × 10⁻⁶ × 20² = 0.010 J. At 10 V, E = 1/2 × 50 × 10⁻⁶ × 10² = 0.0025 J. The resistor receives 0.0075 J as thermal energy in the ideal model. Check with charges: Q_initial = 0.001 C and Q_final = 0.0005 C; 1/2 QV gives the same two energies. The resistor provides a discharge path after supply isolation.",
+      "method": {
+        "say": "The supply is isolated and the resistor provides a discharge path. Capacitor charge decreases as current flows. With capacitance fixed, calculate the stored energy at each voltage using one half C V squared, then subtract to find the energy transferred to the resistor.",
+        "write": "Q on capacitor decreases; energy transferred = E_initial - E_final"
+      }
+    }
+  ]
+}

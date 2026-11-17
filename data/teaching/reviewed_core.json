@@ -1,0 +1,108 @@
+{
+  "physics:capacitors": [
+    {
+      "title": "What capacitance measures",
+      "beats": [
+        {
+          "say": "A capacitor has two conducting plates separated by an insulator. A source transfers charge between the plates, leaving equal and opposite charge magnitudes. Capacitance describes charge magnitude on one plate per volt between them.",
+          "write": "C = Q/V; 1 F = 1 C/V"
+        },
+        {
+          "say": "Use one plate’s charge magnitude in Q equals C times V, not the sum of positive and negative magnitudes. Convert microfarads to farads first. With fixed capacitance, the graph of voltage against accumulated charge is straight.",
+          "write": "Q = CV; 1 µF = 10⁻⁶ F"
+        }
+      ]
+    },
+    {
+      "title": "Deriving stored energy",
+      "beats": [
+        {
+          "say": "To add a small charge dq, the work is the current potential difference times dq. As charge builds on a fixed capacitor, voltage rises from zero to V. The area under the voltage-charge graph is a triangle.",
+          "write": "dW = V dq; triangle area = ½ QV"
+        },
+        {
+          "say": "The charge-averaged voltage is half the final voltage, so energy is total charge times V over two. This is not average charge times voltage. Voltage is linear in charge here, not necessarily in charging time.",
+          "write": "E = ½ QV = ½ CV² = Q²/(2C)"
+        }
+      ]
+    },
+    {
+      "title": "Changing gap and overlap at fixed charge",
+      "beats": [
+        {
+          "say": "Consider an isolated parallel-plate capacitor with no conducting discharge path. Its charge stays fixed. If plate area is unchanged, the field is approximately unchanged when the gap changes. Reducing the gap lowers V because V equals field times distance.",
+          "write": "Fixed Q and A: V = field × d; smaller d lowers V"
+        },
+        {
+          "say": "Now increase the overlapping plate area while keeping charge and gap fixed. Surface charge density Q over A falls, reducing the field and hence voltage. In both cases lower voltage at fixed charge means greater capacitance.",
+          "write": "Fixed Q: larger A lowers Q/A, field and V; C rises"
+        }
+      ]
+    },
+    {
+      "title": "Dielectric and connected-supply cases",
+      "beats": [
+        {
+          "say": "At fixed charge, dielectric polarisation partly opposes the original electric field. The reduced field lowers the potential difference across the same gap. Since capacitance is Q divided by V, the capacitance increases.",
+          "write": "Dielectric at fixed Q: field ↓, V ↓, C ↑"
+        },
+        {
+          "say": "With a source still connected, the source fixes the voltage instead. Inserting dielectric, increasing overlap or reducing separation increases capacitance, and extra charge flows to maintain that voltage. Always state which quantity is held fixed before predicting changes.",
+          "write": "Source connected: V fixed; increased C draws extra Q"
+        }
+      ]
+    },
+    {
+      "title": "Why parallel capacitances add",
+      "beats": [
+        {
+          "say": "Parallel capacitors connect across the same two circuit points, so each has the same voltage. Their charges are C one times V and C two times V. Total charge supplied is the sum of these plate-charge magnitudes.",
+          "write": "Q_total = C₁V + C₂V = (C₁+C₂)V"
+        },
+        {
+          "say": "Compare this total charge with the defining equation for one equivalent capacitor at that same voltage. Dividing by V gives the sum rule. A parallel equivalent capacitance therefore exceeds each positive individual capacitance.",
+          "write": "Parallel: C_eq = C₁ + C₂"
+        }
+      ]
+    },
+    {
+      "title": "Why series uses reciprocals",
+      "beats": [
+        {
+          "say": "For initially uncharged capacitors connected in a simple series chain, the intermediate isolated connection retains zero net charge. The capacitors acquire equal charge magnitudes. Their individual voltages are Q divided by their respective capacitances.",
+          "write": "Series: Q₁ = Q₂ = Q; V₁ = Q/C₁"
+        },
+        {
+          "say": "The supply voltage is the sum of the individual voltages. Substituting Q over C for each voltage and dividing by Q gives the reciprocal rule. The smaller capacitor carries the larger voltage for that common charge.",
+          "write": "1/C_eq = 1/C₁ + 1/C₂; V_total = V₁ + V₂"
+        }
+      ]
+    },
+    {
+      "title": "Define charging and discharge paths",
+      "beats": [
+        {
+          "say": "A charging circuit connects the cell, a limiting resistor and capacitor in a complete series path. As capacitor voltage rises, the voltage across the resistor and current fall. Charge does not normally increase uniformly with time in this resistor circuit.",
+          "write": "Charging path: cell → resistor → capacitor → cell"
+        },
+        {
+          "say": "For discharge, first isolate the supply and then connect a resistor across the capacitor’s terminals. That resistor makes a complete discharge path. Capacitor charge and voltage decrease while energy transfers to the resistor as heat. An isolated supply does not imply fixed capacitor charge.",
+          "write": "Supply isolated; resistor across capacitor; Q and V decrease"
+        }
+      ]
+    },
+    {
+      "title": "Check units, energy and assumptions",
+      "beats": [
+        {
+          "say": "Use C in farads, V in volts and Q in coulombs. Calculate with unrounded intermediate values, then justify final rounding. An independent energy check can first calculate Q and then evaluate half QV, instead of repeating the same substitution.",
+          "write": "Check independently: Q = CV, then E = ½ QV"
+        },
+        {
+          "say": "During ideal resistor discharge, energy transferred is initial stored energy minus final stored energy. Use the voltage at each stage separately. Conservation concerns total charge in the full circuit and total energy, not an unchanging charge on the capacitor plates.",
+          "write": "Energy to resistor = ½ C(V_initial² - V_final²)"
+        }
+      ]
+    }
+  ]
+}

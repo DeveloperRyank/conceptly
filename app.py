@@ -157,6 +157,8 @@ def _wants_json():
 # it something a 16-year-old can act on, and some of it not theirs to read. The full text
 # goes to the log; the student gets one of these.
 _ERROR_COPY = (
+    ("unplayable lesson", "The tutor’s draft was incomplete, so we stopped it before playback. Please redraw the lesson."),
+    ("invalid lesson structure", "The tutor’s draft was incomplete. Please redraw the lesson."),
     ("timeout", "That took longer than the tutor is allowed. Try once more."),
     ("timed out", "That took longer than the tutor is allowed. Try once more."),
     ("429", "The tutor has used up its requests for a few minutes. Try again shortly."),
@@ -264,7 +266,7 @@ ALLOWED_UPLOAD_MIME = {
 
 def _gkey(subject, topic, sid=None):
     sid = sid if sid is not None else profile.current_sid()
-    return f"{sid}|{subject}:{topic}"
+    return f"{sid}|{subject}:{topic}|{tutor.SCRIPT_VERSION}"
 
 
 def topic_ready(subject, topic):
@@ -294,7 +296,8 @@ def _lesson_sig(subject, topic, sid=None):
     under an older brief keeps teaching the way that brief said to."""
     return (profile.topic_signature(subject, topic, sid) + "|"
             + concepts.fingerprint(subject, topic) + "|" + notes.fingerprint(subject, topic)
-            + "|" + classifier.topic_fingerprint(subject, topic) + "|" + tutor.SCRIPT_VERSION)
+            + "|" + classifier.topic_fingerprint(subject, topic)
+            + "|" + tutor.lesson_reference_fingerprint(subject, topic) + "|" + tutor.SCRIPT_VERSION)
 
 
 def _prefetch_narration(lesson):

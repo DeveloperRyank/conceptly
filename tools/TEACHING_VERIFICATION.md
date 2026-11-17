@@ -28,7 +28,7 @@ is made that the booklets or official syllabuses have been exhaustively covered.
 
 ## Checks
 
-- `python tools/test_teaching.py`: 25 integration checks, with temporary profile DBs.
+- `python tools/test_teaching.py`: 43 integration checks, with temporary profile DBs.
 - `node tools/test_voice.js`: controlled audio clock, pending synthesis pause,
   actual clip duration, playback rate, pause/resume and completion.
 - `python tools/test_lesson_browser.py`: Chromium at 1280 and 390 px; real session
@@ -38,17 +38,51 @@ is made that the booklets or official syllabuses have been exhaustively covered.
 - `python tools/build_teaching_content.py --check`: reproducible generated assets.
 - `git diff --check` and JavaScript/Python syntax checks.
 
-The LLM provider is unchanged. A fresh live generation and semantic review require
-the existing provider key/model in the local environment. This environment did not
-have them configured, so fixture tests do not demonstrate real model teaching
-quality. The prompt explicitly addresses charge-averaged capacitor voltage,
-rounding, physical derivations, defined discharge paths and independent checks.
-The validator rejects shallow structural output; word counts do not establish
-semantic correctness. Audible speech, real microphones and real-device performance
-still require device checks. Browser recognition support varies and is opt-in;
-typed questions and the existing ask button remain available.
+The primary provider and hosted TTS are unchanged. Local credentials were not
+available, so real-provider verification ran in isolated Vercel previews with
+production-equivalent settings and synthetic learner evidence, calling the tutor
+directly without importing the profile database. Fixture tests do not establish
+semantic correctness: failed live drafts were read and withheld, and the final
+capacitor draft was reviewed end to end. Audible speech, real microphones and
+real-device performance still require device checks. Recognition is opt-in and
+browser support varies; typing and the existing ask button remain available.
 
 3D is an optional local projected model on selected relevant topics (cuboids,
 vectors, methane and water). Other supported diagrams offer schematic apparatus
 or data-flow exploration. Lessons retain the written board; this is not a conversion
 of every lesson into a 3D scene. Exploration and viewing never record mastery.
+
+
+## Lesson failure repair
+
+Runtime logs identified rejected drafts on `matrices_transformations` and
+`waves_ii`: 168/286 spoken words, missing example section markers, and empty board
+sheets. A first structured single-call attempt also proved unreliable in live
+preview tests: invalid schema counts, incorrect checks, and a provider timeout.
+Those drafts were withheld, not served to students.
+
+Matrices and Waves II now use reviewed complete base lessons (1,414 and 1,561
+spoken words respectively, 16 sheets and four worked examples each). Saved learner
+mistakes are prepended through the same account-scoped evidence path, and AI
+follow-up questions remain available. These lessons do not require a new provider
+completion before playback. Their content participates in cache fingerprints.
+
+Other topics use four shorter parallel provider requests with independent section
+retries, a typed content compiler, authoritative bank reference answers, and the
+unchanged final playback/depth validators. The primary Gemini provider and hosted TTS configuration remain unchanged. The
+existing OpenRouter fallback uses a free model advertising JSON-output support
+(`nvidia/nemotron-3.5-super-vl:free`); JSON mode is now forwarded to OpenRouter.
+A stalled text request to Gemini yields to that existing fallback after 30 seconds,
+preserving the lesson budget. Vision requests retain their original timeout. New generation-job keys retire the old persisted failures. Invalid
+content receives a specific draft-quality message rather than the generic support
+error. Regression coverage includes missing content, schema variation, preserved
+prose beats, section assembly and retries, reviewed playback without a provider,
+real saved-evidence recall, and cache revision behaviour.
+
+Final live checks: reviewed Matrices and Waves II each prepared a valid lesson in
+about 0.01 seconds; the native-schema AI path produced 1,270 words, four examples
+and 17 sheets including synthetic recall in 10.9 seconds. Reviewed capacitor
+foundations and corrected discharge wording produced a final compiled 1,356-word
+lesson. Those actual lesson scripts passed Chrome playback checks at 1280 and
+390 px. Native schema enforces the exact reference question and response shape;
+local validators continue to enforce depth, complete questions and playability.

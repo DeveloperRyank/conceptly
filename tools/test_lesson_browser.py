@@ -38,6 +38,8 @@ def main():
         profile.record_answer('mathematics','volume_area',False,question='Find the volume of a 4 by 3 by 2 cm cuboid.',answer='24 cm²',feedback='Volume uses cubic units: 24 cm³.',sid=sid)
         cookie=web.app.session_interface.get_signing_serializer(web.app).dumps({'sid':sid,'_csrf':'browser-csrf'})
         script=fixture_script()
+        if len(sys.argv) == 3 and sys.argv[1] == "--script":
+            content=json.loads(Path(sys.argv[2]).read_text());script=content.get("script",content)
         with patch.object(web,'lesson_state',return_value=('ready',None,script)),patch.object(web,'_prefetch_narration'),patch.object(web.llm,'tts_available',return_value=False),patch.object(web.tutor,'ask_question',return_value={'answer':'Volume is length times width times height, measured in cubic units.','points':['Use cm³ for volume.']}):
             server=make_server('127.0.0.1',0,web.app,threaded=True)
             thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()

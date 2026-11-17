@@ -7,7 +7,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
@@ -121,13 +121,13 @@ class TeachingTests(unittest.TestCase):
         self.assertEqual(tutor.validate_script(script,subject='mathematics'),[])
         self.assertEqual(tutor.lesson_depth_problems(script),[])
     def test_17_generation_retries_inadequate_depth(self):
-        with patch.object(tutor.llm,'chat',side_effect=[json.dumps({'steps':[]}),json.dumps(fixture_script())]) as chat,patch.object(tutor,'speech_durations',return_value={}):
+        with patch.object(tutor,'_generate_lesson_draft',side_effect=[json.dumps({'steps':[]}),json.dumps(fixture_script())]) as chat,patch.object(tutor,'speech_durations',return_value={}):
             result=tutor.generate_lesson('mathematics','numbers',[],'No history')
             self.assertEqual(chat.call_count,2);self.assertEqual(tutor.lesson_depth_problems(result),[])
-            self.assertIn('charge-averaged VOLTAGE',chat.call_args.args[1])
+            self.assertIn('charge-averaged VOLTAGE',' '.join(chat.call_args.args[0].split()))
     def test_18_recall_uses_actual_saved_text(self):
         evidence=[{'question':'Calculate charge for 20 µF at 12 V.','answer':'240 C','feedback':'Convert microfarads to farads.'}]
-        with patch.object(tutor.llm,'chat',return_value=json.dumps(fixture_script())),patch.object(tutor,'speech_durations',return_value={}):
+        with patch.object(tutor,'_generate_lesson_draft',return_value=json.dumps(fixture_script())),patch.object(tutor,'speech_durations',return_value={}):
             result=tutor.generate_lesson('mathematics','numbers',[],'',evidence=evidence)
             text=json.dumps(result,ensure_ascii=False)
             for row in evidence:
@@ -167,5 +167,131 @@ class TeachingTests(unittest.TestCase):
             web.generate_lesson('mathematics','numbers',self.a)
             self.assertEqual(signature.call_count,1)
             self.assertEqual(save.call_args.args[3],'before')
+
+class StructuredLessonTests(unittest.TestCase):
+    def content(self):
+        sentence=("Explain the relationship carefully, identify the assumptions and keep each symbol consistent. "
+                  "Substitution provides a separate check on the calculation, while a contrasting example shows why "
+                  "the selected method applies only under the stated conditions. ")
+        beat=lambda text: {'say':sentence*2,'write':text}
+        return {'title':'Fixture',
+                'core':[{'title':f'Concept {i}', 'beats':[beat('A key relationship'),beat('A contrasting condition')]} for i in range(8)],
+                'examples':[{'title':f'Example {i}', 'question':'Calculate 2 + 3.',
+                             'method':beat('Use addition'), 'steps':[beat('Start with 2'),beat('Add 1 to get 3'),beat('Add 1 to get 4'),beat('Add 1 to get 5')],
+                             'answer':beat('2 + 3 = 5'), 'check':beat('5 - 3 = 2')} for i in range(4)]}
+    def test_compiler_assigns_example_metadata_and_ids(self):
+        script=tutor.normalize_script(tutor._structured_lesson_script(json.dumps(self.content()),'Fixture'),subject='mathematics')
+        self.assertEqual(tutor.lesson_depth_problems(script),[])
+        self.assertEqual(tutor.validate_script(script,subject='mathematics'),[])
+        self.assertEqual(sum(o.get('section')=='example' for o in script['steps']),4)
+        self.assertEqual(sum(o.get('section')=='continuation' for o in script['steps']),4)
+        self.assertEqual(sum(o.get('id')=='answer' for o in script['steps']),4)
+    def test_missing_working_rejected_before_playback(self):
+        data=self.content();data['examples'][0]['steps']=[]
+        with self.assertRaisesRegex(ValueError,'four to six'):tutor._structured_lesson_script(json.dumps(data),'Fixture')
+    def test_empty_core_is_rejected(self):
+        data=self.content();data['core'][0]['beats'][0]['write']=''
+        with self.assertRaisesRegex(ValueError,'board line'):tutor._structured_lesson_script(json.dumps(data),'Fixture')
+    def test_malformed_core_rejected_with_clear_error(self):
+        data=self.content();data['core'][0]='heading only'
+        with self.assertRaisesRegex(ValueError,'must be objects'):tutor._structured_lesson_script(json.dumps(data),'Fixture')
+    def test_shallow_content_still_fails_depth(self):
+        data=self.content()
+        for section in data['core']:
+            for beat in section['beats']:beat['say']='Too short.'
+        for example in data['examples']:
+            for beat in [example['method'],*example['steps'],example['answer'],example['check']]:beat['say']='Too short.'
+        result=tutor.normalize_script(tutor._structured_lesson_script(json.dumps(data),'Fixture'))
+        self.assertTrue(tutor.lesson_depth_problems(result))
+    def test_generation_key_retires_previous_errors(self):
+        self.assertTrue(web._gkey('physics','waves_ii',1).endswith(tutor.SCRIPT_VERSION))
+
+    def test_changed_reference_question_rejected(self):
+        data=self.content()
+        with self.assertRaisesRegex(ValueError,'copy the supplied reference question exactly'):
+            tutor._structured_lesson_script(json.dumps(data),'Fixture',[{'question':'Calculate 3 + 4.','reference_answer':'7'}])
+    def test_reviewed_answer_is_authoritative(self):
+        data=self.content();data['examples'][0]['answer']['write']='wrong model answer'
+        result=tutor._structured_lesson_script(json.dumps(data),'Fixture',[{'question':'Calculate 2 + 3.','reference_answer':'5'}])
+        self.assertIn({'op':'write','text':'5','id':'answer'},result['steps'])
+        self.assertNotIn('wrong model answer',json.dumps(result))
+    def test_scratch_dialogue_rejected(self):
+        data=self.content();data['examples'][0]['check']['say']='I must have the formula wrong; wait while I guess again.'
+        with self.assertRaisesRegex(ValueError,'checked solution'):
+            tutor._structured_lesson_script(json.dumps(data),'Fixture')
+    def test_physics_reviewed_examples_exist(self):
+        for topic in ['waves_ii','capacitors']:
+            anchors=tutor._lesson_reference_answers('physics',topic,[])
+            self.assertEqual(len(anchors),4)
+            self.assertTrue(all(r['reference_answer'] for r in anchors))
+
+    def test_seven_sections_reflow_without_losing_teaching(self):
+        data=self.content();data['core'].pop(2)
+        result=tutor.normalize_script(tutor._structured_lesson_script(json.dumps(data),'Fixture'))
+        self.assertEqual(tutor.lesson_depth_problems(result),[])
+        self.assertEqual(sum(o.get('op')=='caption' for o in result['steps']),16)
+        self.assertEqual(tutor.validate_script(result),[])
+
+    def test_four_short_sections_assemble_one_full_lesson(self):
+        data=self.content();part={'core':data['core'][:2],'example':data['examples'][0]}
+        context=json.dumps({'topic':'Fixture','subject_slug':'mathematics'})
+        with patch.object(tutor.llm,'chat',return_value=json.dumps(part)) as chat:
+            result=tutor._generate_lesson_draft('',context,9999999999)
+            self.assertEqual(chat.call_count,4)
+            script=tutor.normalize_script(tutor._structured_lesson_script(result,'Fixture'))
+            self.assertEqual(tutor.lesson_depth_problems(script),[])
+            self.assertEqual(tutor.validate_script(script),[])
+    def test_only_rejected_section_retries(self):
+        data=self.content();part=json.dumps({'core':data['core'][:2],'example':data['examples'][0]})
+        with patch.object(tutor.llm,'chat',side_effect=['{}',part,part,part,part]) as chat:
+            result=tutor._generate_lesson_draft('',json.dumps({'topic':'Fixture','subject_slug':'mathematics'}),9999999999)
+            self.assertEqual(chat.call_count,5)
+            self.assertEqual(len(json.loads(result)['examples']),4)
+
+    def test_reviewed_affected_topics_play_without_provider(self):
+        for subject,topic in [('physics','waves_ii'),('mathematics','matrices_transformations')]:
+            evidence=[{'question':'A saved fixture question','answer':'My earlier answer','feedback':'Use the correct units'}]
+            with patch.object(tutor.llm,'chat',side_effect=AssertionError('provider should not be needed')):
+                script=tutor.generate_lesson(subject,topic,[],'',evidence=evidence)
+                self.assertEqual(tutor.validate_script(script,subject=subject),[])
+                self.assertEqual(tutor.lesson_depth_problems(script),[])
+                self.assertEqual(script['personalization'],evidence)
+    def test_prose_beats_are_preserved(self):
+        data=self.content();data['examples'][0]['method']='Use addition and verify by subtraction.'
+        result=tutor._structured_lesson_script(json.dumps(data),'Fixture')
+        self.assertIn('Use addition and verify by subtraction.',json.dumps(result))
+
+    def test_openrouter_receives_requested_json_mode(self):
+        response=Mock(status_code=200,text='ok')
+        response.json.return_value={'choices':[{'message':{'content':'{"ok":true}'}}]}
+        with patch.object(tutor.llm.requests,'post',return_value=response) as post:
+            tutor.llm._openrouter_chat('system','user',0.1,500,json_mode=True)
+            self.assertEqual(post.call_args.kwargs['json']['response_format'],{'type':'json_object'})
+            tutor.llm._openrouter_chat('system','user',0.1,500,json_mode=False)
+            self.assertNotIn('response_format',post.call_args.kwargs['json'])
+
+    def test_primary_timeout_preserves_fallback_budget(self):
+        with patch.object(tutor.llm,'_or_ready',return_value=True),patch.object(tutor.llm.requests,'post',side_effect=tutor.llm.requests.ReadTimeout('fixture timeout')) as post:
+            with self.assertRaises(tutor.llm.ProviderUnavailable):
+                tutor.llm._gemini_chat('system','user',0.1,500,True)
+            self.assertEqual(post.call_count,1)
+            self.assertLessEqual(post.call_args.kwargs['timeout'],30)
+
+    def test_native_schema_is_forwarded(self):
+        response=Mock(status_code=200,text='ok')
+        response.json.return_value={'choices':[{'message':{'content':'{"ok":true}'}}]}
+        schema=tutor._lesson_segment_schema('physics')
+        anchored=tutor._lesson_segment_schema('physics',{'question':'Find Q for 20 µF at 12 V.'})
+        self.assertEqual(anchored['properties']['example']['properties']['question']['enum'],['Find Q for 20 µF at 12 V.'])
+        with patch.object(tutor.llm.requests,'post',return_value=response) as post:
+            tutor.llm._openrouter_chat('system','user',0.1,500,json_mode=True,response_schema=schema)
+            format=post.call_args.kwargs['json']['response_format']
+            self.assertEqual(format['type'],'json_schema')
+            self.assertTrue(format['json_schema']['strict'])
+            self.assertEqual(format['json_schema']['schema']['properties']['core']['maxItems'],2)
+        response.json.return_value={'candidates':[{'content':{'parts':[{'text':'{"ok":true}'}]}}]}
+        with patch.object(tutor.llm.requests,'post',return_value=response) as post:
+            tutor.llm._gemini_chat('system','user',0.1,500,True,response_schema=schema)
+            self.assertEqual(post.call_args.kwargs['json']['generationConfig']['responseJsonSchema'],schema)
 
 if __name__=='__main__':unittest.main()

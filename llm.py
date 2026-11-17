@@ -122,7 +122,7 @@ def _or_headers():
     return {"Authorization": f"Bearer {OR_API_KEY}", "Content-Type": "application/json"}
 
 
-def _openrouter_chat(system, user, temperature, max_tokens, deadline=None):
+def _openrouter_chat(system, user, temperature, max_tokens, deadline=None, json_mode=False, response_schema=None):
     payload = {
         "model": OR_MODEL,
         "messages": [
@@ -136,6 +136,11 @@ def _openrouter_chat(system, user, temperature, max_tokens, deadline=None):
         # Off costs nothing on non-reasoning models and matches Gemini's thinkingBudget=0.
         "reasoning": {"enabled": False},
     }
+    if response_schema:
+        payload["response_format"] = {"type": "json_schema", "json_schema": {
+            "name": "lesson_section", "strict": True, "schema": response_schema}}
+    elif json_mode:
+        payload["response_format"] = {"type": "json_object"}
     deadline = deadline or (time.time() + CHAT_BUDGET)
     last_error = None
     for attempt, wait in enumerate((0, 10, 30)):
@@ -215,13 +220,15 @@ def _retry_hint(resp):
     return total or None
 
 
-def _gemini_chat(system, user, temperature, max_tokens, json_mode, file=None, deadline=None):
+def _gemini_chat(system, user, temperature, max_tokens, json_mode, file=None, deadline=None, response_schema=None):
     url = f"{GEMINI_BASE}/{GEMINI_MODEL}:generateContent"
     gen_config = {"temperature": temperature, "maxOutputTokens": max_tokens}
     if GEMINI_THINKING_BUDGET >= 0:
         gen_config["thinkingConfig"] = {"thinkingBudget": GEMINI_THINKING_BUDGET}
-    if json_mode:
+    if json_mode or response_schema:
         gen_config["responseMimeType"] = "application/json"
+    if response_schema:
+        gen_config["responseJsonSchema"] = response_schema
     user_parts = [{"text": user}]
     if file:  # inline PDF/image — Gemini reads text layers AND scans (vision/OCR)
         user_parts.append({"inlineData": {"mimeType": file["mime"], "data": file["data_b64"]}})
@@ -245,10 +252,14 @@ def _gemini_chat(system, user, temperature, max_tokens, json_mode, file=None, de
         if waits[attempt]:
             time.sleep(min(waits[attempt], left - 10))
         try:
-            resp = requests.post(url, headers=_gemini_headers(), json=body,
-                                 timeout=min(180, left))
+            # Reserve time for the already-configured text fallback instead of
+            # exhausting the whole lesson budget on a stalled primary request.
+            timeout = min(30 if _or_ready() and not file else 180, left)
+            resp = requests.post(url, headers=_gemini_headers(), json=body, timeout=timeout)
         except requests.RequestException as exc:
             last_error = f"Gemini request failed: {type(exc).__name__}: {exc}"
+            if _or_ready() and not file:
+                raise ProviderUnavailable(last_error) from exc
             continue
         if resp.status_code == 200:
             data = resp.json()
@@ -295,7 +306,7 @@ def _announce_fallback(reason):
 
 
 def chat(system, user, temperature=0.4, max_tokens=3000, json_mode=False, file=None,
-         deadline=None):
+         deadline=None, response_schema=None):
     """One chat completion. Returns the assistant text.
 
     `file` (Gemini only) is {"mime": str, "data_b64": str} for an inline PDF/image,
@@ -314,12 +325,12 @@ def chat(system, user, temperature=0.4, max_tokens=3000, json_mode=False, file=N
     if PROVIDER != "gemini":
         if file:
             raise RuntimeError("Document analysis needs LLM_PROVIDER=gemini (OpenRouter is text-only).")
-        return _openrouter_chat(system, user, temperature, max_tokens, deadline=deadline)
+        return _openrouter_chat(system, user, temperature, max_tokens, deadline=deadline, json_mode=json_mode, response_schema=response_schema)
 
     if file:
         try:
             return _gemini_chat(system, user, temperature, max_tokens, json_mode,
-                                file=file, deadline=deadline)
+                                file=file, deadline=deadline, response_schema=response_schema)
         except QuotaExhausted as exc:
             wait = f" (resets in about {int(exc.retry_in // 60)} min)" if exc.retry_in else ""
             raise RuntimeError(
@@ -334,9 +345,9 @@ def chat(system, user, temperature=0.4, max_tokens=3000, json_mode=False, file=N
 
     global _CHAT_SKIP_GEMINI_UNTIL
     if _or_ready() and time.time() < _CHAT_SKIP_GEMINI_UNTIL:
-        return _openrouter_chat(system, user, temperature, max_tokens, deadline=deadline)
+        return _openrouter_chat(system, user, temperature, max_tokens, deadline=deadline, json_mode=json_mode, response_schema=response_schema)
     try:
-        return _gemini_chat(system, user, temperature, max_tokens, json_mode, deadline=deadline)
+        return _gemini_chat(system, user, temperature, max_tokens, json_mode, deadline=deadline, response_schema=response_schema)
     except QuotaExhausted as exc:
         if not _or_ready():
             raise
@@ -344,13 +355,13 @@ def chat(system, user, temperature=0.4, max_tokens=3000, json_mode=False, file=N
         cooldown = min(max(exc.retry_in or 300.0, 60.0), 900.0)
         _CHAT_SKIP_GEMINI_UNTIL = time.time() + cooldown
         _announce_fallback("Gemini quota spent")
-        return _openrouter_chat(system, user, temperature, max_tokens, deadline=deadline)
+        return _openrouter_chat(system, user, temperature, max_tokens, deadline=deadline, json_mode=json_mode, response_schema=response_schema)
     except ProviderUnavailable as exc:
         if not _or_ready():
             raise
         _CHAT_SKIP_GEMINI_UNTIL = time.time() + 120.0
-        _announce_fallback("Gemini is at capacity (503)")
-        return _openrouter_chat(system, user, temperature, max_tokens, deadline=deadline)
+        _announce_fallback("Gemini is temporarily unavailable")
+        return _openrouter_chat(system, user, temperature, max_tokens, deadline=deadline, json_mode=json_mode, response_schema=response_schema)
 
 
 # ---------------- Text-to-speech (Kokoro local + Edge + Gemini) ----------------

@@ -1,0 +1,496 @@
+{
+  "mathematics:matrices_transformations": {
+    "title": "Matrices and Transformations",
+    "core": [
+      {
+        "title": "Rows, columns and order",
+        "beats": [
+          {
+            "say": "A matrix is a rectangular arrangement of entries. Count horizontal rows first, then vertical columns. A two by three matrix has two rows and three columns, so it contains six entries.",
+            "write": "Order = number of rows × number of columns"
+          },
+          {
+            "say": "Order tells us which operations make sense. Two matrices can be added only when their orders agree, because each entry must have a corresponding entry in the other matrix.",
+            "write": "Equal orders are required for addition"
+          }
+        ]
+      },
+      {
+        "title": "Adding and scaling matrices",
+        "beats": [
+          {
+            "say": "To add matrices, add entries in matching positions. Keep negative numbers in brackets so their signs stay visible. The result has the same order as each starting matrix.",
+            "write": "Add matching entries; preserve their positions"
+          },
+          {
+            "say": "Multiplying by a scalar means multiplying every entry by the same number. For example, doubling a matrix doubles all entries, not just its diagonal. This differs from multiplying two matrices.",
+            "write": "A scalar multiplies every entry"
+          }
+        ]
+      },
+      {
+        "title": "Multiplying matrices",
+        "beats": [
+          {
+            "say": "For a product AB, the number of columns of A must equal the number of rows of B. These matching inner dimensions allow each row-column dot product to be calculated.",
+            "write": "(m × n)(n × p) gives an m × p matrix"
+          },
+          {
+            "say": "Each output entry comes from a row of the first matrix and a column of the second. Multiply corresponding entries, then add. Swapping the matrices generally changes the product or makes it undefined.",
+            "write": "Entry = sum of row × column products"
+          }
+        ]
+      },
+      {
+        "title": "Determinants and inverses",
+        "beats": [
+          {
+            "say": "For a two by two matrix with rows a,b and c,d, its determinant is ad minus bc. This scalar is not the matrix itself. A zero determinant means this matrix has no inverse.",
+            "write": "det [[a,b],[c,d]] = ad - bc"
+          },
+          {
+            "say": "If the determinant is nonzero, swap the diagonal entries, negate the other two entries and divide every entry by the determinant. Verify the candidate by multiplying to obtain the identity matrix.",
+            "write": "A⁻¹ = [[d,-b],[-c,a]]/(ad - bc)"
+          }
+        ]
+      },
+      {
+        "title": "Rotation and reflection",
+        "beats": [
+          {
+            "say": "Using coordinate columns, a ninety degree anticlockwise rotation about the origin maps x,y to negative y,x. The origin is important: rotation about a different centre also requires accounting for that centre.",
+            "write": "About O, 90° anticlockwise: (x,y) → (-y,x)"
+          },
+          {
+            "say": "Reflection in the y-axis reverses the horizontal coordinate and leaves the vertical coordinate unchanged. A point on that axis stays fixed. Compare this with reflection in the x-axis, which reverses y instead.",
+            "write": "Reflection in y-axis: (x,y) → (-x,y)"
+          }
+        ]
+      },
+      {
+        "title": "Composition and translation",
+        "beats": [
+          {
+            "say": "In a product of transformation matrices acting on coordinate columns, the rightmost transformation acts first. Record intermediate coordinates when learning this, because reversing the order can change the final point.",
+            "write": "For ABp, apply B before A"
+          },
+          {
+            "say": "Translation adds a fixed vector to a position. An ordinary two by two linear matrix fixes the origin, so it cannot represent a nonzero translation on its own. Keep the vector addition explicit.",
+            "write": "Translation by (u,v): (x,y) → (x+u,y+v)"
+          }
+        ]
+      },
+      {
+        "title": "Traps and useful checks",
+        "beats": [
+          {
+            "say": "Do not assume that matrix multiplication commutes. Even when both products exist, AB and BA can differ. However, an inverse is special: both AA inverse and A inverse A equal the identity.",
+            "write": "AA⁻¹ = A⁻¹A = I"
+          },
+          {
+            "say": "A length check can expose an incorrect rotation or reflection, but equal lengths alone do not prove the correct direction. Combine a distance check with the transformation rule or an inverse operation.",
+            "write": "Use a direction check as well as a length check"
+          }
+        ]
+      },
+      {
+        "title": "Recap the method",
+        "beats": [
+          {
+            "say": "Start every matrix question by checking order and identifying the requested operation. For an inverse, calculate the determinant before applying the formula. Retain exact fractions so a final identity check is clear.",
+            "write": "Order → operation → calculation → independent check"
+          },
+          {
+            "say": "For coordinate transformations, name the centre or axis, apply transformations in the stated order, and write the final coordinates. Check by reversing the transformations and recovering the original point whenever the inverse operations are available.",
+            "write": "State axis, centre, order and final coordinates"
+          }
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "title": "A determinant and a second route",
+        "question": "Find the determinant of [[2,1],[3,4]].",
+        "method": {
+          "say": "We need a scalar determinant, not a matrix product. The two by two rule compares the two diagonal products. Keeping these products separate makes the subtraction and its sign easy to check.",
+          "write": "det A = ad - bc"
+        },
+        "steps": [
+          {
+            "say": "Identify the entries by position: a is two, b is one, c is three and d is four. Reading rows in order prevents accidentally exchanging an off-diagonal entry with a diagonal entry.",
+            "write": "a=2, b=1, c=3, d=4"
+          },
+          {
+            "say": "The main-diagonal product is two times four, giving eight. The other diagonal product is one times three, giving three. Both products are positive here, but this need not be true for another matrix.",
+            "write": "ad = 8; bc = 3"
+          },
+          {
+            "say": "Subtract the second product from the first. Eight minus three gives five. The determinant can be positive, negative or zero; do not take an absolute value unless an area is specifically requested.",
+            "write": "det A = 8 - 3 = 5"
+          },
+          {
+            "say": "The nonzero result tells us an inverse exists. If the determinant had been zero, the inverse formula would involve division by zero and could not be used. That interpretation follows after the calculation.",
+            "write": "det A ≠ 0, so A has an inverse"
+          }
+        ],
+        "answer": {
+          "say": "The determinant is five. The entries are pure numbers, so no physical unit is introduced by the calculation. We can verify this without merely repeating the same two products.",
+          "write": "det A = 5"
+        },
+        "check": {
+          "say": "Use a row operation: subtract three halves of row one from row two. This preserves determinant and produces [[2,1],[0,5/2]]. Its triangular determinant is 2 times 5/2, also five.",
+          "write": "Row₂ - (3/2)Row₁ gives det = 2 × (5/2) = 5"
+        }
+      },
+      {
+        "title": "Finding and checking an inverse",
+        "question": "Find the inverse of [[2,1],[3,4]].",
+        "method": {
+          "say": "An inverse undoes the original matrix transformation. First establish that its determinant is nonzero, then form the adjugate and scale it. Exact fractions make a full product check easier than rounded decimals.",
+          "write": "A⁻¹ = adj(A)/det A"
+        },
+        "steps": [
+          {
+            "say": "The determinant is two times four minus one times three, which is five. Since five is nonzero, the given matrix is invertible and the two by two inverse formula applies.",
+            "write": "det A = 2×4 - 1×3 = 5"
+          },
+          {
+            "say": "Swap the main-diagonal entries two and four. Change the signs of the off-diagonal entries one and three. The resulting array is the adjugate; it is not yet the inverse because scaling remains.",
+            "write": "adj(A) = [[4,-1],[-3,2]]"
+          },
+          {
+            "say": "Divide every adjugate entry by five. The scalar applies to the whole matrix. Writing the factor outside brackets is exact and is equivalent to writing each entry as its own fraction.",
+            "write": "A⁻¹ = (1/5)[[4,-1],[-3,2]]"
+          },
+          {
+            "say": "Before checking, notice that negative signs occur in both off-diagonal entries. When multiplying matrices, use rows and columns; matching positions is addition, not matrix multiplication. We will calculate all four product entries.",
+            "write": "Use row-column products for the check"
+          }
+        ],
+        "answer": {
+          "say": "The inverse is one fifth of the matrix with rows four, negative one and negative three, two. This is the final exact answer; no decimal approximation is necessary.",
+          "write": "A⁻¹ = (1/5)[[4,-1],[-3,2]]"
+        },
+        "check": {
+          "say": "Multiply A by this candidate. The four numerators are 8 minus 3, negative 2 plus 2, 12 minus 12, and negative 3 plus 8. Dividing by five gives the identity entries one, zero, zero, one.",
+          "write": "AA⁻¹ = (1/5)[[5,0],[0,5]] = I"
+        }
+      },
+      {
+        "title": "A ninety degree rotation",
+        "question": "Rotate P(3,2) through 90° anticlockwise about the origin.",
+        "method": {
+          "say": "The centre and direction are specified, so use the origin-centred anticlockwise rule x,y maps to negative y,x. A clockwise rule would have different signs, even though both preserve distance from the origin.",
+          "write": "(x,y) → (-y,x)"
+        },
+        "steps": [
+          {
+            "say": "Identify x as three and y as two. The new first coordinate is negative y, so it is negative two. Negating the wrong coordinate would produce a different rotation.",
+            "write": "x′ = -y = -2"
+          },
+          {
+            "say": "The new second coordinate is the original x-coordinate, so it is three. Do not negate this coordinate for an anticlockwise quarter-turn. Combining the two new entries gives the image point.",
+            "write": "y′ = x = 3"
+          },
+          {
+            "say": "The image is in the second quadrant because its first coordinate is negative and its second positive. This matches turning a first-quadrant point anticlockwise by a right angle.",
+            "write": "P′ = (-2,3), in quadrant II"
+          },
+          {
+            "say": "A rotation preserves distance from its centre. The original squared distance is nine plus four, or thirteen. The image squared distance is four plus nine, also thirteen. This checks size but not direction alone.",
+            "write": "OP² = OP′² = 13"
+          }
+        ],
+        "answer": {
+          "say": "The new coordinates are negative two, three. The distance from the origin remains square root of thirteen units. We also reverse the operation to verify that the direction was correct.",
+          "write": "P′ = (-2,3)"
+        },
+        "check": {
+          "say": "Rotate the image ninety degrees clockwise, using x,y maps to y,negative x. Applied to negative two,three, this gives three,two, recovering P. The inverse check confirms the chosen direction as well as the coordinates.",
+          "write": "Clockwise inverse: (-2,3) → (3,2)"
+        }
+      },
+      {
+        "title": "Reflection followed by translation",
+        "question": "Reflect (4,-3) in the y-axis, then translate by (2,1).",
+        "method": {
+          "say": "There are two ordered operations. Reflect first and keep the intermediate coordinates, then add the translation vector. Translation changes position by addition; it does not reverse a coordinate or multiply it by a scale factor.",
+          "write": "Reflect first; then add (2,1)"
+        },
+        "steps": [
+          {
+            "say": "Reflection in the y-axis changes four to negative four and leaves negative three unchanged. The reflected point is therefore negative four,negative three. The vertical coordinate is not negated in this reflection.",
+            "write": "(4,-3) → (-4,-3)"
+          },
+          {
+            "say": "Add two to the reflected horizontal coordinate. Negative four plus two is negative two. Moving right by two increases the coordinate, even though the result remains on the negative side of the axis.",
+            "write": "x_final = -4 + 2 = -2"
+          },
+          {
+            "say": "Add one to the reflected vertical coordinate. Negative three plus one is negative two. The translation moves the point up by one, not down by one. Keep this distinct from the earlier reflection.",
+            "write": "y_final = -3 + 1 = -2"
+          },
+          {
+            "say": "Combine the translated coordinates to get negative two,negative two. If the operations were reversed, the intermediate point would instead be six,negative two and its reflection would be negative six,negative two. Order matters.",
+            "write": "Reflect then translate: (-2,-2)"
+          }
+        ],
+        "answer": {
+          "say": "The final point is negative two,negative two. We have applied the stated reflection and translation exactly once each, and retained the intermediate point so both stages can be checked separately.",
+          "write": "Final point = (-2,-2)"
+        },
+        "check": {
+          "say": "Reverse the sequence using inverse operations. Subtract the translation vector from negative two,negative two to get negative four,negative three. Reflect that in the y-axis to recover four,negative three. Recovering the starting point checks the entire chain.",
+          "write": "(-2,-2) - (2,1) = (-4,-3) → (4,-3)"
+        }
+      }
+    ]
+  },
+  "physics:waves_ii": {
+    "title": "Waves II",
+    "core": [
+      {
+        "title": "Describing a wave",
+        "beats": [
+          {
+            "say": "A wave transfers a disturbance through a medium or through space. Wavelength is the distance between neighbouring points in the same phase, such as consecutive crests. Frequency counts complete oscillations per second.",
+            "write": "Wavelength λ: metres; frequency f: hertz"
+          },
+          {
+            "say": "One oscillation takes a period T, so frequency and period are reciprocals. During one period a progressive wave advances one wavelength. Dividing that distance by the period gives the wave-speed relationship.",
+            "write": "T = 1/f; v = λ/T = fλ"
+          }
+        ]
+      },
+      {
+        "title": "Wavefronts and direction",
+        "beats": [
+          {
+            "say": "A wavefront joins points oscillating in the same phase. Rays show the direction of travel and are perpendicular to wavefronts in the simple uniform media considered here. Parallel wavefronts represent a plane wave.",
+            "write": "Rays are perpendicular to wavefronts"
+          },
+          {
+            "say": "In a uniform ripple tank, straight wavefronts travel without changing direction. Boundaries, obstacles and changes of water depth can alter their pattern. Use the wavefront spacing to compare wavelengths, not its drawn thickness.",
+            "write": "Spacing between crests represents wavelength"
+          }
+        ]
+      },
+      {
+        "title": "Refraction and frequency",
+        "beats": [
+          {
+            "say": "When a wave crosses a boundary into a region where its speed differs, its wavelength changes. The frequency stays fixed by the source for a stationary boundary. This is why speed changes must be linked to wavelength.",
+            "write": "Across a stationary boundary, f is unchanged"
+          },
+          {
+            "say": "At oblique incidence the wave can also change direction. Entering a slower region bends it towards the normal. At normal incidence, speed and wavelength can still change even though the ray continues straight.",
+            "write": "Slower region: towards normal for oblique incidence"
+          }
+        ]
+      },
+      {
+        "title": "Diffraction and gap size",
+        "beats": [
+          {
+            "say": "Diffraction is spreading around an edge or beyond a gap. The important comparison is wavelength divided by gap width. Large wavelengths relative to the gap produce more spreading, not less.",
+            "write": "More spreading when λ/gap width is larger"
+          },
+          {
+            "say": "A gap much wider than the wavelength produces a relatively narrow spreading region near its edges. A gap comparable with a wavelength gives conspicuous spreading. This comparison must hold other wave conditions constant.",
+            "write": "Wide gap relative to λ: less relative spreading"
+          }
+        ]
+      },
+      {
+        "title": "Superposition and phase",
+        "beats": [
+          {
+            "say": "When waves meet, their displacements add according to superposition. In-phase crests reinforce each other. Complete cancellation of equal-amplitude waves requires a half-cycle phase difference, not simply any difference in phase.",
+            "write": "In phase: constructive; half-cycle apart: destructive"
+          },
+          {
+            "say": "For coherent sources initially in phase, path differences of whole wavelengths give constructive interference. Odd half-wavelengths give destructive interference. Stable phase relationships are necessary to maintain a stationary pattern of reinforcement and cancellation.",
+            "write": "Constructive: Δ = nλ; destructive: Δ = (n+1/2)λ"
+          }
+        ]
+      },
+      {
+        "title": "Standing waves on a string",
+        "beats": [
+          {
+            "say": "Two waves of equal frequency travelling in opposite directions can form a standing wave. A node has zero displacement at all times in the ideal pattern; an antinode has the largest oscillation amplitude.",
+            "write": "Nodes stay still; antinodes oscillate most"
+          },
+          {
+            "say": "For a string fixed at both ends, each loop between neighbouring nodes occupies half a wavelength. A pattern with n antinodes therefore fits n half-wavelengths into the string length. The end conditions matter.",
+            "write": "Fixed ends: L = nλ/2"
+          }
+        ]
+      },
+      {
+        "title": "Common mistakes to avoid",
+        "beats": [
+          {
+            "say": "Five consecutive crests contain four intervals, so they span four wavelengths. Counting the crests as five wavelengths makes the calculated wavelength too small. Sketch and label the first and last crest before dividing.",
+            "write": "Number of wavelength intervals = crests - 1"
+          },
+          {
+            "say": "Spatial interference and temporal beats are different observations. Counting loud regions while walking does not by itself determine source frequency; path geometry and motion also matter. Never invent a missing fringe spacing or walking speed.",
+            "write": "A walking listener’s maxima count is insufficient alone"
+          }
+        ]
+      },
+      {
+        "title": "Recap and independent checks",
+        "beats": [
+          {
+            "say": "Choose the relationship from the stated conditions, convert lengths to metres when using metres per second, and retain enough intermediate digits. Measured inputs have limited precision, so avoid describing a calculated physical result as exact.",
+            "write": "Use conditions, consistent units and justified rounding"
+          },
+          {
+            "say": "A useful check returns to another condition in the question. Reconstruct a measured crest span, test a harmonic frequency, or compare phase difference with the interference prediction. Simply repeating v equals f lambda is not a new route.",
+            "write": "Check against the original measurement or a second relation"
+          }
+        ]
+      }
+    ],
+    "examples": [
+      {
+        "title": "Crest spacing and speed",
+        "question": "A ripple-tank source has frequency 20 Hz. Five consecutive crests span 12 cm. Calculate the wavelength and wave speed.",
+        "method": {
+          "say": "The source frequency is given, so first obtain one wavelength from the crest spacing. The key counting step is that a length from the first crest to the fifth contains four intervals.",
+          "write": "v = fλ; five crests span four λ"
+        },
+        "steps": [
+          {
+            "say": "Draw or imagine five equally spaced crest marks. There is one interval between marks one and two, then three more intervals before the fifth mark. The measured twelve centimetres is the total of those four intervals.",
+            "write": "4λ = 12 cm"
+          },
+          {
+            "say": "Divide twelve centimetres by four to obtain three centimetres for one wavelength. This division uses intervals, not the number of crest marks. The unit remains centimetres at this stage.",
+            "write": "λ = 12/4 = 3 cm"
+          },
+          {
+            "say": "Convert three centimetres to metres by dividing by one hundred. The wavelength becomes zero point zero three metres. This lets the final speed be expressed in metres per second.",
+            "write": "λ = 0.030 m"
+          },
+          {
+            "say": "Multiply the frequency by the wavelength. Twenty oscillations per second, each corresponding to a three-centimetre advance, give a speed of zero point six metres per second.",
+            "write": "v = 20 × 0.030 = 0.60 m/s"
+          }
+        ],
+        "answer": {
+          "say": "The wavelength is three centimetres and the wave speed is zero point six metres per second. Both results use the same crest spacing; an independent time-based check is also available.",
+          "write": "λ = 0.030 m; v = 0.60 m/s"
+        },
+        "check": {
+          "say": "The period is one over twenty seconds, or zero point zero five seconds. At the calculated speed the wave travels zero point zero three metres in one period. Four such distances reconstruct the measured twelve centimetres.",
+          "write": "T=0.050 s; vT=0.030 m; 4vT=0.12 m"
+        }
+      },
+      {
+        "title": "Refraction with a fixed source frequency",
+        "question": "Water waves of frequency 5.0 Hz travel at 0.40 m/s in deep water and 0.30 m/s in shallow water. They meet the boundary at 30° to the normal. Find both wavelengths and the angle of refraction.",
+        "method": {
+          "say": "Frequency remains fixed at a stationary boundary. Use speed divided by frequency for each wavelength, then the wave refraction relation to find the new angle. Measure both angles from the normal.",
+          "write": "λ = v/f; sin r / sin i = v₂/v₁"
+        },
+        "steps": [
+          {
+            "say": "In deep water, divide zero point four metres per second by five per second. This gives a wavelength of zero point zero eight metres. The frequency unit cancels the per-second factor.",
+            "write": "λ₁ = 0.40/5.0 = 0.080 m"
+          },
+          {
+            "say": "In shallow water, use the new speed with the same frequency. Zero point three divided by five is zero point zero six metres. Slower propagation at unchanged frequency produces a shorter wavelength.",
+            "write": "λ₂ = 0.30/5.0 = 0.060 m"
+          },
+          {
+            "say": "The speed ratio is zero point three divided by zero point four, or three quarters. Multiply this ratio by sine thirty degrees, which is one half, to obtain sine of the refraction angle.",
+            "write": "sin r = (0.30/0.40) × 0.5 = 0.375"
+          },
+          {
+            "say": "Apply inverse sine in degree mode. The angle is about twenty-two degrees. It is smaller than the incident thirty degrees, so the predicted bending is towards the normal, as expected for the slower region.",
+            "write": "r = sin⁻¹(0.375) ≈ 22°"
+          }
+        ],
+        "answer": {
+          "say": "The wavelengths are eight centimetres and six centimetres, with refraction angle about twenty-two degrees. The source frequency remains five hertz; the angle is rounded while the intermediate sine value is retained.",
+          "write": "λ₁=0.080 m; λ₂=0.060 m; r≈22°"
+        },
+        "check": {
+          "say": "Compare ratios using the unrounded sine value. Sine thirty divided by zero point three seven five equals four thirds. The wavelength ratio zero point zero eight divided by zero point zero six is also four thirds, agreeing with the speed ratio.",
+          "write": "sin i/sin r = λ₁/λ₂ = v₁/v₂ = 4/3"
+        }
+      },
+      {
+        "title": "A third harmonic on a fixed string",
+        "question": "A string fixed at both ends is 1.5 m long and forms three antinodes when driven at 120 Hz. Find its wavelength and wave speed.",
+        "method": {
+          "say": "Both ends are fixed, so each end is a node. Count the three loops between nodes: each loop is half a wavelength. That establishes the geometric relationship before the speed calculation.",
+          "write": "L = nλ/2 for two fixed ends"
+        },
+        "steps": [
+          {
+            "say": "Three antinodes mean three half-wavelength loops, not three full wavelengths. The complete string therefore contains one and a half wavelengths. This is the third harmonic for the stated fixed-end conditions.",
+            "write": "n = 3; L = 3λ/2"
+          },
+          {
+            "say": "Rearrange the length relation to make wavelength the subject. Multiply the string length by two, then divide by three. The result has length units and must exceed one loop length.",
+            "write": "λ = 2L/3"
+          },
+          {
+            "say": "Substitute one point five metres. Twice one point five divided by three gives one metre. The node-to-node spacing is half of this, or half a metre, matching three loops in the string.",
+            "write": "λ = 2 × 1.5/3 = 1.0 m"
+          },
+          {
+            "say": "Multiply the driving frequency by this wavelength to obtain the wave speed along the string. This is the string wave speed under its given tension and mass per length, not the speed of sound in air.",
+            "write": "v = 120 × 1.0 = 120 m/s"
+          }
+        ],
+        "answer": {
+          "say": "The wavelength is one metre and the wave speed is one hundred twenty metres per second. These values correspond to the observed third harmonic under the particular string conditions in the question.",
+          "write": "λ = 1.0 m; v = 120 m/s"
+        },
+        "check": {
+          "say": "Check through the fundamental frequency. A string of this length and speed has fundamental frequency v divided by twice L: one hundred twenty divided by three equals forty hertz. Three times forty recovers the stated one hundred twenty hertz.",
+          "write": "f₁ = v/(2L) = 40 Hz; 3f₁ = 120 Hz"
+        }
+      },
+      {
+        "title": "Predicting sound interference from path difference",
+        "question": "Two coherent sound sources are in phase at 400 Hz. Sound speed is 340 m/s. Their waves reach a listener with equal amplitudes. Predict interference for path differences 0.85 m and 0.425 m.",
+        "method": {
+          "say": "The sources have a stable in-phase relationship, so path difference determines their phase difference at the listener. First calculate wavelength, then compare each path difference with that wavelength. Equal amplitudes permit complete ideal cancellation.",
+          "write": "λ = v/f; compare Δ/λ"
+        },
+        "steps": [
+          {
+            "say": "Divide the sound speed by the common frequency. Three hundred forty divided by four hundred gives zero point eight five metres. This is the distance corresponding to one complete oscillation in the sound wave.",
+            "write": "λ = 340/400 = 0.85 m"
+          },
+          {
+            "say": "For the first listener, divide the path difference zero point eight five metres by the wavelength. The ratio is one, so the waves arrive one complete cycle apart and are again in phase.",
+            "write": "Δ₁/λ = 0.85/0.85 = 1"
+          },
+          {
+            "say": "A whole-cycle difference produces constructive interference. The displacements reinforce; with equal amplitudes the resultant displacement amplitude doubles in the ideal model. This is not the same as simply doubling sound intensity.",
+            "write": "Δ₁ = λ: constructive interference"
+          },
+          {
+            "say": "For the second listener the path difference is half a wavelength. The waves arrive half a cycle apart, so corresponding compression and rarefaction variations oppose. Equal amplitudes give ideal destructive cancellation at that position.",
+            "write": "Δ₂/λ = 0.425/0.85 = 1/2: destructive"
+          }
+        ],
+        "answer": {
+          "say": "The first path difference gives constructive interference; the second gives destructive interference. Complete cancellation uses the stated equal-amplitude assumption. Unequal amplitudes would leave a nonzero resultant even at the destructive position.",
+          "write": "0.85 m: constructive; 0.425 m: destructive"
+        },
+        "check": {
+          "say": "Check with phase difference: two pi times path difference divided by wavelength gives two pi radians for the first case and pi radians for the second. These are respectively a full cycle and half cycle, confirming the predictions.",
+          "write": "Phase differences: 2π and π radians"
+        }
+      }
+    ]
+  }
+}
